@@ -1,5 +1,14 @@
-@extends('layouts.layout')
+@extends('layouts.app')
+
+@section('title', 'Главная страница')
 
 @section('content')
-    <h1>HI</h1>
+
+    @include('partials.header')
+    <div class="container">
+
+        <h1>HI</h1>
+        
+    </div>
+    
 @endsection

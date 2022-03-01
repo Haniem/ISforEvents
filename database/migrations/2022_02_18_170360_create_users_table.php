@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('role');
             $table->foreignId('id_teacher')->references('id')->on('teachers')->nullable();
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

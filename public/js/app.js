@@ -19045,9 +19045,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n68 │           0s;\r\n   │             ^\n   ╵\n  resources\\sass\\app.scss 68:13  root stylesheet\n    at processResult (D:\\OpenServer\\domains\\ISforEvents\\node_modules\\webpack\\lib\\NormalModule.js:753:19)\n    at D:\\OpenServer\\domains\\ISforEvents\\node_modules\\webpack\\lib\\NormalModule.js:855:5\n    at D:\\OpenServer\\domains\\ISforEvents\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at D:\\OpenServer\\domains\\ISforEvents\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (D:\\OpenServer\\domains\\ISforEvents\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at D:\\openserver\\domains\\ISforEvents\\node_modules\\sass-loader\\dist\\index.js:54:7\n    at Function.call$2 (D:\\openserver\\domains\\ISforEvents\\node_modules\\sass\\sass.dart.js:99012:16)\n    at render_closure1.call$2 (D:\\openserver\\domains\\ISforEvents\\node_modules\\sass\\sass.dart.js:84527:12)\n    at _RootZone.runBinary$3$3 (D:\\openserver\\domains\\ISforEvents\\node_modules\\sass\\sass.dart.js:29558:18)\n    at _FutureListener.handleError$1 (D:\\openserver\\domains\\ISforEvents\\node_modules\\sass\\sass.dart.js:28080:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
