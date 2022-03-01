@@ -51,7 +51,6 @@ class AuthController extends Controller
         if($user) {
             auth("web")->login($user);
         }
-        dd($user);
         return redirect(route('home'));
 
     }
@@ -80,6 +79,10 @@ class AuthController extends Controller
     }
 
     function logout() {
+
+        auth("web")->logout();
+
+        return redirect(route('home'));
 
     }
 }

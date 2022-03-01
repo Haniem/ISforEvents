@@ -14,7 +14,13 @@
     </div>
 
     <div class="header__auth">
-        <a href="{{ route('login') }}" class="auth__btn">Вход</a>
-        <a href="{{ route('register') }}" class="auth__btn">Регистрация</a>
+        @auth("web")
+            <a href="{{ route('logout') }}" class="auth__btn">Выход</a> 
+        @endauth
+
+        @guest("web")
+            <a href="{{ route('login') }}" class="auth__btn">Вход</a>
+            <a href="{{ route('register') }}" class="auth__btn">Регистрация</a>
+        @endguest
     </div>
 </div>

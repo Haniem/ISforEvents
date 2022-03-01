@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('stage_end_date');
             $table->date('stage_result_date');
             $table->foreignId('id_event')->references('id')->on('events');
+            $table->foreignId('id_event_type')->references('id')->on('stage_types');
             $table->timestamps();
         });
     }
