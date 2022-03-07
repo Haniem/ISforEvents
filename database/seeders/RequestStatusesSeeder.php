@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RequestStatusesSeeder extends Seeder
 {
@@ -14,6 +15,20 @@ class RequestStatusesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('request_statuses')->insert([
+            "request_status_name" => "Запланировано"
+        ]);
+
+        DB::table('request_statuses')->insert([
+            "request_status_name" => "Идет сейчас"
+        ]);
+
+        DB::table('request_statuses')->insert([
+            "request_status_name" => "Завершено"
+        ]);
+
+        DB::table('request_statuses')->insert([
+            "request_status_name" => "Отменено"
+        ]);
     }
 }

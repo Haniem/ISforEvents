@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event_statuses', function (Blueprint $table) {
+        Schema::create('stage_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('event_status_name', 250);
+            $table->string('stage_status_name', 250);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_statuses');
+        Schema::dropIfExists('stage_statuses');
     }
 };

@@ -7,7 +7,7 @@
     @include('partials.header')
     <div class="container">
 
-        <h1>HI</h1>
+        <h1>HI asoduh asiuhdiasuhdhiuoasdiouhsa</h1>
         
     </div>
     
