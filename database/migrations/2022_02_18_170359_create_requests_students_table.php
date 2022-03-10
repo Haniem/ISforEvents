@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('requests_students', function (Blueprint $table) {
             $table->id();
+            
             $table->foreignId('id_request')->references('id')->on('requests');
             $table->foreignId('id_student')->references('id')->on('students');
+
             $table->timestamps();
         });
     }

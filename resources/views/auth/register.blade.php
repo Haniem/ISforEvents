@@ -6,7 +6,7 @@
 @section('content')
     <div class="auth">
 
-        <h1 class="auth__title">Регистрация нового аккаунта</h1>
+        <h1 class="auth__title">Регистрация нового преподавателя</h1>
 
         <form action="{{ route('register_process') }}" method="post" class="auth__form">
             @csrf
@@ -58,6 +58,23 @@
                 <input type="emai" class="auth__form-input" name="email" placeholder="Почта">
 
                 @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+                
+            </div>
+
+            <div class="auth__form-item">
+                
+                <select class="auth__form-input" name="comission" id="">
+
+                    @foreach ($comissions as $comission)
+
+                        <option value="{{ $comission -> id }}">{{ $comission -> comission_name }}</option>
+                        
+                    @endforeach
+                </select>
+
+                @error('comission')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 

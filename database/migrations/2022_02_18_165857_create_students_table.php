@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('student_surname', 250);
             $table->string('student_lastname', 250);
             $table->integer('course');
+
             $table->foreignId('id_group')->references('id')->on('groups');
+
             $table->timestamps();
         });
     }

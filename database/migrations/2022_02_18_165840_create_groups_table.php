@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('group_name', 250);
+
             $table->foreignId('id_departments')->references('id')->on('departments');
+
             $table->timestamps();
         });
     }

@@ -23,10 +23,12 @@ return new class extends Migration
             $table->integer('event_age');
             $table->string('event_requirements', 250);
             $table->string('event_link', 250);
+
             $table->foreignId('id_event_type')->references('id')->on('event_types');
             $table->foreignId('id_event_level')->references('id')->on('event_levels');
             $table->foreignId('id_event_status')->references('id')->on('event_statuses');
-            $table->foreignId('id_main_teacher')->references('id')->on('teachers');
+            $table->foreignId('id_user')->references('id')->on('users');
+
             $table->string('event_com', 250);
             $table->timestamps();
         });

@@ -2,24 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comissions;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 
 
+
 class AuthController extends Controller
 {
+
+    //Отображение формы регистрации
+
     function showregisterForm() {
-        return view('auth.register');
+        
+        $comissions = Comissions::all();
+
+        return view('auth.register', [
+            "comissions" => $comissions
+        ]);
+
     }
 
+    //Регистрация
+
     function register(Request $request) {
+
+
         $data = $request->validate([
             'name' => ["required", "string"],
             'surname' => ["required", "string"],
             'lastname' => ["required", "string"],
             'username' => ["required", "string", "unique:users,username"],
             'email' => ["required", "email", "string", "unique:users,email"],
+            'comission' => ["required"],
             'password' => ["required", 'confirmed']
         ], [
             'name.required' => 'Поле с именем должно быть заполнено.',
@@ -33,9 +49,11 @@ class AuthController extends Controller
             'email.required' => 'Поле с почтой пользователя должно быть заполнено.',
             'email.email' => 'В поле почта внесены не правильные данные.',
             'email.unique' => 'Почта должна быть уникальной',
+            'comission.required' => 'Выберите комиссию',
             'password.required' => 'Поле с паролем должно быть заполнено.',
             'password.confirmed' => 'Пароли не совпадают',
         ]);
+
 
 
         $user = User::create([
@@ -44,6 +62,7 @@ class AuthController extends Controller
             'lastname' => $data['lastname'],
             'username' => $data['username'],
             'email' => $data['email'],
+            'id_comission' => $data['comission'],
             'role' => 'user',
             'password' => bcrypt($data['password']) ,
         ]);
@@ -55,11 +74,14 @@ class AuthController extends Controller
 
     }
 
+    // Отображение формы авторизации
     function showLoginForm() {
 
         return view('auth.login');
 
     }
+
+    //Авторизация
 
     function login(Request $request) {
         $data = $request->validate([

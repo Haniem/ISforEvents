@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdminUser;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class UserSeeder extends Seeder
+class AdminUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +15,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-       
+        AdminUser::factory(1)->create([
+            "username" => "Admin",
+            "email" => "haniemcs@gmail.com",
+            "password" => bcrypt("12345")
+        ]);
     }
 }

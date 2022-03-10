@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdminUser;
 use App\Models\Departments;
+use Carbon\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -26,7 +28,8 @@ class DatabaseSeeder extends Seeder
             StageFormatSeeder::class,
             StageTypeSeeder::class,
             StageStatusSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            AdminUserSeeder::class
         ]);
     }
 }
