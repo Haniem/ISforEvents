@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->text('note');
 
-            $table->foreignId('id_nomination')->references('id')->on('nominations');
             $table->foreignId('id_user')->references('id')->on('users');
             $table->foreignId('id_request_status')->references('id')->on('request_statuses');
             $table->foreignId('id_result')->references('id')->on('results');
-            $table->foreignId('id_events_stage')->references('id')->on('event_stages');
+            $table->foreignId('id_stage')->references('id')->on('stages');
 
             $table->timestamps();
         });

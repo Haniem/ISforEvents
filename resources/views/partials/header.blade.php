@@ -7,7 +7,8 @@
     <div class="header__nav">
         <ul class="nav__btns">
             <li class="nav__btn"> <a href="{{ route('home') }}">Главная</a> </li>
-            <li class="nav__btn"> <a href="{{ route('events') }}">Мероприятия</a> </li>
+            <li class="nav__btn"> <a href="{{ route('events') }}">Все мероприятия</a> </li>
+            <li class="nav__btn"> <a href="{{ route('event_types') }}">Категории</a> </li>
             
             @auth("web")
                 <li class="nav__btn"> <a href="{{ route('addEvent') }}">Добавить мероприятие</a> </li>

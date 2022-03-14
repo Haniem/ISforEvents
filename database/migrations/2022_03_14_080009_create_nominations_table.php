@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->foreignId('id_event')->references('id')->on('events');
 
-            $table->string('nomination_com', 250);
+            $table->string('nomination_com', 250)->nullable();
             $table->timestamps();
         });
     }

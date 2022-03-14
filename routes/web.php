@@ -18,7 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AppController::class, 'homePage'])->name('home');
 
 Route::get('/events', [AppController::class, 'events'])->name('events');
-Route::get('/events/{id}', [AppController::class, 'eventDetail'])->name('events_detail');
+
+Route::get('/events/event_types', [AppController::class, 'event_types'])->name('event_types');
+
+Route::get('/events/{event_type}', [AppController::class, 'show_event_with_type'])->name('show_event_with_type');
+
+Route::get('/events/{event_type}/{id}', [AppController::class, 'eventDetail'])->name('events_detail');
+
+Route::get('/addNomination_process', [AppController::class, 'addNomination'])->name('addNomination_process');
+
+Route::get('/events/{event_type}/{id}/{id_nomination}', [AppController::class, 'show_event_nomination'])->name('event_nomination');
+
+
+Route::get('/addStage_process', [AppController::class, 'addStage'])->name('addStage_process');
 
 Route::middleware("auth")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

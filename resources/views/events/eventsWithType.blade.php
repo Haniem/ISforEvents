@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Мероприятия')
+@section('title', "Мероприятие")
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <div class="container">
 
         <div class="events">
-            <h1 class="events__title">Список доступных мероприятий:</h1>
+            <h1 class="events__title">Мепроприятия в категории: {{ $type -> event_type_name }}</h1>
 
             <div class="eventList">
 
@@ -17,7 +17,8 @@
 
                     <div class="eventList__item">
                         <h2 class="eventList__title">{{ $event -> event_name }}</h3>
-                        <a href="{{ route('events_detail', ['event_type' => $event-> id_event_type, 'id' => $event -> id])}}" class="eventList__detailLink">Подробнее</a>                    </div>
+                        <a href="{{ route('events_detail', ['event_type' => $event-> id_event_type, 'id' => $event -> id])}}" class="eventList__detailLink">Подробнее</a>
+                    </div>
                     
                 @endforeach
 
@@ -27,8 +28,6 @@
             {{ $events->links() }}
 
         </div>
-
-        
     </div>
     
 @endsection
