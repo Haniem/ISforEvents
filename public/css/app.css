@@ -11813,6 +11813,7 @@ textarea.form-control-lg {
 }
 
 body {
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -11894,5 +11895,65 @@ body {
   margin: 20px auto;
   height: 40px;
   width: 40%;
+}
+.addEvent {
+  margin: 2em 4em;
+}
+.addEvent .addEvent__form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.addEvent .addEvent__form .addEvent_inputs {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vw;
+  align-items: center;
+  grid-auto-flow: column;
+}
+.addEvent .addEvent__form .addEvent_inputs .addEvent_inputItem .addEvent__form-label {
+  width: auto;
+  display: flex;
+}
+.addEvent .addEvent__form .addEvent__form-com {
+  display: flex;
+}
+.addEvent .addEvent__form .addEvent__form-comInp {
+  display: flex;
+}
+.events {
+  margin: 40px 20px 80px 20px;
+}
+.events .events__title {
+  margin: 0 20px 1em 20px;
+}
+.events .eventList {
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+.events .eventList .eventList__item {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #adb6fd;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.events .eventList .eventList__item .eventList__title {
+  color: #404464;
+}
+.events .eventList .eventList__item .eventList__detailLink {
+  margin-right: 30px;
+  color: #404464;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }
 

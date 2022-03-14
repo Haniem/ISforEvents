@@ -18,6 +18,9 @@
             <label class="auth__form-label" for="username">Имя пользователя</label>
             <input type="text" class="auth__form-input" name="username">
 
+            @error('password')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         
             <label class="auth__form-label" for="password">Пароль</label>
             <input type="password" class="auth__form-input" name="password">

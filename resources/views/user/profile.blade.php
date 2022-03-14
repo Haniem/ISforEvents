@@ -5,10 +5,9 @@
 @section('content')
 
     @include('partials.header')
-
     <div class="container">
 
-
+        <h1>HI asoduh asiuhdiasuhdhiuoasdiouhsa</h1>
         
     </div>
     

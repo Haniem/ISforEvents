@@ -21,11 +21,14 @@ class AuthController extends Controller
         $data = $request->validate([
             'username' => ["required", "string"],
             'password' => ["required"]
+        ], [
+            'username.required' => 'Заполните поле с именем пользователя',
+            'password.required' => 'Заполните поле с паролем',
         ]);
 
         if (auth("admin")->attempt($data)) {
 
-            return redirect(route('admin.post.index'));
+            return redirect(route('home'));
 
         };
 

@@ -17,9 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'homePage'])->name('home');
 
+Route::get('/events', [AppController::class, 'events'])->name('events');
+Route::get('/events/{id}', [AppController::class, 'eventDetail'])->name('events_detail');
 
 Route::middleware("auth")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+
+    Route::get('/addEvent', [AppController::class, 'showAddEventForm'])->name('addEvent');
+    Route::post('/addEvent_process', [AppController::class, 'addEvent'])->name('addEvent_process');
+
+    
+    Route::get('/profile', [AppController::class, 'showProfile'])->name('profile');
 });
 
 Route::middleware("guest")->group(function() {

@@ -7,9 +7,12 @@
     <div class="header__nav">
         <ul class="nav__btns">
             <li class="nav__btn"> <a href="{{ route('home') }}">Главная</a> </li>
-            <li class="nav__btn"> <a href="{{ route('home') }}">Категории</a> </li>
-            <li class="nav__btn"> <a href="{{ route('home') }}">Админка</a> </li>
-            <li class="nav__btn"> <a href="{{ route('home') }}">Личный кабинет</a> </li>
+            <li class="nav__btn"> <a href="{{ route('events') }}">Мероприятия</a> </li>
+            
+            @auth("web")
+                <li class="nav__btn"> <a href="{{ route('addEvent') }}">Добавить мероприятие</a> </li>
+                <li class="nav__btn"> <a href="{{ route('profile') }}">Личный кабинет</a> </li>
+            @endauth
         </ul>
     </div>
 
