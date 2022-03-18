@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,11 +29,12 @@ Route::get('/events/event_types', [AppController::class, 'event_types'])->name('
 
 Route::get('/events/{event_type}', [AppController::class, 'show_event_with_type'])->name('show_event_with_type');
 
-Route::get('/events/bytype/{id}', [AppController::class, 'eventDetail'])->name('event_detail');
-Route::post('/addNomination_process', [AppController::class, 'addNomination'])->name('addNomination_process');
+Route::get('/events/bytype/{id}', [EventController::class, 'eventDetail'])->name('event_detail');
+Route::post('/addNomination_process', [EventController::class, 'addNomination'])->name('addNomination_process');
+Route::post('/addResult_process', [EventController::class, 'addResult'])->name('addResult_process');
 
-Route::get('/events/bytype/{id}/{id_nomination}', [AppController::class, 'show_event_nomination'])->name('event_nomination');
-Route::post('/addStage_process', [AppController::class, 'addStage'])->name('addStage_process');
+Route::get('/events/bytype/{id}/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
+Route::post('/addStage_process', [EventController::class, 'addStage'])->name('addStage_process');
 
 
 
@@ -62,8 +64,8 @@ Route::middleware("auth")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
 
-    Route::get('/addEvent', [AppController::class, 'showAddEventForm'])->name('addEvent');
-    Route::post('/addEvent_process', [AppController::class, 'addEvent'])->name('addEvent_process');
+    Route::get('/addEvent', [EventController::class, 'showAddEventForm'])->name('addEvent');
+    Route::post('/addEvent_process', [EventController::class, 'addEvent'])->name('addEvent_process');
 
     
     Route::get('/profile', [AppController::class, 'showProfile'])->name('profile');

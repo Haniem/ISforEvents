@@ -10,41 +10,28 @@
 
         <div class="eventDetail">
 
-            <div class="eventDetailInfo">
+            
+            @include('partials.eventInfo', $event)
 
-                <h1 class="eventDetailInfo__title">{{ $event -> event_name }}</h1>
-
-                <div class="eventDetailInfo__disription">Описание: {{ $event -> event_discrtiption }}</div>
-                <div class="eventDetailInfo__format">Формат проведения: {{ $event -> event_format }}</div>
-
-                <div class="eventDetailInfo__dates">
-                    <div class="eventDetailInfo__dates-begDate">Дата начала: {{ $event -> begin_date }}</div>
-
-                    <div class="eventDetailInfo__dates-endDate">Дата окончания: {{ $event -> end_date }}</div>
-                </div>
-
-                <div class="eventDetailInfo__requirmets">
-
-                    <div class="eventDetailInfo__requirmets-requirmets">Требования: {{ $event -> event_requirements }}</div>
-
-                    <div class="eventDetailInfo__requirmets-age">Ограничение по возрасту:{{ $event -> event_age }}</div>
-
-                </div>
-
-                <div class="eventDetailInfo__type">Тип мероприятия: {{  $event -> type -> event_type_name  }}</div>
-                <div class="eventDetailInfo__level">Уровень мероприятия: {{  $event -> level -> event_level_name  }}</div>
-                <div class="eventDetailInfo__status">Статус мероприятия: {{  $event -> status -> event_status_name  }}</div> 
-                <div class="eventDetailInfo__user">Ответственный преподаватель {{  $event -> user -> name  }} {{  $event -> user -> surname  }} {{  $event -> user -> lastname  }}</div>
-
-            </div>
 
             <div class="eventDetailNominations">
+                <h2 class="eventDetailNominations__title">Номинации</h2>
                 @foreach ($nominations as $nomination)
                 
-                    <a href="{{ route('event_nomination', [
+                    <a  class="eventDetailNominations__link"
+                        href="{{ route('event_nomination', [
                         'id' => $event -> id, 
                         'id_nomination' => $nomination -> id
                         ]) }}">{{ $nomination -> nomination_name }}</a>
+
+                @endforeach
+            </div>
+
+            <div class="eventDetailResults">
+                <h2 class="eventDetailResults__title">Виды наградных документов</h2>
+                @foreach ($results as $result)
+                
+                    <p class="eventDetailResults__name">{{ $result -> result_name }}</p>
 
                 @endforeach
             </div>
@@ -53,13 +40,47 @@
 
                 <div class="eventDetailAddNomination">
 
-                    <h2 class="eventDetailAddNomination__title">Добавить номинацию</h2>
 
-                    <form action="{{ route('addNomination_process') }}" class="eventDetailAddNomination__form" method="POST">
+                    <form action="{{ route('addNomination_process') }}" class="eventDetail__form" method="POST">
                         @csrf
+
+                        <h2 class="eventDetailAddNomination__title">Добавить номинацию</h2>
+
+                        <div class="eventDetail__form-group">
+                            <input type="text" class="eventDetail__form-input" name="nomination_name" placeholder="Название номинации">
+                            <input type="text" name="id_event" value="{{ $event -> id }}" hidden>
+                        </div>
                         
-                        <input type="text" class="eventDetailAddNomination__form-input" name="nomination_name" placeholder="Название номинации">
+                        <button type="submit" class="eventDetailAddNomination__form-submit">Добавить</button>
+                    </form> 
+
+                    
+
+                </div>
+
+                <div class="eventDetailAddResult">
+
+                    <form action="{{ route('addResult_process') }}" class="eventDetail__form" method="POST">
+                        @csrf   
+                        
+                        <h2 class="eventDetailAddNomination__title">Добавить вид наградного документа</h2>
+
                         <input type="text" name="id_event" value="{{ $event -> id }}" hidden>
+
+                        <div class="eventDetail__form-group">
+                            <label for="result_name" class="eventDetail__form-label">Введите название наградного документа:</label>
+                            <input type="text" class="eventDetail__form-input" name="result_name">
+                        </div>
+
+                        <div class="eventDetail__form-group">
+                            <label for="id_result_type" class="eventDetail__form-label">Выберите тип наградного документа</label>
+                            <select name="id_result_type" id="">
+                                @foreach ($result_types as $result_type)
+                                    <option value="{{ $result_type -> id }}">{{ $result_type -> result_type_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
                         <button type="submit" class="eventDetailAddNomination__form-submit">Добавить</button>
                     </form> 
 

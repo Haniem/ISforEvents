@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->text('note');
-
-            $table->foreignId('id_user')->references('id')->on('users');
+            
             $table->foreignId('id_student')->references('id')->on('students');
             $table->foreignId('id_result')->references('id')->on('results');
             $table->foreignId('id_stage')->references('id')->on('stages');

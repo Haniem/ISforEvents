@@ -16,6 +16,12 @@ class ResultTypesSeeder extends Seeder
     public function run()
     {
         DB::table('result_types')->insert([
+            "result_type_name" => "Результаты не подведены",
+            "is_awardee" => "0",
+            "is_winner" => "0"
+        ]);
+
+        DB::table('result_types')->insert([
             "result_type_name" => "1 место",
             "is_awardee" => "0",
             "is_winner" => "1"
@@ -52,7 +58,7 @@ class ResultTypesSeeder extends Seeder
         ]);
 
         DB::table('result_types')->insert([
-            "result_type_name" => "Eчастие",
+            "result_type_name" => "Участие",
             "is_awardee" => "1",
             "is_winner" => "0"
         ]);
