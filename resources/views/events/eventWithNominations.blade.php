@@ -49,7 +49,7 @@
             @auth('web')
                 <div class="eventDetailAddStage">
                     <h3 class="eventDetailAddStage__title">Добавить стадию</h3>
-                    <form action="{{ route('addStage_process') }}" class="eventDetailAddStage__form">
+                    <form action="{{ route('addStage_process') }}" class="eventDetailAddStage__form" method="POST">
 
                         @csrf
 

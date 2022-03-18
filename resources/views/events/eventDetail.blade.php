@@ -42,7 +42,6 @@
                 @foreach ($nominations as $nomination)
                 
                     <a href="{{ route('event_nomination', [
-                        'event_type' => $event -> id_event_type, 
                         'id' => $event -> id, 
                         'id_nomination' => $nomination -> id
                         ]) }}">{{ $nomination -> nomination_name }}</a>
@@ -56,7 +55,7 @@
 
                     <h2 class="eventDetailAddNomination__title">Добавить номинацию</h2>
 
-                    <form action="{{ route('addNomination_process') }}" class="eventDetailAddNomination__form">
+                    <form action="{{ route('addNomination_process') }}" class="eventDetailAddNomination__form" method="POST">
                         @csrf
                         
                         <input type="text" class="eventDetailAddNomination__form-input" name="nomination_name" placeholder="Название номинации">

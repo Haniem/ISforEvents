@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('note');
 
             $table->foreignId('id_user')->references('id')->on('users');
-            $table->foreignId('id_request_status')->references('id')->on('request_statuses');
+            $table->foreignId('id_student')->references('id')->on('students');
             $table->foreignId('id_result')->references('id')->on('results');
             $table->foreignId('id_stage')->references('id')->on('stages');
 

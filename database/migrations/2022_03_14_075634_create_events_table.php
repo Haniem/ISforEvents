@@ -29,7 +29,7 @@ return new class extends Migration
             $table->foreignId('id_event_status')->references('id')->on('event_statuses');
             $table->foreignId('id_user')->references('id')->on('users');
 
-            $table->string('event_com', 250);
+            $table->string('event_com', 250)->nullable();
             $table->timestamps();
         });
     }

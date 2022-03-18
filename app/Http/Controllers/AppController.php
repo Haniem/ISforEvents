@@ -10,6 +10,7 @@ use App\Models\Nominations;
 use App\Models\Stage;
 use App\Models\Stage_format;
 use App\Models\Stage_status;
+use App\Models\Stage_type;
 use App\Models\User;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Contracts\Session\Session;
@@ -85,7 +86,7 @@ class AppController extends Controller
             'id_event_level' => ['required'],
             'id_event_status' => ['required'],
             'id_user' => ['required'],
-            'event_com' => ["string",]
+            'event_com' => []
         ], [
             'event_name.required' => 'Поле обязательно к заполнению.',
             'event_discrtiption.required' => 'Поле обязательно к заполнению.',
@@ -160,7 +161,7 @@ class AppController extends Controller
 
 
 
-    function show_event_nomination($event_type, $id, $id_nomination) {
+    function show_event_nomination($id, $id_nomination) {
 
         $event = Events::findOrFail($id);
         $nomination = Nominations::where('id', $id_nomination)->select('id','nomination_name')->first();

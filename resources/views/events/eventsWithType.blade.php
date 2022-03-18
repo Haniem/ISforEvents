@@ -17,7 +17,7 @@
 
                     <div class="eventList__item">
                         <h2 class="eventList__title">{{ $event -> event_name }}</h3>
-                        <a href="{{ route('events_detail', ['event_type' => $event-> id_event_type, 'id' => $event -> id])}}" class="eventList__detailLink">Подробнее</a>
+                        <a href="{{ route('event_detail', [ 'id' => $event -> id])}}" class="eventList__detailLink">Подробнее</a>
                     </div>
                     
                 @endforeach
