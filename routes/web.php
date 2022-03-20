@@ -35,6 +35,7 @@ Route::post('/addResult_process', [EventController::class, 'addResult'])->name('
 
 Route::get('/events/bytype/{id}/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
 Route::post('/addStage_process', [EventController::class, 'addStage'])->name('addStage_process');
+Route::post('/addEvent_request_process', [EventController::class, 'addRequest'])->name('addRequest_process');
 
 
 

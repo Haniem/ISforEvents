@@ -24,14 +24,56 @@
 
                         <p class="eventDetailStages__title">{{ $stage -> event_stage_name }}</p>
 
-                        <p class="eventDetailStages__title">Добавить студента:</p>
+                        @foreach ($requests as $request)
+                            
+                            @if ($stage -> id == $request -> id_stage)
+                                
+                                <div class="eventDetailStages__group">
 
-                        <form class="eventDetailStages__form" action="" method="post">
-                            @csrf
-                        </form>
+                                    <p class="eventDetailStages__group-name">Студент:{{ $request -> student -> student_name }} {{ $request -> student -> student_surname }} {{ $request -> student -> student_lastname }}</p>
+                                    <p class="eventDetailStages__group-result">Релультат: {{ $request -> result -> result_name }}</p>
+                                </div>
+
+                            @endif
+
+                        @endforeach
+
+                        @auth('web')
+
+                            <p class="eventDetailStages__title">Добавить студента:</p>
+
+                            <form class="eventDetailStages__form" action="{{ route('addRequest_process') }}" method="post">
+                                @csrf
+
+                                <input type="text" name="id_stage" value="{{ $stage -> id }}" hidden>
+
+                                <div class="eventDetailStages__form-group">
+                                    <label for="id_student" class="eventDetailStages__form-label">Студент:</label>
+                                    
+                                    <select name="id_student" id="" class="eventDetailStages__form-input">
+                                        @foreach ($students as $student)
+                                            <option value="{{ $student -> id }}" class="eventDetailStages__form-input">{{ $student -> student_name }} {{ $student -> student_surname }} {{ $student -> student_lastname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="eventDetailStages__form-group">
+                                    <label for="id_result" class="eventDetailStages__form-label">Результат:</label>
+                                    <select name="id_result" id="" class="eventDetailStages__form-input">
+                                        @foreach ($results as $result)
+                                            <option value="{{ $result -> id }}" class="eventDetailStages__form-input">{{ $result -> result_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                
+                                <button type="submit" class="eventDetailAddStage__form-submit">Добавить</button>
+
+                            </form>
+
+                        @endauth
 
                     </div>
-
 
                     @endforeach
 

@@ -7,12 +7,14 @@ use App\Models\Event_statuses;
 use App\Models\Event_types;
 use App\Models\Events;
 use App\Models\Nominations;
+use App\Models\Requests;
 use App\Models\Result_types;
 use App\Models\Results;
 use App\Models\Stage;
 use App\Models\Stage_format;
 use App\Models\Stage_status;
 use App\Models\Stage_type;
+use App\Models\Students;
 use App\Models\User;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Contracts\Session\Session;
@@ -162,6 +164,12 @@ class EventController extends Controller
         $stage_formats = Stage_format::all();
         $stage_statuses = Stage_status::all();
         $stage_types = Stage_type::all();
+        $event_requests = Requests::all();
+        $students = Students::all();
+        $results = Results::all();
+
+
+        $requests = Requests::all();
 
         return view('events.eventWithNominations', [
             "event" => $event,
@@ -169,7 +177,11 @@ class EventController extends Controller
             "stages" => $stages,
             "stage_formats" => $stage_formats,
             "stage_statuses" => $stage_statuses, 
-            "stage_types" => $stage_types
+            "stage_types" => $stage_types,
+            "event_requests" => $event_requests,
+            "students" => $students,
+            "results" => $results,
+            "requests" => $requests
         ]);
     }
 
@@ -199,5 +211,24 @@ class EventController extends Controller
 
         return redirect()->back();
 
+    }
+
+    function addRequest(Request $request) {
+        
+        $data = $request->validate([
+
+            "id_stage" => ['required'],
+            "id_student" => ['required'],
+            "id_result" => ['required'],
+        ]);
+
+        DB::table('requests')->insert([
+            'id_student' => $data['id_student'],
+            'id_result' => $data['id_result'],
+            'id_stage' => $data['id_stage'],
+        ]);
+
+        
+        return redirect()->back();
     }
 }
