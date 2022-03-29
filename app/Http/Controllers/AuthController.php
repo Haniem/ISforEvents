@@ -87,6 +87,9 @@ class AuthController extends Controller
         $data = $request->validate([
             'username' => ["required", "string"],
             'password' => ["required"]
+        ],[
+            'username.required' => 'Поле с именем пользователя должно быть заполнено.',
+            'password.required' => 'Поле с паролем должно быть заполнено.',
         ]);
 
         if (auth("web")->attempt($data)) {
@@ -95,9 +98,7 @@ class AuthController extends Controller
 
         };
 
-    
-
-        return redirect(route('login'))->withErrors(["username" => 'Пользователь не найдет, либо данные введены не правильно']);
+        return redirect(route('login'))->withErrors(["loginError" => 'Пользователь не найдет, либо данные введены не правильно']);
     }
 
     function logout() {

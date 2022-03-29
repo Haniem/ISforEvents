@@ -16,15 +16,18 @@ class EventTypesSeeder extends Seeder
     public function run()
     {
         DB::table('event_types')->insert([
-            "event_type_name" => "Конкурс"
+            "event_type_name" => "Конкурс",
+            "event_type_logo_name" => "Chalenge.png",
         ]);
 
         DB::table('event_types')->insert([
-            "event_type_name" => "Конференция"
+            "event_type_name" => "Конференция",
+            "event_type_logo_name" => "Conference.png",
         ]);
 
         DB::table('event_types')->insert([
-            "event_type_name" => "Олимпиада"
+            "event_type_name" => "Олимпиада",
+            "event_type_logo_name" => "Olympiad.png",
         ]);
     }
 }

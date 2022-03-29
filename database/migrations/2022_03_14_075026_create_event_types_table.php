@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('event_types', function (Blueprint $table) {
             $table->id();
             $table->string('event_type_name', 250);
+            $table->string('event_type_logo_name', 250);
             $table->timestamps();
         });
     }
