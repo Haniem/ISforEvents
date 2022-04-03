@@ -3,144 +3,116 @@
 @section('title', 'Добавить мероприятие')
 
 @section('content')
-
     @include('partials.header')
     <div class="container">
 
         <div class="addEvent">
-
-            <h1 class="addEvent__title">Введите данные о мероприятие</h1>
-    
-            <form action="{{ route('addEvent_process') }}" method="post" class="addEvent__form">
-                @csrf
+            <div class="addEvent__leftSide">
                 
-
-                <div class="addEvent_inputs">
-
-                    @error('event_name')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_name">Название мероприятия <p class="text-danger">*</p></label>
-                        <input type="text" class="addEvent__form-input" name="event_name">
-                    </div>
+                <h1 class="addEvent__form-mainTitle">Введите данные о мероприятии</h1>
+    
+                <form action="{{ route('addEvent_process') }}" method="post" class="addEvent__form">
                     
-                    @error('event_discrtiption')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_discrtiption">Описание мероприятия<p class="text-danger">*</p></label>
-                        <input type="text" class="addEvent__form-input" name="event_discrtiption">
-                    </div>
+                    <p class="addEvent__form-title">Основная информация:</p>
+
+                    @csrf
+                    <label class="addEvent__form-group" for="event_name">
+                        <input type="text" class="addEvent__form-input" name="event_name" placeholder=" " id="event_name">
+                        <span class="addEvent__form-label">Название мероприятия <p class="text-danger"> *</p></span>
+                    </label>
+                
+                    <label class="addEvent__form-group" for="event_discrtiption">
+                        <input type="text" class="addEvent__form-input" name="event_discrtiption"  placeholder=" " id="event_discrtiption">
+                        <span class="addEvent__form-label">Описание мероприятия<p class="text-danger"> *</p></span>
+                    </label>
+                
+                    <label class="addEvent__form-group" for="event_format">
+                        <input type="text" class="addEvent__form-input" name="event_format"  placeholder=" " id="event_format">  
+                        <span class="addEvent__form-label">Формат проведения</span>
+                    </label>
                     
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_format">Формат проведения</label>
-                        <input type="text" class="addEvent__form-input" name="event_format">  
-                    </div>
+                    <label class="addEvent__form-group" for="event_age">
+                        <input type="text" class="addEvent__form-input" name="event_age"  placeholder=" " id="event_age">
+                        <span class="addEvent__form-label">Ограничение по возрасту</span>
+                    </label>
 
-                    @error('begin_date')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="begin_date">Дата начала мероприятия<p class="text-danger">*</p></label>
-                        <input type="date" class="addEvent__form-input" name="begin_date">
-                    </div>
-
-
-                    @error('end_date')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="end_date">Дата окончания мероприятия<p class="text-danger">*</p></label>
-                        <input type="date" class="addEvent__form-input" name="end_date">
-                    </div>
+                    <label class="addEvent__form-group" for="event_requirements">
+                        <input type="text" class="addEvent__form-input" name="event_requirements" placeholder=" " id="event_requirements">
+                        <span class="addEvent__form-label">Требования <p class="text-danger"> *</p></span>
+                    </label>
                     
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_age">Ограничение по возрасту</label>
-                        <input type="text" class="addEvent__form-input" name="event_age">
-                    </div>
+                    <label class="addEvent__form-group" for="event_link">
+                        <input type="text" class="addEvent__form-input" name="event_link" placeholder=" " id="event_link">
+                        <span class="addEvent__form-label">Ссылка на мероприятие</span>
+                    </label>
 
-                    @error('event_requirements')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_requirements">Требования <p class="text-danger">*</p></label>
-                        <input type="text" class="addEvent__form-input" name="event_requirements">
-                    </div>
-                    
+                    <p class="addEvent__form-title">Дата начала и окончания мероприятия:</p>
 
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="event_link">Ссылка на мероприятие</label>
-                        <input type="text" class="addEvent__form-input" name="event_link">
-                    </div>
+                    <label class="addEvent__form-group" for="begin_date">
+                        <input type="date" class="addEvent__form-input" name="begin_date"  placeholder=" " id="begin_date">
+                    </label>
 
-                    @error('id_event_type')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="id_event_type">Тип мероприятия <p class="text-danger">*</p></label>
-                        <select name="id_event_type" id="">
-                            <option value=""></option>
+                    <label class="addEvent__form-group" for="end_date">
+                        <input type="date" class="addEvent__form-input" name="end_date"  placeholder=" " id="end_date">
+                    </label>
+
+                    <p class="addEvent__form-title">Дополнительная информация:</p>
+
+                    <div class="addEvent__form-select">
+                        <select class="addEvent__form-input" name="id_event_type" id="" required>
+                            <option value="">Тип мероприятия</option>
                             @foreach ($event_types as $event_type)
                                 <option value="{{ $event_type -> id }}">{{ $event_type -> event_type_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    @error('id_event_level')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="id_event_level">Уровень мероприятия <p class="text-danger">*</p></label>
-                        <select name="id_event_level" id="">
-                            <option value=""></option>
+                    <div class="addEvent__form-select">
+                        <select class="addEvent__form-input" name="id_event_level" id="" required>
+                            <option value="">Уровень мероприятия</option>
                             @foreach ($event_levels as $event_level)
                                 <option value="{{ $event_level -> id }}">{{ $event_level -> event_level_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    @error('id_event_status')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="id_event_status">Статус мероприятия <p class="text-danger">*</p></label>
-                        <select name="id_event_status" id="">
-                            <option value=""></option>
+                    <div class="addEvent__form-select">
+                        <select class="addEvent__form-input" name="id_event_status" id="" required>
+                            <option value="">Статус мероприятия</option>
                             @foreach ($event_statuses as $event_status)
                                 <option value="{{ $event_status -> id }}">{{ $event_status -> event_status_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    @error('id_user')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <div class="addEvent_inputItem">
-                        <label class="addEvent__form-label" for="id_user">Ответственный преподаватель <p class="text-danger">*</p></label>
-                        <select name="id_user" id="">
-                            <option value=""></option>
+                    <div class="addEvent__form-select">
+                        <select class="addEvent__form-input" name="id_user" id="" required>
+                            <option value="">Ответственный преподаватель</option>
                             @foreach ($users as $user)
                                 <option value="{{ $user -> id }}">{{ $user -> name }} {{ $user -> surname }} {{ $user -> lastname }}</option>
                             @endforeach
                         </select>
                     </div>
-                    
 
                     
+                    <button type="submit" class="addEvent__form-submit">Добавить</button>
+                </form>
+            </div>
 
-                </div>
+            <div class="addEvent__rightSide">
+                <img src="{{ asset('public/images/MGTU_logo.png') }}" alt="Логотип МГТУ" class="addEvent__right-logo">
 
-                <div class="addEvent_inputItem">
-                    <label class="addEvent__form-com" for="event_com">Коментарий</label>
-                    <input type="text" class="addEvent__form-comInp" name="event_com">
-                </div>
-                
-                <button type="submit" class="addEvent__form-submit">Добавить</button>
-            </form>
-
+                @if (($errors -> first()))
+                    <div class="addEvent__right-errors">
+                        <p class="addEvent__right-error">Заполните обязательные поля.</p>
+                        @foreach ($errors->all() as $error)
+                            @if ($error == 'Такое мероприятие уже зарегестрировано.')
+                                <p class="addEvent__right-error">Такое мероприятие уже зарегестрировано.</p>   
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+            </div>
         </div>
-        
     </div>
-    
 @endsection

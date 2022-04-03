@@ -80,6 +80,7 @@ class EventController extends Controller
             'event_com' => []
         ], [
             'event_name.required' => 'Поле обязательно к заполнению.',
+            'event_name.unique' => 'Такое мероприятие уже зарегестрировано.',
             'event_discrtiption.required' => 'Поле обязательно к заполнению.',
             'begin_date.required' => 'Поле обязательно к заполнению.',
             'end_date.required' => 'Поле обязательно к заполнению.',

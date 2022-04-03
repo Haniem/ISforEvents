@@ -1796,6 +1796,16 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var menuBtn = document.querySelector('.header__menuBtn');
+var headerNav = document.querySelector('.header__nav');
+var headerAuth = document.querySelector('.header__auth');
+var headerSecLogo = document.querySelector('.header__secLogo');
+menuBtn.addEventListener('click', function () {
+  headerNav.classList.toggle('active');
+  headerAuth.classList.toggle('active');
+  headerSecLogo.classList.toggle('active');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
