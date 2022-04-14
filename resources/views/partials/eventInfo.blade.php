@@ -1,27 +1,32 @@
 <div class="eventDetailInfo">
-
+    
     <h1 class="eventDetailInfo__title">{{ $event -> event_name }}</h1>
 
-    <div class="eventDetailInfo__disription">Описание: {{ $event -> event_discrtiption }}</div>
-    <div class="eventDetailInfo__format">Формат проведения: {{ $event -> event_format }}</div>
+    <div class="eventDetailInfo__right">
 
-    <div class="eventDetailInfo__dates">
-        <div class="eventDetailInfo__dates-begDate">Дата начала: {{ $event -> begin_date }}</div>
-
-        <div class="eventDetailInfo__dates-endDate">Дата окончания: {{ $event -> end_date }}</div>
+        
+        <div class="eventDetailInfo__data">{{ $event -> event_discrtiption }}</div>
+        <div class="eventDetailInfo__data">Формат проведения: {{ $event -> event_format }}</div>
+        <div class="eventDetailInfo__data">Тип мероприятия: {{  $event -> type -> event_type_name  }}</div>
+        <div class="eventDetailInfo__data">Уровень мероприятия: {{  $event -> level -> event_level_name  }}</div>
+        <div class="eventDetailInfo__data">Статус мероприятия: {{  $event -> status -> event_status_name  }}</div> 
+        <div class="eventDetailInfo__data">Ответственный преподаватель {{  $event -> user -> name  }} {{  $event -> user -> surname  }} {{  $event -> user -> lastname  }}</div>
+    
     </div>
 
-    <div class="eventDetailInfo__requirmets">
-
-        <div class="eventDetailInfo__requirmets-requirmets">Требования: {{ $event -> event_requirements }}</div>
-
-        <div class="eventDetailInfo__requirmets-age">Ограничение по возрасту:{{ $event -> event_age }}</div>
-
+    <div class="eventDetailInfo__left">
+        <div class="eventDetailInfo__requirmets">
+            <h1 class="eventDetailInfo__requirmets-title">Ограничения и требования:</h1>
+            <div class="eventDetailInfo__requirmets-requirmets">{{ $event -> event_requirements }}</div>
+            <div class="eventDetailInfo__requirmets-age">{{ $event -> event_age }}</div>
+        </div>
+    
+        <div class="eventDetailInfo__dates">
+            <h1 class="eventDetailInfo__dates-title">Период проведения:</h1>
+            <div class="eventDetailInfo__dates-begDate">с {{ $event -> begin_date }} до {{ $event -> end_date }}</div>
+        </div>
     </div>
 
-    <div class="eventDetailInfo__type">Тип мероприятия: {{  $event -> type -> event_type_name  }}</div>
-    <div class="eventDetailInfo__level">Уровень мероприятия: {{  $event -> level -> event_level_name  }}</div>
-    <div class="eventDetailInfo__status">Статус мероприятия: {{  $event -> status -> event_status_name  }}</div> 
-    <div class="eventDetailInfo__user">Ответственный преподаватель {{  $event -> user -> name  }} {{  $event -> user -> surname  }} {{  $event -> user -> lastname  }}</div>
 
+    
 </div>

@@ -12449,4 +12449,241 @@ body {
     height: 30%;
   }
 }
+.eventDetailInfo {
+  margin: 50px 0;
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+  background-color: #dde3ff;
+  border-radius: 4px;
+}
+.eventDetailInfo .eventDetailInfo__title {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 35px;
+}
+.eventDetailInfo .eventDetailInfo__right {
+  padding: 10px 40px;
+  background-color: #edf0fd;
+  border-radius: 4px;
+}
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__data {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets {
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  background-color: #edf0fd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets .eventDetailInfo__requirmets-requirmets .eventDetailInfo__requirmets-title {
+  font-size: 30px;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets .eventDetailInfo__requirmets-age .eventDetailInfo__requirmets-title {
+  font-size: 30px;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__dates {
+  padding: 10px 40px;
+  background-color: #edf0fd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__dates .eventDetailInfo__dates-title {
+  font-size: 30px;
+}
+.eventDetailNominations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  border: 2px solid #f7f7f7;
+  border-radius: 6px;
+}
+.eventDetailNominations .eventDetailNominations-data {
+  margin: 10px 20px;
+  padding: 20px 0;
+  width: 60%;
+}
+.eventDetailNominations .eventDetailNominations-data .eventDetailNominations__title {
+  margin-bottom: 20px;
+}
+.eventDetailNominations .eventDetailNominations-data .eventDetailNominations__links {
+  display: flex;
+  flex-wrap: wrap;
+}
+.eventDetailNominations .eventDetailNominations-data .eventDetailNominations__links .eventDetailNominations__link {
+  margin: 0 15px 10px 0;
+  padding: 10px 15px;
+  color: #001372;
+  background-color: #ffdc13;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.eventDetailNominations .eventDetailNominations-data .eventDetailNominations__links .eventDetailNominations__link:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #ffee8e;
+}
+
+.flexReverse {
+  flex-direction: row-reverse !important;
+}
+
+.eventDetailResults {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  border: 2px solid #f7f7f7;
+  border-radius: 6px;
+}
+.eventDetailResults .eventDetailResults__data {
+  margin: 10px 20px;
+  padding: 20px 0;
+  width: 60%;
+}
+.eventDetailResults .eventDetailResults__data .eventDetailResults__title {
+  margin-bottom: 20px;
+}
+.eventDetailResults .eventDetailResults__data .eventDetailResults__items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.eventDetailResults .eventDetailResults__data .eventDetailResults__items .eventDetailResults__name {
+  margin: 0 15px 10px 0;
+  padding: 10px 15px;
+  color: white;
+  background-color: #4375ff;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.eventDetail__form {
+  width: 30%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #dde3ff;
+  border-radius: 6px;
+}
+.eventDetail__form .eventDetail__form-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.eventDetail__form .eventDetail__form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-grow: 3;
+}
+.eventDetail__form .eventDetail__form-group .eventDetail__form-label {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.eventDetail__form .eventDetail__form-group .eventDetail__form-input {
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 5px;
+  background: white;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.eventDetail__form .eventDetail__form-group .eventDetail__form-input::-moz-placeholder {
+  font-size: 16px;
+}
+.eventDetail__form .eventDetail__form-group .eventDetail__form-input:-ms-input-placeholder {
+  font-size: 16px;
+}
+.eventDetail__form .eventDetail__form-group .eventDetail__form-input::placeholder {
+  font-size: 16px;
+}
+.eventDetail__form .eventDetail__form-submit {
+  height: 40px;
+  width: auto;
+  padding: 10px;
+  margin: 10px auto;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #323C8D;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.eventDetail__form .eventDetail__form-submit:hover {
+  background-color: #6770b6;
+  transition: all 0.3s ease;
+}
+
+.eventDetailStages {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  background-color: #fff8d1;
+  border-radius: 6px;
+}
+.eventDetailStages .eventDetailStages__title {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+.eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage {
+  background-color: #fff1a1;
+  margin-bottom: 70px;
+}
+.eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage .eventDetailStages__groups-title {
+  margin: 0;
+  padding: 20px 30px 15px;
+  font-size: 30px;
+}
+.eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage .eventDetailStages__group {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  background-color: #fde674;
+  border: 1px solid #fff1a1;
+  border-radius: 6px;
+}
+.eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage .eventDetailStages__group .eventDetailStages__group-name {
+  margin: 0 25px 0 0;
+}
+.eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage .eventDetailStages__group .eventDetailStages__group-result {
+  margin: 0;
+}
+
+.eventDetailWithNomination .addStudent {
+  width: 100% !important;
+  margin-top: 50px;
+  background-color: #fffbe4;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+}
+.eventDetailWithNomination .addStudent .eventDetail__form-title {
+  margin: 15px 0;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.eventDetailWithNomination .addStudent .eventDetail__form-label {
+  text-align: center;
+}
+.eventDetailWithNomination .addStageForm {
+  width: 60%;
+  margin: 0 auto;
+}
 

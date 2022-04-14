@@ -80,7 +80,7 @@
                         <input type="password" class="auth__form-input" name="password_confirmation" placeholder="Подтверждение пароля">
                     </div>
 
-                    <button type="submit" class="auth__form-submit">Зарегестрироваться</button>
+                    <button type="submit" class="auth__form-submit">Зарегистрироваться</button>
                     
                     <a href="{{ route('home') }}" class="auth__homeBtn">На главную</a>
                 </form>

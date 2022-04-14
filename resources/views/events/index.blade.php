@@ -9,7 +9,7 @@
     <div class="container">
 
         <div class="events">
-            <h1 class="events__title">Список доступных мероприятий:</h1>
+            <h1 class="events__title">Список мероприятий:</h1>
 
             <div class="eventList">
 

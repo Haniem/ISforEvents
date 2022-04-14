@@ -694,6 +694,291 @@ body {
 }
 
 
+.eventDetailInfo{
+    margin: 50px 0;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+    background-color: #dde3ff;
+    border-radius: 4px;
+
+    .eventDetailInfo__title{       
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: 35px;
+    }
+    .eventDetailInfo__right{
+        padding: 10px 40px ;
+        background-color: #edf0fd;
+        border-radius: 4px;
+
+        .eventDetailInfo__data{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    }
+    .eventDetailInfo__left{
+
+        .eventDetailInfo__requirmets{
+            padding: 10px 40px ;
+            margin-bottom: 20px;
+            background-color: #edf0fd;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .eventDetailInfo__requirmets-requirmets{
+
+                .eventDetailInfo__requirmets-title{
+                    font-size: 30px;
+                }
+            }
+            .eventDetailInfo__requirmets-age{
+
+                .eventDetailInfo__requirmets-title{
+                    font-size: 30px;
+                }
+            }
+        }
+        .eventDetailInfo__dates{
+            padding: 10px 40px ;
+            background-color: #edf0fd;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .eventDetailInfo__dates-title {
+                font-size: 30px;
+            }
+            .eventDetailInfo__dates-begDate{
+            }
+            
+            .eventDetailInfo__dates-endDate{
+            }
+        }
+    }
+}
+
+.eventDetailNominations{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    border: 2px solid rgb(247, 247, 247);
+    border-radius: 6px;
+
+    .eventDetailNominations-data{
+        margin: 10px 20px;
+        padding: 20px 0;
+        width: 60%;
+
+        .eventDetailNominations__title{
+            margin-bottom: 20px;
+        }
+        .eventDetailNominations__links{ 
+            display: flex;
+            flex-wrap: wrap;
+
+            .eventDetailNominations__link{
+                
+                margin: 0 15px 10px 0;
+                padding: 10px 15px ;
+                color: #001372;
+                background-color: rgb(255, 220, 19);
+                border-radius: 3px;
+                text-decoration: none;
+
+                &:hover {
+                    transition: all 0.2s ease-in-out;
+                    background-color: rgb(255, 238, 142);
+                }
+            }
+        }  
+    } 
+}
+
+.flexReverse {
+    flex-direction: row-reverse !important;
+}
+
+.eventDetailResults{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    border: 2px solid rgb(247, 247, 247);
+    border-radius: 6px;
+
+    .eventDetailResults__data{
+        margin: 10px 20px;
+        padding: 20px 0;
+        width: 60%;
+
+        .eventDetailResults__title{       
+            margin-bottom: 20px;
+        }
+        .eventDetailResults__items{
+            display: flex;
+            flex-wrap: wrap;
+
+            .eventDetailResults__name{
+                margin: 0 15px 10px 0;
+                padding: 10px 15px ;
+                color: white;
+                background-color: rgb(67, 117, 255);
+                border-radius: 3px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.eventDetail__form{
+    width: 30%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dde3ff;
+    border-radius: 6px;
+    
+    .eventDetail__form-title {        
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .eventDetail__form-group{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-grow: 3;
+
+        .eventDetail__form-label{
+        }
+        .eventDetail__form-label{
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .eventDetail__form-input{
+            margin: 0 auto;
+            width: 100%;
+            border: 1px solid rgb(211, 211, 211);
+            padding: 5px;
+            background: white;
+            border-radius: 3px;
+            font-size: 16px;
+
+            &::placeholder{
+                font-size: 16px;
+            }
+        }
+    }
+    .eventDetail__form-submit{
+        height: 40px;
+        width: auto;
+        padding: 10px;
+        margin: 10px auto;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        background-color: #323C8D;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+
+        &:hover {
+            background-color: #6770b6;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.eventDetailStages{
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    background-color: rgb(255, 248, 209);
+    border-radius: 6px;
+
+    .eventDetailStages__title{
+        margin-left: 25px;
+        margin-bottom: 20px;
+        font-size: 35px;
+    }
+    .eventDetailStages__groups{
+
+        .eventDetailStages__group-stage{
+            
+            background-color: rgb(255, 241, 161);
+            margin-bottom: 70px;
+
+            .eventDetailStages__groups-title{
+                margin: 0;
+                padding: 20px 30px 15px;
+                font-size: 30px;
+            }
+            .eventDetailStages__group{
+                padding: 20px 30px;
+                display: flex;
+                align-items: center;
+                background-color: rgb(253, 230, 116);
+                border: 1px solid rgb(255, 241, 161);
+                border-radius: 6px;
+
+                .eventDetailStages__group-name{
+                    margin: 0 25px 0 0;
+                }
+                .eventDetailStages__group-result{
+                
+                    margin: 0;
+                }
+            }
+        } 
+    }
+}
+
+.eventDetailWithNomination {
+
+    .addStudent {
+        width: 100% !important;
+        margin-top: 50px;
+        background-color: rgb(255, 251, 228);
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 10px;
+        grid-row-gap: 1em;
+        
+        .eventDetail__form-title {
+            margin: 15px 0;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .eventDetail__form-label {
+            text-align: center;
+        }
+
+    }
+
+    .addStageForm{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+}
+
+
+
+
+
 
 
 

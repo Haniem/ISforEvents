@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="addForm_group">
-                        <label for="group" class="addForm_group-label">Отделение:</label>
+                        <label for="group" class="addForm_group-label">Группа:</label>
                         <select name="group" id="" class="addForm_input">
                             @foreach ($groups as $group)
                                 

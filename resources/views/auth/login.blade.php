@@ -42,7 +42,7 @@
                     </div>
                     
                     <div class="auth__form-item">
-                        <p class="auth__regBtn-text">У вас еще нет аккаунта? <a href="{{ route('register') }}" class="auth__regBtn">Зарегестрироваться</a></p>
+                        <p class="auth__regBtn-text">У вас еще нет аккаунта? <a href="{{ route('register') }}" class="auth__regBtn">Зарегистрироваться</a></p>
                     </div>
                 </form>
             </div>
