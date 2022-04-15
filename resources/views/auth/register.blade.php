@@ -59,7 +59,8 @@
                     </div>
 
                     <div class="auth__form-item">
-                        <select class="auth__form-input" name="comission" id="">
+                        <select class="auth__form-input" name="comission" id="" required>
+                            <option class="auth__form-input-option" value="">Выберите комиссию:</option>
                             @foreach ($comissions as $comission)
                                 <option class="auth__form-input-option" value="{{ $comission -> id }}">{{ $comission -> comission_name }}</option>
                             @endforeach
