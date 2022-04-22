@@ -20,19 +20,19 @@ class DepartmentsSeeder extends Seeder
 
 
         DB::table('departments')->insert([
-            'department_name' => "Отделение №1 «Общеобразовательная подготовка»",
+            'department_name' => "№1 «Общеобразовательная подготовка»",
         ]);
 
         DB::table('departments')->insert([
-            'department_name' => "Отделение №2 «Информационные технологии и транспорт»",
+            'department_name' => "№2 «Информационные технологии и транспорт»",
         ]);
 
         DB::table('departments')->insert([
-            'department_name' => "Отделение №3 «Механическое, гидравлическое оборудование и металлургия»",
+            'department_name' => "№3 «Механическое, гидравлическое оборудование и металлургия»",
         ]);
 
         DB::table('departments')->insert([
-            'department_name' => "Отделение №4 «Строительство, экономика и сфера обслуживания»",
+            'department_name' => "№4 «Строительство, экономика и сфера обслуживания»",
         ]);
 
         DB::table('departments')->insert([

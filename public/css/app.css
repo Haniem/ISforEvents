@@ -12687,3 +12687,69 @@ body {
   margin: 0 auto;
 }
 
+.admin {
+  display: flex;
+  flex-direction: row;
+}
+
+.adminadminHeader {
+  min-height: 100vh;
+  width: 20%;
+  background-color: #323C8D;
+}
+.adminadminHeader .adminHeader__container {
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.adminadminHeader .adminHeader__container .adminHeader__logo {
+  flex-grow: 1;
+}
+.adminadminHeader .adminHeader__container .adminHeader__logo .logo__img {
+  height: 20vh;
+}
+.adminadminHeader .adminHeader__container .adminHeader__nav {
+  padding: 0;
+  flex-grow: 3;
+}
+.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn {
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: 0.1s linear;
+  background-color: #5161db;
+  color: #d1d7fd;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: 0.1s linear;
+}
+.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:hover {
+  background-color: #7782d3;
+  transition: 0.1s linear;
+  color: white;
+}
+.adminadminHeader .adminHeader__container .adminHeader__auth .auth__btn {
+  font-weight: 700;
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.1s linear;
+}
+.adminadminHeader .adminHeader__container .adminHeader__auth .auth__btn:hover {
+  color: #8390f1;
+}
+

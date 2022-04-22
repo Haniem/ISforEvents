@@ -15,7 +15,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-
+    
+        @dump(session()->all())
         @yield('content')
         
 </body>

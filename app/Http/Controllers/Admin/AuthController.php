@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthController extends Controller
@@ -25,15 +26,21 @@ class AuthController extends Controller
             'username.required' => 'Заполните поле с именем пользователя',
             'password.required' => 'Заполните поле с паролем',
         ]);
-
+        
         if (auth("admin")->attempt($data)) {
-
-            return redirect(route('home'));
-
+            return redirect(route('events.index'));
         };
 
     
 
         return redirect(route('admin.login'))->withErrors(["username" => 'Пользователь не найдет, либо данные введены не правильно']);
+    }
+
+    function logout() {
+
+        auth("admin")->logout();
+
+        return redirect(route('admin.login'));
+
     }
 }

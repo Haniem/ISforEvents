@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Events;
 use Illuminate\Http\Request;
+
 
 class AppController extends Controller
 {
@@ -14,7 +16,13 @@ class AppController extends Controller
      */
     public function index()
     {
-        //
+        $events = Events::orderBy('created_at')->paginate(10);
+
+
+
+        return view('admin.events.events', [
+            "events" => $events,
+        ]);
     }
 
     /**

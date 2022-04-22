@@ -1,35 +1,49 @@
 @extends('layouts.app')
 
 
-@section('title', 'Авторизация админа')
+@section('title', 'Авторизация')
 
 @section('content')
-    <div class="auth">
 
-        <h1 class="auth__title">Войти в аккаунт</h1>
+    <div class="container">
+        <div class="auth">
 
-        <form action="{{ route('admin.login_process') }}" method="post" class="auth__form">
-            @csrf
+            <div class="auth__leftSide">
+                <img src="{{ asset('public/images/MGTU_logo.png') }}" alt="Логотип МГТУ" class="auth__logo">
+            </div>
+            
+            <div class="auth__rightSide">
 
-            @error('username')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+                <h1 class="auth__title">Войти в аккаунт</h1>
 
-            <label class="auth__form-label" for="username">Имя пользователя</label>
-            <input type="text" class="auth__form-input" name="username">
+                <form action="{{ route('admin.login_process') }}" method="post" class="auth__form">
+                    @csrf
 
-            @error('password')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        
-            <label class="auth__form-label" for="password">Пароль</label>
-            <input type="password" class="auth__form-input" name="password">
+                    
 
+                    <div class="auth__form-item">
+                        <input type="text" class="auth__form-input" name="username" placeholder="Логин">
+                        @error('username')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-            <button type="submit" class="auth__form-submit">Войти</button>
+                    <div class="auth__form-item">
+                        <input type="password" class="auth__form-input" name="password" placeholder="Пароль">
+                        @error('password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-        </form>
+                    <button type="submit" class="auth__form-submit">Войти</button>
 
-        <a href="{{ route('home') }}" class="auth__homeBtn">На главную</a>
+                    <div class="auth__form-item">
+                        <a href="{{ route('home') }}" class="auth__homeBtn">На главную</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
+    
 @endsection 
