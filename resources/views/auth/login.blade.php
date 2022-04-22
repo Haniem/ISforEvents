@@ -16,6 +16,18 @@
 
                 <h1 class="auth__title">Войти в аккаунт</h1>
 
+                @error('loginError')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+
+                @error('username')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+
                 <form action="{{ route('login_process') }}" method="post" class="auth__form">
                     @csrf
 
@@ -23,16 +35,10 @@
 
                     <div class="auth__form-item">
                         <input type="text" class="auth__form-input" name="username" placeholder="Логин">
-                        @error('username')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
                     </div>
 
                     <div class="auth__form-item">
                         <input type="password" class="auth__form-input" name="password" placeholder="Пароль">
-                        @error('password')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
                     </div>
 
                     <button type="submit" class="auth__form-submit">Войти</button>
@@ -45,6 +51,7 @@
                         <p class="auth__regBtn-text">У вас еще нет аккаунта? <a href="{{ route('register') }}" class="auth__regBtn">Зарегистрироваться</a></p>
                     </div>
                 </form>
+                <a href="{{ route('admin.login') }}">Административная панель</a>
             </div>
         </div>
     </div>

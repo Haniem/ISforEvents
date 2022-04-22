@@ -12,6 +12,10 @@ class AuthController extends Controller
 {
     function index() {
 
+        if(auth("admin")->check()){
+            return redirect('/admin/events');
+        }
+
         return view('admin.auth.login');
 
     }

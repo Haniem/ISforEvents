@@ -10,8 +10,7 @@
     
         <div class="header__nav">
             <ul class="nav__btns">
-                <li class="nav__btn"> <a href="{{ route('home') }}">Главная</a> </li>
-                <li class="nav__btn"> <a href="{{ route('events') }}">Все мероприятия</a> </li>
+                <li class="nav__btn"> <a href="{{ route('events') }}">Главная</a> </li>
                 <li class="nav__btn"> <a href="{{ route('event_types') }}">Категории</a> </li>
                 <li class="nav__btn"> <a href="{{ route('allLists') }}">Списки</a> </li>
                 @auth("web")
@@ -22,7 +21,9 @@
         </div>
     
         <div class="header__auth">
+
             @auth("web")
+                <a class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
                 <a href="{{ route('logout') }}" class="auth__btn">Выход</a> 
             @endauth
     

@@ -77,7 +77,6 @@ class EventController extends Controller
             'id_event_level' => ['required'],
             'id_event_status' => ['required'],
             'id_user' => ['required'],
-            'event_com' => []
         ], [
             'event_name.required' => 'Поле обязательно к заполнению.',
             'event_name.unique' => 'Такое мероприятие уже зарегестрировано.',
@@ -105,7 +104,6 @@ class EventController extends Controller
             'id_event_level' => $data['id_event_level'],
             'id_event_status' => $data['id_event_status'],
             'id_user' => $data['id_user'],
-            'event_com' => $data['event_com'],
 
         ]);
 

@@ -21,7 +21,7 @@ class AppController extends Controller
 {
     function homePage() {   
 
-        return view('home');
+        return redirect(route('events'));
         
     }
 

@@ -10,6 +10,7 @@
     
         <div class="adminHeader__nav">
             <ul class="nav__btns">
+                <a href="{{ route('home') }}" class="nav__btn"> На главную   </a>
                 <a href="{{ route('events.index') }}" class="nav__btn"> Мероприятия   </a>
                 <a href="{{ route('events.index') }}" class="nav__btn"> Не подтвержденные мероприятия </a>
                 <a href="" class="nav__btn"> Добавить мероприятие </a>

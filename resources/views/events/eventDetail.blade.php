@@ -26,12 +26,9 @@
     
                     @endforeach
                     </div>
-
-                    
                 </div>
-    
-                @auth('web')
-    
+
+                @if (auth("web")->id() == $event->id_user || auth('admin')->check())
                     <form action="{{ route('addNomination_process') }}" class="eventDetail__form" method="POST">
                         @csrf
 
@@ -44,8 +41,7 @@
                         
                         <button type="submit" class="eventDetail__form-submit">Добавить</button>
                     </form> 
-    
-                @endauth
+                @endif
             </div>
             
             <div class="eventDetailResults flexReverse">
@@ -59,35 +55,32 @@
                         @endif
                     @endforeach
                     </div>
-                    
                 </div>
     
-    
-                @auth('web')
-                        <form action="{{ route('addResult_process') }}" class="eventDetail__form" method="POST">
-                            @csrf   
-                            
-                            <h2 class="eventDetail__form-title">Добавить вид наградного документа</h2>
-    
-                            <input type="text" name="id_event" value="{{ $event -> id }}" hidden>
-    
-                            <div class="eventDetail__form-group">
-                                <label for="result_name" class="eventDetail__form-label">Введите название наградного документа:</label>
-                                <input type="text" class="eventDetail__form-input" name="result_name" placeholder="Название наградного документа">
-                            </div>
-    
-                            <div class="eventDetail__form-group">
-                                <label for="id_result_type" class="eventDetail__form-label">Выберите тип наградного документа</label>
-                                <select class="eventDetail__form-input" name="id_result_type" id="">
-                                    @foreach ($result_types as $result_type)
-                                        <option value="{{ $result_type -> id }}">{{ $result_type -> result_type_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            
-                            <button type="submit" class="eventDetail__form-submit">Добавить</button>
-                        </form> 
-                @endauth
+                @if (auth("web")->id() == $event->id_user || auth('admin')->check())
+                    <form action="{{ route('addResult_process') }}" class="eventDetail__form" method="POST">
+                        @csrf   
+                        <h2 class="eventDetail__form-title">Добавить вид наградного документа</h2>
+
+                        <input type="text" name="id_event" value="{{ $event -> id }}" hidden>
+
+                        <div class="eventDetail__form-group">
+                            <label for="result_name" class="eventDetail__form-label">Введите название наградного документа:</label>
+                            <input type="text" class="eventDetail__form-input" name="result_name" placeholder="Название наградного документа">
+                        </div>
+
+                        <div class="eventDetail__form-group">
+                            <label for="id_result_type" class="eventDetail__form-label">Выберите тип наградного документа</label>
+                            <select class="eventDetail__form-input" name="id_result_type" id="">
+                                @foreach ($result_types as $result_type)
+                                    <option value="{{ $result_type -> id }}">{{ $result_type -> result_type_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="eventDetail__form-submit">Добавить</button>
+                    </form> 
+                @endif
             </div>
         </div>
     </div>
