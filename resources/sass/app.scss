@@ -986,9 +986,31 @@ body {
 .admin {
     display: flex;
     flex-direction: row;
+
+    .main {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .linkToEdit {
+            padding: 15px;
+            text-decoration: none;
+            color: black;
+            background-color: rgb(253, 230, 116);
+            border-radius: 7px;
+            transition: 0.5s ease-out;
+
+            &:hover {
+                
+                background-color: rgb(255, 213, 0);
+            }
+        }
+    }
 }
 
 .adminadminHeader{
+    margin-right: 50px;
     min-height: 100vh;
     width: 20%;
     background-color: #323C8D;

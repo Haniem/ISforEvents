@@ -96,7 +96,7 @@ class AuthController extends Controller
         if (auth("web")->attempt($data)) {
 
             return redirect(route('home'));
-
+            
         };
 
         return redirect(route('login'))->withErrors(["loginError" => 'Пользователь не найдет, либо данные введены не правильно']);

@@ -55,6 +55,14 @@ class AppController extends Controller
     public function show($id)
     {
         //
+
+        $event = Events::where('id', $id)->first();
+
+
+        return view('admin.events.detail', [
+            'event' => $event
+        ]);
+
     }
 
     /**
@@ -65,7 +73,14 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $event = Events::where('id', $id)->first();
+
+
+        return view('admin.events.editEvent', [
+            'event' => $event
+        ]);
+
     }
 
     /**

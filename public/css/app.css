@@ -12697,8 +12697,25 @@ body {
   display: flex;
   flex-direction: row;
 }
+.admin .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin .main .linkToEdit {
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+  background-color: #fde674;
+  border-radius: 7px;
+  transition: 0.5s ease-out;
+}
+.admin .main .linkToEdit:hover {
+  background-color: #ffd500;
+}
 
 .adminadminHeader {
+  margin-right: 50px;
   min-height: 100vh;
   width: 20%;
   background-color: #323C8D;

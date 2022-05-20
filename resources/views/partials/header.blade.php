@@ -3,10 +3,6 @@
         <div class="header__logo">
             <a  href="{{ route('home') }}"><img class="logo__img" src="{{ asset("public/images/logo.png") }}" alt=""></a>
         </div>
-
-        <div class="header__secLogo">
-            <a  href="{{ route('home') }}"><img class="logo__img" src="{{ asset("public/images/logo.png") }}" alt=""></a>
-        </div>
     
         <div class="header__nav">
             <ul class="nav__btns">
