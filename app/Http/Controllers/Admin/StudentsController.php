@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Events;
 use App\Models\Students;
 use Illuminate\Http\Request;
 
-
-class AppController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,10 @@ class AppController extends Controller
      */
     public function index()
     {
-        $events = Events::orderBy('created_at')->paginate(10);
+        $students = Students::all();
 
-
-
-        return view('admin.events.events', [
-            "events" => $events,
+        return view('admin.students.students', [
+            'students' => $students,
         ]);
     }
 
@@ -56,14 +52,6 @@ class AppController extends Controller
     public function show($id)
     {
         //
-
-        $event = Events::where('id', $id)->first();
-
-
-        return view('admin.events.detail', [
-            'event' => $event
-        ]);
-
     }
 
     /**
@@ -74,14 +62,7 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-        
-        $event = Events::where('id', $id)->first();
-
-
-        return view('admin.events.edit', [
-            'event' => $event
-        ]);
-
+        //
     }
 
     /**
@@ -93,14 +74,7 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($id);
-        $student = Students::where('id', $id);
-
-        
-        // $user->name=$request->input('name');
-        // $user->email=$request->input('email');
-
-        // $user->save();
+        //
     }
 
     /**

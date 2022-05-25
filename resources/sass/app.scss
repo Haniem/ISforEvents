@@ -987,23 +987,34 @@ body {
     display: flex;
     flex-direction: row;
 
-    .main {
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .linkToEdit {
-            padding: 15px;
-            text-decoration: none;
-            color: black;
-            background-color: rgb(253, 230, 116);
-            border-radius: 7px;
-            transition: 0.5s ease-out;
-
-            &:hover {
-                
-                background-color: rgb(255, 213, 0);
+    .adminList{
+        margin: 40px 20px 80px 20px; 
+        .adminList__title{
+            
+        }
+        .adminList__list{
+            display: flex;
+            margin-bottom: 30px;
+            flex-direction: column;
+            
+            .adminList__item{
+                width: 100%;
+                padding: 10px 20px;
+                margin: 10px 0;
+                background-color: #adb6fd;
+                border-radius: 3px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                .adminList__title{
+                    color: #404464;
+                }
+                .adminList__detailLink{
+                    margin-right: 30px;
+                    color: #404464;
+                    text-decoration: none;
+                }
             }
         }
     }

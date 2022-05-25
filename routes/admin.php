@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\admin\StudentsController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +28,9 @@ Route::middleware('admin')->group(function(){
 Route::middleware("auth:admin")->group(function() {
 
     Route::resource('events', AppController::class); 
+
+    Route::resource('events.nominations', AppController::class); 
+    
+    Route::resource('students', StudentsController::class); 
      
 });

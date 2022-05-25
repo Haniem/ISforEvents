@@ -14,7 +14,7 @@
                 <a href="{{ route('events.index') }}" class="nav__btn"> Мероприятия   </a>
                 <a href="{{ route('events.index') }}" class="nav__btn"> Не подтвержденные мероприятия </a>
                 <a href="" class="nav__btn"> Добавить мероприятие </a>
-                <a href="" class="nav__btn"> Студенты </a>
+                <a href="{{ route('students.index') }}" class="nav__btn"> Студенты </a>
                 <a href="" class="nav__btn"> Группы </a>
                 <a href="" class="nav__btn"> Отделения </a>
                 <a href="" class="nav__btn"> Пользователи </a>

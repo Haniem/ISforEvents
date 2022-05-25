@@ -8,7 +8,7 @@
     <div class="admin">
         @include('admin.partials.header')
 
-        <div class="main">
+        <div class="eventDetail">
             @include('admin.partials.eventInfo', $event)
 
             <a href="{{ route('events.edit', $event->id) }}" class="linkToEdit">Редактировать</a>

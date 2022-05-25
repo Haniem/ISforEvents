@@ -12697,21 +12697,31 @@ body {
   display: flex;
   flex-direction: row;
 }
-.admin .main {
+.admin .adminList {
+  margin: 40px 20px 80px 20px;
+}
+.admin .adminList .adminList__list {
   display: flex;
+  margin-bottom: 30px;
   flex-direction: column;
+}
+.admin .adminList .adminList__list .adminList__item {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #adb6fd;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.admin .main .linkToEdit {
-  padding: 15px;
-  text-decoration: none;
-  color: black;
-  background-color: #fde674;
-  border-radius: 7px;
-  transition: 0.5s ease-out;
+.admin .adminList .adminList__list .adminList__item .adminList__title {
+  color: #404464;
 }
-.admin .main .linkToEdit:hover {
-  background-color: #ffd500;
+.admin .adminList .adminList__list .adminList__item .adminList__detailLink {
+  margin-right: 30px;
+  color: #404464;
+  text-decoration: none;
 }
 
 .adminadminHeader {
