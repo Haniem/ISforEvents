@@ -61,7 +61,7 @@ Route::delete('/lists/students/delete', [ListController::class, 'deleteStudent']
 
 //Авторизация
 
-Route::middleware("auth")->group(function() {
+Route::middleware("auth:web")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
 
@@ -72,7 +72,7 @@ Route::middleware("auth")->group(function() {
     Route::get('/profile', [AppController::class, 'showProfile'])->name('profile');
 });
 
-Route::middleware("guest")->group(function() {
+Route::middleware("guest:web")->group(function() {
 
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login_process', [AuthController::class, 'login'])->name('login_process');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('result_name', 250);
 
-            $table->foreignId('id_event')->references('id')->on('events');
+            $table->foreignId('id_event')->references('id')->on('events')->onDelete('CASCADE');
             $table->foreignId('id_result_type')->references('id')->on('result_types');
 
             $table->timestamps();

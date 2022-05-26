@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->text('note')->nullable();
             
-            $table->foreignId('id_student')->references('id')->on('students');
-            $table->foreignId('id_result')->references('id')->on('results');
-            $table->foreignId('id_stage')->references('id')->on('stages');
+            $table->foreignId('id_student')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignId('id_result')->references('id')->on('results')->onDelete('cascade');
+            $table->foreignId('id_stage')->references('id')->on('stages')->onDelete('cascade');
 
             $table->timestamps();
         });

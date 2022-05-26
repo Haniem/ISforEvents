@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomination_name', 250);
 
-            $table->foreignId('id_event')->references('id')->on('events');
+            $table->foreignId('id_event')->references('id')->on('events')->onDelete('cascade');
 
             $table->string('nomination_com', 250)->nullable();
             $table->timestamps();

@@ -93,7 +93,7 @@ class EventController extends Controller
 
         DB::table('events')->insert([
             'event_name' => $data['event_name'],
-            'event_discrtiption' => $data['event_discrtiption'],
+            'event_discription' => $data['event_discrtiption'],
             'event_format' => $data['event_format'],
             'begin_date' => $data['begin_date'],
             'end_date' => $data['end_date'],

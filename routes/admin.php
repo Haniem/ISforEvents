@@ -13,13 +13,13 @@ Route::get('', function() {
     return redirect(route('admin.login'));
 });
 
-Route::middleware('guest')->group(function(){
+Route::middleware('guest:admin')->group(function(){
 
     Route::get('login', [AuthController::class, 'index'])->name('admin.login');
     Route::post('login_process', [AuthController::class, 'login'])->name('admin.login_process');
 });
 
-Route::middleware('admin')->group(function(){
+Route::middleware('auth:admin')->group(function(){
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });
 

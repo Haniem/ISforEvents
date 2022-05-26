@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event_levels;
+use App\Models\Event_statuses;
+use App\Models\Event_types;
 use App\Models\Events;
 use App\Models\Students;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -33,7 +37,18 @@ class AppController extends Controller
      */
     public function create()
     {
-        //
+
+        $event_types = Event_types::all();
+        $event_levels = Event_levels::all();
+        $event_statuses = Event_statuses::all();
+        $users = User::all();
+        
+        return view('admin.events.create',[
+            'event_types' => $event_types,
+            'event_levels' => $event_levels,
+            'event_statuses' => $event_statuses,
+            'users' => $users
+        ]);
     }
 
     /**
@@ -76,10 +91,18 @@ class AppController extends Controller
     {
         
         $event = Events::where('id', $id)->first();
+        $event_types = Event_types::all();
+        $event_levels = Event_levels::all();
+        $event_statuses = Event_statuses::all();
+        $event_users = User::all();
 
 
         return view('admin.events.edit', [
-            'event' => $event
+            'event' => $event,
+            'event_types' => $event_types,
+            'event_levels' => $event_levels,
+            'event_statuses' => $event_statuses,
+            'event_users' => $event_users
         ]);
 
     }
@@ -93,14 +116,40 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($id);
-        $student = Students::where('id', $id);
+        $data = $request->validate([
+            'event_name' => 'required' ,
+            'event_discription' => 'required' ,
+            'event_format' => 'required' ,
+            'begin_date' => 'required' ,
+            'end_date' => 'required',
+            'event_age' => 'required',
+            'event_requirements' => 'required',
+            'event_link' => 'required',
+            'id_event_type' => 'required',
+            'id_event_level' => 'required',
+            'id_event_status' => 'required',
+            'id_user' => 'required'
+        ]);
 
-        
-        // $user->name=$request->input('name');
-        // $user->email=$request->input('email');
+        Events::where('id', $id)
+            ->update([
+                'event_name' => $data['event_name'],
+                'event_discrtiption' => $data['event_discription'], 
+                'event_format' => $data['event_format'],
+                'begin_date' => $data['begin_date'],
+                'end_date' => $data['end_date'],
+                'event_age' => $data['event_age'],
+                'event_requirements' => $data['event_requirements'],
+                'event_link' => $data['event_link'],
+                'id_event_type' => $data['id_event_type'],
+                'id_event_level' => $data['id_event_level'],
+                'id_event_status' => $data['id_event_status'],
+                'id_user' => $data['id_user'],
 
-        // $user->save();
+            ]);
+
+            
+        return redirect(route('events.index'));
     }
 
     /**
@@ -111,6 +160,8 @@ class AppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Events::destroy($id);
+
+        return redirect(route('events.index'));
     }
 }
