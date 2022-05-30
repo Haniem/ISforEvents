@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\admin\AdminUserListController;
 use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\admin\DepartmentsController;
+use App\Http\Controllers\admin\GroupsController;
+use App\Http\Controllers\admin\NominationsController;
+use App\Http\Controllers\admin\NominationsRequestsController;
 use App\Http\Controllers\admin\StudentsController;
-
-
+use App\Http\Controllers\admin\UserListController;
 use Illuminate\Support\Facades\Route;
 
 // Route::resource()
@@ -29,8 +33,18 @@ Route::middleware("auth:admin")->group(function() {
 
     Route::resource('events', AppController::class); 
 
-    Route::resource('events.nominations', AppController::class); 
+    Route::resource('events.nominations', NominationsController::class); 
+    
+    Route::resource('events.nominations.requests', NominationsRequestsController::class); 
     
     Route::resource('students', StudentsController::class); 
+    
+    Route::resource('groups', GroupsController::class); 
+
+    Route::resource('departments', DepartmentsController::class); 
+
+    Route::resource('users', UserListController::class); 
+
+    Route::resource('adminUsers', AdminUserListController::class); 
      
 });

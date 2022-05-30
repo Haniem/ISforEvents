@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Редактирование мероприятия')
+@section('title', 'Добавить мероприятие')
 
 
 @section('content')
@@ -10,12 +10,52 @@
         <div class="main">
             <h1>Добавить мероприятие</h1>
 
-            <form action="{{ route('addEvent_process') }}" method="post" class="addItemForm">
+            <form action="{{ route('events.store') }}" method="post" class="addItemForm">
                 @csrf
                 
                 <div class="addItemForm__group">
-                    <label for="" class="addItemForm__label"></label>
-                    <input type="text" class="addItemForm__input">
+                    <label for="event_name" class="addItemForm__label">Название</label>
+                    <input type="text" name="event_name" class="addItemForm__input">
+                </div>
+
+                <div class="addItemForm__group">
+                    <label for="event_discription" class="addItemForm__label">Описание</label>
+                    <input type="text" name="event_discription" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="event_format" class="addItemForm__label">Формат проведения</label>
+                    <input type="text" name="event_format" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="begin_date" class="addItemForm__label">Дата начала</label>
+                    <input type="date" name="begin_date" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="end_date" class="addItemForm__label">Дата окончания</label>
+                    <input type="date" name="end_date" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="event_age" class="addItemForm__label">Возрастные ограничения</label>
+                    <input type="text" name="event_age" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="event_requirements" class="addItemForm__label">Требования</label>
+                    <input type="text" name="event_requirements" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="event_link" class="addItemForm__label">Ссылка на страницу мероприятия</label>
+                    <input type="text" name="event_link" class="addItemForm__input">
+                </div>
+                
+                <div class="addItemForm__group">
+                    <label for="event_com" class="addItemForm__label">Коментарий для администратора</label>
+                    <input type="text" name="event_com" class="addItemForm__input">
                 </div>
 
                 <div class="addItemForm__group">

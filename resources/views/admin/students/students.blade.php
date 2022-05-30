@@ -11,27 +11,30 @@
 
             <div class="adminList">
                 <h1 class="adminList__title">Список студентов:</h1>
+
+                <a href="{{ route('students.create') }}" class="adminList__detailLink">Добавить</a>
                 
                 <div class="adminList__list">
-
-                    @dump($students )
-                    
                     @foreach ($students as $key=>$student)
 
                         <div class="adminList__item">
-                            <h3 class="adminList__title">{{ $key+1 }}. {{ $student -> student_name }} {{ $student -> student_surname }} {{ $student -> student_lastname }}</h3>
-                            <h3 class="adminList__title">{{ $student -> group_name }}</h3>
-
-                            <a href="{{ route('students.show', ['student' => $student -> id])}}" class="adminList__detailLink">Редактировать</a>
+                            <h2 class="adminList__title">{{ $key+1 }}. {{ $student -> student_name }} {{ $student -> student_name }}</h3>
+                                <h2 class="adminList__title">{{ $student -> group_name }}</h3>
+                            <div class="adminList__group">
+                                <a href="{{ route('students.edit', $student -> id)}}" class="adminList__detailLink">Редактировать</a>
+                                <form action="{{ route('students.destroy', $student -> id)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button 
+                                    type="submit" 
+                                    class="adminList__detailLink"
+                                    onclick="return confirm('Вы точно хотите удалить этого студента?')">Удалить</button>
+                                </form>
+                            </div>
                         </div>
-                        
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>
-
-    
-    
 @endsection

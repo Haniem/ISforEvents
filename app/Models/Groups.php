@@ -9,6 +9,11 @@ class Groups extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'group_name',
+        'department',
+    ];
+
     public function department() {
         return $this->belongsTo(Departments::class, 'department', 'department_name');
     }

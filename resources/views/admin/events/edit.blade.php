@@ -10,8 +10,6 @@
         <div class="main">
             @include('admin.partials.eventInfo', $event)
 
-            @dump(session()->all())
-
             <form class="editItemForm" action="{{ route('events.update', $event->id) }}" method="POST">
                 @method("PUT")
                 @csrf

@@ -59,7 +59,25 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'event_name' => 'required|unique:events,event_name',
+            'event_discription' => 'required',
+            'event_format' => 'required',
+            'begin_date' => 'required|date',
+            'end_date' => 'required|date',
+            'event_age' => 'required',
+            'event_requirements' => 'required',
+            'event_link' => 'required',
+            'id_event_type' => 'integer',
+            'id_event_level' => 'integer',
+            'id_event_status' => 'integer',
+            'id_user' => 'integer',
+            'event_com' => 'required',
+        ]);
+
+        Events::create($data);
+
+        return redirect(route('events.index'));
     }
 
     /**
@@ -71,14 +89,6 @@ class AppController extends Controller
     public function show($id)
     {
         //
-
-        $event = Events::where('id', $id)->first();
-
-
-        return view('admin.events.detail', [
-            'event' => $event
-        ]);
-
     }
 
     /**

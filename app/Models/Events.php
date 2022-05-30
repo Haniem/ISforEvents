@@ -9,6 +9,22 @@ class Events extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'event_name',
+        'event_discription',
+        'event_format',
+        'begin_date',
+        'end_date',
+        'event_age',
+        'event_requirements',
+        'event_link',
+        'id_event_type',
+        'id_event_level',
+        'id_event_status',
+        'id_user',
+        'event_com',
+    ];
+
     public function type() {
         return $this->belongsTo(Event_types::class, 'id_event_type');
     }

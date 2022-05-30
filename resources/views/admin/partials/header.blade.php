@@ -12,12 +12,12 @@
             <ul class="nav__btns">
                 <a href="{{ route('home') }}" class="nav__btn"> На главную   </a>
                 <a href="{{ route('events.index') }}" class="nav__btn"> Мероприятия   </a>
-                <a href="{{ route('events.index') }}" class="nav__btn"> Не подтвержденные мероприятия </a>
-                <a href="" class="nav__btn"> Добавить мероприятие </a>
+                <a href="{{ route('events.index') }}" class="nav__btn"> Заявки  </a>
                 <a href="{{ route('students.index') }}" class="nav__btn"> Студенты </a>
-                <a href="" class="nav__btn"> Группы </a>
-                <a href="" class="nav__btn"> Отделения </a>
-                <a href="" class="nav__btn"> Пользователи </a>
+                <a href="{{ route('groups.index') }}" class="nav__btn"> Группы </a>
+                <a href="{{ route('departments.index') }}" class="nav__btn"> Отделения </a>
+                <a href="{{ route('users.index') }}" class="nav__btn"> Пользователи </a>
+                <a href="{{ route('adminUsers.index') }}" class="nav__btn"> Администраторы </a>
             </ul>
         </div>
     
