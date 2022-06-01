@@ -31,20 +31,28 @@ Route::middleware('auth:admin')->group(function(){
 
 Route::middleware("auth:admin")->group(function() {
 
+    //функционал сделан
+
     Route::resource('events', AppController::class); 
 
-    Route::resource('events.nominations', NominationsController::class); 
-    
-    Route::resource('events.nominations.requests', NominationsRequestsController::class); 
-    
     Route::resource('students', StudentsController::class); 
     
     Route::resource('groups', GroupsController::class); 
 
     Route::resource('departments', DepartmentsController::class); 
 
+
+
+
+
+    //доделать
+
     Route::resource('users', UserListController::class); 
 
     Route::resource('adminUsers', AdminUserListController::class); 
+
+    Route::resource('events.nominations', NominationsController::class); 
+    
+    Route::resource('events.nominations.requests', NominationsRequestsController::class); 
      
 });
