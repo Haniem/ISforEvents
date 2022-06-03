@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
@@ -61,7 +62,7 @@ Route::delete('/lists/students/delete', [ListController::class, 'deleteStudent']
 
 //Авторизация
 
-Route::middleware("auth:web")->group(function() {
+Route::middleware("auth:web|auth:admin")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
 
@@ -81,3 +82,5 @@ Route::middleware("guest:web")->group(function() {
     Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
 
 });
+
+Route::get('/requests', [RequestController::class, 'index'])->name('stageRequests');
