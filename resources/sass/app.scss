@@ -809,6 +809,26 @@ body {
     } 
 }
 
+.curentStage{
+
+    .curentStage__table{
+
+        .curentStage__tr{
+            
+        }
+        
+        .curentStage__td{
+            border: 1px solid rgb(144, 144, 144);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+    }
+}
+
+
+
+
 .flexReverse {
     flex-direction: row-reverse !important;
 }
