@@ -163,12 +163,9 @@ class EventController extends Controller
         $stage_formats = Stage_format::all();
         $stage_statuses = Stage_status::all();
         $stage_types = Stage_type::all();
-        $event_requests = Requests::all();
         $students = Students::all();
         $results = Results::all();
-
-
-        $requests = Requests::all();
+        $requests = Requests::where('id_request_status', '!=', 1);
 
         return view('events.eventWithNominations', [
             "event" => $event,
@@ -177,7 +174,6 @@ class EventController extends Controller
             "stage_formats" => $stage_formats,
             "stage_statuses" => $stage_statuses, 
             "stage_types" => $stage_types,
-            "event_requests" => $event_requests,
             "students" => $students,
             "results" => $results,
             "requests" => $requests
@@ -225,6 +221,7 @@ class EventController extends Controller
             'id_student' => $data['id_student'],
             'id_result' => $data['id_result'],
             'id_stage' => $data['id_stage'],
+            'id_request_status' => 1,
         ]);
 
         

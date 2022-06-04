@@ -8,48 +8,17 @@ use GuzzleHttp\Psr7\Request;
 
 class RequestController extends Controller
 {
-    function index() {
+    function show_stage_requests($id_stage) {
 
-        $param = request()->all();
+        $requests = Requests::where('id_stage', $id_stage)->with('student')->with('result')->with('status')->with(['stage' => function($q) {
+            $q->with(['nomination' => function($r){
+                $r->with('event');
+            }]);
+        }])->get();
 
-        $request = Requests::all()->where('id', 1);
-
-        // $student = [
-        //     'name' => $request -> student['student_name'],
-        //     'surname' => $request -> student['student_surname'],
-        //     'lastname' => $request -> student['student_lastname'],
-        //     'course' => $request -> student['course'],
-        //     'surname' => $request -> student['group_name'],
-        //     'surname' => $request -> student['department'],
-        // ] ;
-
-        dump($request);
-        
-
-        // foreach($requests as $request) {
-
-        //     // $nums = [1, 2, 3];
-
-        //     // $request = array_push($nums);
-
-        //     $student = Students::where('id', $request['id_student'])->first();
-
-        //     $student->toArray();
-
-        //     $request = array_push($student -> student_name);
-        //     $request = array_push($student -> student_surname);
-        //     $request = array_push($student -> student_lastname);
-        //     $request = array_push($student -> student_course);
-        //     $request = array_push($student -> group_name);
-        //     $request = array_push($student -> department);
-
-        //     dump($student);
-        //     dump($request);
-        // };
-
-        return ;
+        // return view('stageRequest', [
+        //     'requests' => $requests
+        // ]);
+            return $requests;
     }
 }
-
-
-// http://isforevents/requests?event=1&nomination=1&stage=1

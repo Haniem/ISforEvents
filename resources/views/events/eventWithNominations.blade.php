@@ -31,7 +31,8 @@
                                 </div>
                             @endif
                         @endforeach
-
+                        
+                        <a href="{{ route('stage_requests', ['id' => $event->id, 'id_nomination' => $nomination -> id, 'id_stage' => $stage -> id]) }}">Отчет</a>
                         @auth('web')
 
 

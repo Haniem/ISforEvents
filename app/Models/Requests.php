@@ -16,4 +16,16 @@ class Requests extends Model
     public function result() {
         return $this->belongsTo(Results::class, 'id_result', 'id');
     }
+
+    public function status() {
+        return $this->belongsTo(Request_statuses::class, 'id_request_status', 'id');
+    }
+
+    public function stage() {
+        return $this->belongsTo(Stage::class, 'id_stage', 'id');
+    }
+
+    public function event() {
+        return $this->belongsToMany(Events::class);
+    }
 }

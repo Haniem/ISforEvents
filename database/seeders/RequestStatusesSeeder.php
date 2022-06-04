@@ -16,19 +16,16 @@ class RequestStatusesSeeder extends Seeder
     public function run()
     {
         DB::table('request_statuses')->insert([
+            "request_status_name" => "На подтверждении"
+        ]);
+
+        DB::table('request_statuses')->insert([
             "request_status_name" => "Запланировано"
         ]);
 
         DB::table('request_statuses')->insert([
-            "request_status_name" => "Идет сейчас"
+            "request_status_name" => "Утверждено"
         ]);
-
-        DB::table('request_statuses')->insert([
-            "request_status_name" => "Завершено"
-        ]);
-
-        DB::table('request_statuses')->insert([
-            "request_status_name" => "Отменено"
-        ]);
+        
     }
 }

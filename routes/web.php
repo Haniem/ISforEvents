@@ -30,13 +30,16 @@ Route::get('/events/event_types', [AppController::class, 'event_types'])->name('
 
 Route::get('/events/{event_type}', [AppController::class, 'show_event_with_type'])->name('show_event_with_type');
 
-Route::get('/events/bytype/{id}', [EventController::class, 'eventDetail'])->name('event_detail');
+Route::get('/events/event/{id}', [EventController::class, 'eventDetail'])->name('event_detail');
 Route::post('/addNomination_process', [EventController::class, 'addNomination'])->name('addNomination_process');
 Route::post('/addResult_process', [EventController::class, 'addResult'])->name('addResult_process');
 
-Route::get('/events/bytype/{id}/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
+Route::get('/events/event/{id}/nomination/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
 Route::post('/addStage_process', [EventController::class, 'addStage'])->name('addStage_process');
 Route::post('/addEvent_request_process', [EventController::class, 'addRequest'])->name('addRequest_process');
+
+
+Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'show_stage_requests'])->name('stage_requests');
 
 
 
@@ -82,5 +85,3 @@ Route::middleware("guest:web")->group(function() {
     Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
 
 });
-
-Route::get('/requests', [RequestController::class, 'index'])->name('stageRequests');
