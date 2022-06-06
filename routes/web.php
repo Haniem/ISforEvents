@@ -42,36 +42,10 @@ Route::post('/addEvent_request_process', [EventController::class, 'addRequest'])
 Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'show_stage_requests'])->name('stage_requests');
 
 
-
-//Списки
-
-Route::get('/lists', [ListController::class, 'showLists'])->name('allLists');
-
-//Список группы
-Route::get('/lists/groups', [ListController::class, 'showGroups'])->name('showGroups');
-Route::post('/lists/groups/add', [ListController::class, 'addGroup'])->name('addGroup');
-Route::delete('/lists/groups/delete', [ListController::class, 'deleteGroup'])->name('deleteGroup');
-
-//Список отделений
-Route::get('/lists/departments', [ListController::class, 'showDeaprtments'])->name('showDeaprtments');
-Route::post('/lists/departments/add', [ListController::class, 'addDepartment'])->name('addDepartment');
-Route::delete('/lists/departments/delete', [ListController::class, 'deleteDepartment'])->name('deleteDepartment');
-
-//Список студентов
-Route::get('/lists/students', [ListController::class, 'showStudents'])->name('showStudents');
-Route::post('/lists/students/add', [ListController::class, 'addStudent'])->name('addStudent');
-Route::delete('/lists/students/delete', [ListController::class, 'deleteStudent'])->name('deleteStudent');
-
-
 //Авторизация
 
-Route::middleware("auth:web|auth:admin")->group(function() {
+Route::middleware("auth:web")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    
-
-    Route::get('/addEvent', [EventController::class, 'showAddEventForm'])->name('addEvent');
-    Route::post('/addEvent_process', [EventController::class, 'addEvent'])->name('addEvent_process');
-
     
     Route::get('/profile', [AppController::class, 'showProfile'])->name('profile');
 });
