@@ -16,8 +16,6 @@ use App\Models\Stage_status;
 use App\Models\Stage_type;
 use App\Models\Students;
 use App\Models\User;
-use Illuminate\Console\Scheduling\Event;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,17 +27,35 @@ class EventController extends Controller
 
     function eventDetail($id) {
 
-
         $nominations = Nominations::where('id_event', $id)->select('id','nomination_name')->get();
         $event = Events::findOrFail($id);
         $results = Results::where('id_event', $id)->get();
         $result_types = Result_types::all();
+
+        $requests = Requests::where('id', '>', 0)
+        ->with('student')
+        ->with('result')
+        ->with('status')
+        ->with(['stage' => function($q) {
+            $q->with(['nomination' => function($r)           {
+                $r->with(['event' => function ($w) {
+                    $w -> with('level');
+                }], ['event' => function ($e) {
+                    $e -> with('type');
+                }], ['event' => function ($t) {
+                    $t -> with(['user' => function($y) {
+                        $y -> with('pc.pck');
+                    }]);
+                }]);
+            }]);
+        }])->get();
 
         return view('events.eventDetail', [
             "event" => $event,
             "nominations" => $nominations,
             "result_types" => $result_types,
             "results" => $results, 
+            "requests" => $requests
         ]);
 
     }
@@ -94,9 +110,8 @@ class EventController extends Controller
         $students = Students::all();
         $results = Results::all();
 
-        $requests = Requests::all();
 
-        // $requests = Requests::where('id_request_status', '!=', 1);
+        $requests = Requests::where('id_request_status', '!=', 1)->get();
 
         return view('events.eventWithNominations', [
             "event" => $event,
@@ -114,7 +129,7 @@ class EventController extends Controller
     function addStage(Request $request) {
 
         $data = $request->validate([
-            'event_stage_name' => ["required", "string", "unique:stages,event_stage_name"],
+            'event_stage_name' => ["required", "string"],
             'stage_begin_date' => ["required"],
             'stage_end_date' => ["required"],
             'id_event_stage_type' => ["required"],

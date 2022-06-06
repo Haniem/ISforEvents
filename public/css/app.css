@@ -12465,9 +12465,14 @@ body {
   background-color: #dde3ff;
   border-radius: 4px;
 }
-.eventDetailInfo .eventDetailInfo__title {
+.eventDetailInfo .eventDetailInfo__titleLink {
+  text-decoration: none;
+  color: black;
   grid-column-start: 1;
   grid-column-end: 3;
+  margin: 0px 40px;
+}
+.eventDetailInfo .eventDetailInfo__titleLink .eventDetailInfo__title {
   font-size: 35px;
 }
 .eventDetailInfo .eventDetailInfo__right {
@@ -12538,10 +12543,40 @@ body {
   background-color: #ffee8e;
 }
 
-.curentStage .curentStage__table .curentStage__td {
+.curentStage {
+  margin: 50px 0px;
+}
+.curentStage .curentStage__group {
+  margin: 0 50px 15px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.curentStage .curentStage__group .curentStage__downloadBtn {
+  padding: 15px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: green;
+}
+.curentStage .curentStage__group .curentStage__downloadBtn:hover {
+  background-color: #00c900;
+  transition: 0.4s ease-in;
+}
+.curentStage .curentStage__table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.curentStage .curentStage__table thead {
+  background-color: #ffed84;
+}
+.curentStage .curentStage__table .curentStage__tr .curentStage__td {
   border: 1px solid #909090;
-  border-radius: 10px;
-  padding: 15px;
+  padding: 15px 10px;
 }
 
 .flexReverse {
@@ -12641,6 +12676,20 @@ body {
   transition: all 0.3s ease;
 }
 
+@media screen and (max-width: 799px) {
+  .flexReverse {
+    flex-direction: column !important;
+  }
+
+  .eventDetail__form {
+    width: auto;
+    flex-direction: column !important;
+  }
+
+  .eventDetailNominations {
+    flex-direction: column !important;
+  }
+}
 .eventDetailStages {
   padding: 20px 15px;
   margin-bottom: 20px;

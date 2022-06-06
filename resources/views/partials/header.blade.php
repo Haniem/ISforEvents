@@ -17,17 +17,13 @@
                     @endif
                     ">Административная панель</a> 
                 </li>
-                @auth("web")
-                    <li class="nav__btn"> <a href="{{ route('profile') }}">Личный кабинет</a> </li>
-                    <li class="nav__btn"> <a href="{{ route('events.index') }}">Админпанель</a> </li>
-                @endauth
             </ul>
         </div>
     
         <div class="header__auth">
 
             @auth("web")
-                <a class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
+                <a href="{{ route('profile') }}" class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
                 <a href="{{ route('logout') }}" class="auth__btn">Выход</a> 
             @endauth
     
@@ -40,5 +36,5 @@
         <button class="header__menuBtn">Меню</button>
     </div>
     
-    <script src="public/js/app.js"></script>
+    <script src="{{ asset('public/js/app.js') }}"></script>
 </div>

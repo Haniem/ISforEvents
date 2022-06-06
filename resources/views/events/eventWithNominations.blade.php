@@ -22,19 +22,25 @@
                     <div class="eventDetailStages__group-stage">
                         <h1 class="eventDetailStages__groups-title">{{ $stage -> event_stage_name }}</h1>
 
-                        @foreach ($requests as $request)
-                            @if ($stage -> id == $request -> id_stage)                   
-                                <div class="eventDetailStages__group">
+                        @if($requests->count() < 1)
+ 
+                            <h1 class="eventDetailStages__groups-title">Нет подвержденных заявок</h1>
 
-                                    <p class="eventDetailStages__group-name">Студент: {{ $request -> student -> student_name }} {{ $request -> student -> student_surname }} {{ $request -> student -> student_lastname }}</p>
-                                    <p class="eventDetailStages__group-result">Релультат: {{ $request -> result -> result_name }}</p>
-                                </div>
-                            @endif
-                        @endforeach
+                        @else
+                            @foreach ($requests as $request)
+                                @if ($stage -> id == $request -> id_stage && $request -> id_request_status == 2)               
+                                    <div class="eventDetailStages__group">
+
+                                        <p class="eventDetailStages__group-name">Студент: {{ $request -> student -> student_name }} {{ $request -> student -> student_surname }} {{ $request -> student -> student_lastname }}</p>
+                                        <p class="eventDetailStages__group-result">Релультат: {{ $request -> result -> result_name }}</p>
+                                    </div>
+                                @endif
+                            @endforeach
+                            <a href="{{ route('stage_requests', ['id' => $event->id, 'id_nomination' => $nomination -> id, 'id_stage' => $stage -> id]) }}">Отчет</a>
+                        @endif
+
                         
-                        <a href="{{ route('stage_requests', ['id' => $event->id, 'id_nomination' => $nomination -> id, 'id_stage' => $stage -> id]) }}">Отчет</a>
                         @auth('web')
-
 
                             <form class="eventDetail__form addStudent" action="{{ route('addRequest_process') }}" method="post">
                                 @csrf

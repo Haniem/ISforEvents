@@ -1,6 +1,6 @@
 <div class="eventDetailInfo">
     
-    <h1 class="eventDetailInfo__title">{{ $event -> event_name }}</h1>
+    <a class="eventDetailInfo__titleLink" href="{{ route('event_detail', $event -> id) }}"><h1 class="eventDetailInfo__title">{{ $event -> event_name }}</h1></a>
 
     <div class="eventDetailInfo__right">
 

@@ -18,7 +18,7 @@
                     <button class="curentStage__downloadBtn">Экспортировать в эксэль документ</button>
                 </div>
 
-                <table class="curentStage__table" style="position: relative; overflow: auto;">
+                <table class="curentStage__table">
                     <thead class="curentStage__thead">
                         <tr class="curentStage__tr">
                             <td class="curentStage__td">Даты проведения:</td>
