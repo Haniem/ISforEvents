@@ -41,7 +41,6 @@ Route::post('/addEvent_request_process', [EventController::class, 'addRequest'])
 
 Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'show_stage_requests'])->name('stage_requests');
 
-
 //Авторизация
 
 Route::middleware("auth:web")->group(function() {
@@ -59,3 +58,4 @@ Route::middleware("guest:web")->group(function() {
     Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
 
 });
+//igvbuyyfvub

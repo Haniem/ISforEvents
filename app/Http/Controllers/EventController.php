@@ -47,12 +47,15 @@ class EventController extends Controller
 
     function addNomination(Request $request) {
 
-        $nomination_name = $request->input('nomination_name');
+
+        $data = $request ->validate([
+            'nomination_name' => 'required'
+        ]);
         
         $id_event = $request->input('id_event');
 
         DB::table('nominations')->insert([
-            'nomination_name' => $nomination_name,
+            'nomination_name' => $data['nomination_name'],
             'id_event' => $id_event,
         ]);
 
@@ -90,7 +93,10 @@ class EventController extends Controller
         $stage_types = Stage_type::all();
         $students = Students::all();
         $results = Results::all();
-        $requests = Requests::where('id_request_status', '!=', 1);
+
+        $requests = Requests::all();
+
+        // $requests = Requests::where('id_request_status', '!=', 1);
 
         return view('events.eventWithNominations', [
             "event" => $event,

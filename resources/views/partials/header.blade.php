@@ -19,6 +19,7 @@
                 </li>
                 @auth("web")
                     <li class="nav__btn"> <a href="{{ route('profile') }}">Личный кабинет</a> </li>
+                    <li class="nav__btn"> <a href="{{ route('events.index') }}">Админпанель</a> </li>
                 @endauth
             </ul>
         </div>

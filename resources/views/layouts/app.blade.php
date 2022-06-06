@@ -16,7 +16,6 @@
 </head>
 <body>
     
-        {{-- @dump(session()->all()) --}}
         @yield('content')
         
 </body>
