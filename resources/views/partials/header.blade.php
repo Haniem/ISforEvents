@@ -8,26 +8,22 @@
             <ul class="nav__btns">
                 <li class="nav__btn"> <a href="{{ route('events') }}">Главная</a> </li>
                 <li class="nav__btn"> <a href="{{ route('event_types') }}">Категории</a> </li>
-                
-                @auth("web")
-                    <li class="nav__btn"> <a href="{{ route('profile') }}">Личный кабинет</a> </li>
-                    <li class="nav__btn"> 
-                        <a href="
-                        @if(auth('admin')->check())
-                            {{ route('events.index') }}
-                        @else 
-                            {{ route('admin.login') }}
-                        @endif
-                        ">Административная панель</a> 
-                    </li>
-                @endauth
+                <li class="nav__btn"> 
+                    <a href="
+                    @if(auth('admin')->check())
+                        {{ route('events.index') }}
+                    @else 
+                        {{ route('admin.login') }}
+                    @endif
+                    ">Административная панель</a> 
+                </li>
             </ul>
         </div>
     
         <div class="header__auth">
 
             @auth("web")
-                <a class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
+                <a href="{{ route('profile') }}" class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
                 <a href="{{ route('logout') }}" class="auth__btn">Выход</a> 
             @endauth
     

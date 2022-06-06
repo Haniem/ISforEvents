@@ -15,13 +15,30 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $request = Requests::where('id', 1)->with('student')->with('result')->with('status')->with(['stage' => function($q) {
-            $q->with(['nomination' => function($r){
-                $r->with('event');
+        $requests = Requests::where('id', '>', 0)
+        ->with('student')
+        ->with('result')
+        ->with('status')
+        ->with(['stage' => function($q) {
+            $q->with(['nomination' => function($r)           {
+                $r->with(['event' => function ($w) {
+                    $w -> with('level');
+                }], ['event' => function ($e) {
+                    $e -> with('type');
+                }], ['event' => function ($t) {
+                    $t -> with(['user' => function($y) {
+                        $y -> with('pc.pck');
+                    }]);
+                }]);
             }]);
-        }])->first();
+        }])->get();
 
-        return $request->toJson();
+        // dd($requests);
+
+
+        return view('admin.requests.requests', [
+            'requests' => $requests
+        ]);
     }
 
     /**
@@ -64,7 +81,27 @@ class RequestController extends Controller
      */
     public function edit($id)
     {
-        //
+        $request = Requests::where('id', $id)
+        ->with('student')
+        ->with('result')
+        ->with('status')
+        ->with(['stage' => function($q) {
+            $q->with(['nomination' => function($r)           {
+                $r->with(['event' => function ($w) {
+                    $w -> with('level');
+                }], ['event' => function ($e) {
+                    $e -> with('type');
+                }], ['event' => function ($t) {
+                    $t -> with(['user' => function($y) {
+                        $y -> with('pc.pck');
+                    }]);
+                }]);
+            }]);
+        }])->first();
+
+        return view ('admin.requests.edit', [
+            'request' => $request
+        ]);
     }
 
     /**
@@ -76,7 +113,13 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id_request_status = $request->input('id_request_status');
+
+        Requests::where('id', $id)->update([
+            'id_request_status' => $id_request_status,
+        ]);
+
+        return redirect(route('requests.index'));
     }
 
     /**

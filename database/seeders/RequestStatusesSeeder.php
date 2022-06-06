@@ -20,11 +20,11 @@ class RequestStatusesSeeder extends Seeder
         ]);
 
         DB::table('request_statuses')->insert([
-            "request_status_name" => "Запланировано"
+            "request_status_name" => "Утверждено"
         ]);
 
         DB::table('request_statuses')->insert([
-            "request_status_name" => "Утверждено"
+            "request_status_name" => "Отменено"
         ]);
         
     }

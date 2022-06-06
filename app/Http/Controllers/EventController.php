@@ -16,8 +16,6 @@ use App\Models\Stage_status;
 use App\Models\Stage_type;
 use App\Models\Students;
 use App\Models\User;
-use Illuminate\Console\Scheduling\Event;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -112,9 +110,8 @@ class EventController extends Controller
         $students = Students::all();
         $results = Results::all();
 
-        $requests = Requests::all();
 
-        // $requests = Requests::where('id_request_status', '!=', 1);
+        $requests = Requests::where('id_request_status', '!=', 1)->get();
 
         return view('events.eventWithNominations', [
             "event" => $event,

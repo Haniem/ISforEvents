@@ -15,30 +15,18 @@
                 <div class="adminList__list">
                     @foreach ($requests as $key=>$request)
 
+                        {{-- @if($request -> id_request_status == 1) --}}
+                            <div class="adminList__item">
 
-
-                        <div class="adminList__item">
-
-                            @dump($request -> student -> student_name)
-                            @dump($request -> student -> student_surname)
-                            @dump($request -> student -> student_lastname)
-                            @dump($request -> student -> group_name)
-                            @dump($request -> student -> department)
-                            @dump($request -> stage -> event_stage_name)
-                            @dump($request -> event)
-                            {{-- <h2 class="adminList__title">{{ $key+1 }}. {{ $request -> id }} {{ $request -> student }}</h3> --}}
-                            <div class="adminList__group">
-                                <a href="{{ route('requests.edit', $request -> id)}}" class="adminList__detailLink">Редактировать</a>
-                                <form action="{{ route('requests.destroy', $request -> id)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button 
-                                    type="submit" 
-                                    class="adminList__detailLink"
-                                    onclick="return confirm('Вы точно хотите удалить этого студента?')">Удалить</button>
-                                </form>
+                                
+                                <h2 class="adminList__title">{{ $key+1 }}. {{ $request -> stage -> nomination -> event -> event_name }} | {{ $request -> stage -> event_stage_name }} | {{ $request -> student -> student_name }} {{ $request -> student -> student_surname }} | {{ $request -> status -> request_status_name }}</h3>
+                                <div class="adminList__group">
+                                    <a href="{{ route('requests.edit', $request -> id)}}" class="adminList__detailLink">Редактировать</a>
+                                </div>
                             </div>
-                        </div>
+                        {{-- @endif --}}
+
+                        
                     @endforeach
                 </div>
             </div>
