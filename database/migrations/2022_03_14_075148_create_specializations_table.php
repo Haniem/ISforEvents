@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('specializations', function (Blueprint $table) {
             $table->id();
-            $table->string('group_name', 250);
-            $table->foreignId('id_department')->references('id')->on('departments');
-            $table->foreignId('id_specialization')->references('id')->on('specializations');
+
+            $table->string('specialization_name', 250);
 
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('specializations');
     }
 };

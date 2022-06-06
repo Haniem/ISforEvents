@@ -11,10 +11,15 @@ class Groups extends Model
 
     protected $fillable = [
         'group_name',
-        'department',
+        'id_department',
+        'id_specialization',
     ];
 
     public function department() {
-        return $this->belongsTo(Departments::class, 'department', 'department_name');
+        return $this->belongsTo(Departments::class, 'id_department', 'id');
+    }
+
+    public function specialization() {
+        return $this->belongsTo(Specialization::class, 'id_specialization', 'id');
     }
 }

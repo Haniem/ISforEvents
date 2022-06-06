@@ -85,6 +85,17 @@
                     class="editItemForm__input" 
                     value="{{ $event -> event_link }}">
                 </div>
+                
+                <div class="editItemForm__item">
+                    <label for="place_of_realization" class="editItemForm__label">Место проведения</label>
+                    <input 
+                    name="place_of_realization" 
+                    type="text" 
+                    class="editItemForm__input" 
+                    value="{{ $event -> place_of_realization }}">
+                </div>
+
+                
 
                 <div class="editItemForm__item">
                     <label for="" class="editItemForm__label">Тип мероприятия</label>

@@ -21,10 +21,6 @@ use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
-    
-
-
-
     function eventDetail($id) {
 
         $nominations = Nominations::where('id_event', $id)->select('id','nomination_name')->get();
@@ -33,18 +29,26 @@ class EventController extends Controller
         $result_types = Result_types::all();
 
         $requests = Requests::where('id', '>', 0)
-        ->with('student')
+        ->with(['student' => function($q){
+            $q -> with(['group' => function($w) {
+                $w -> with('specialization');
+            }], ['group' => function($w) {
+                $w -> with('department');                
+            }]);
+        }])
         ->with('result')
         ->with('status')
         ->with(['stage' => function($q) {
             $q->with(['nomination' => function($r)           {
                 $r->with(['event' => function ($w) {
                     $w -> with('level');
-                }], ['event' => function ($e) {
+                }], 
+                ['event' => function ($e) {
                     $e -> with('type');
-                }], ['event' => function ($t) {
+                }], 
+                ['event' => function ($t) {
                     $t -> with(['user' => function($y) {
-                        $y -> with('pc.pck');
+                        $y -> with('comission');
                     }]);
                 }]);
             }]);
@@ -111,7 +115,7 @@ class EventController extends Controller
         $results = Results::all();
 
 
-        $requests = Requests::where('id_request_status', '!=', 1)->get();
+        $requests = Requests::all();
 
         return view('events.eventWithNominations', [
             "event" => $event,
@@ -168,6 +172,7 @@ class EventController extends Controller
             'id_result' => $data['id_result'],
             'id_stage' => $data['id_stage'],
             'id_request_status' => 1,
+            'date_of_addition' => date('Y-m-d'),
         ]);
 
         

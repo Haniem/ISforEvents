@@ -23,19 +23,19 @@
                         <h1 class="eventDetailStages__groups-title">{{ $stage -> event_stage_name }}</h1>
 
                         @if($requests->count() < 1)
- 
-                            <h1 class="eventDetailStages__groups-title">Нет подвержденных заявок</h1>
 
+                            <h1 class="eventDetailStages__groups-title">Нет подвержденных заявок</h1>
                         @else
                             @foreach ($requests as $request)
-                                @if ($stage -> id == $request -> id_stage && $request -> id_request_status == 2)               
+                                @if ($stage -> id == $request -> id_stage)               
                                     <div class="eventDetailStages__group">
 
                                         <p class="eventDetailStages__group-name">Студент: {{ $request -> student -> student_name }} {{ $request -> student -> student_surname }} {{ $request -> student -> student_lastname }}</p>
+                                        <p class="eventDetailStages__group-name">Группа: {{ $request -> student -> group_name }}</p>
                                         <p class="eventDetailStages__group-result">Релультат: {{ $request -> result -> result_name }}</p>
                                     </div>
                                 @endif
-                            @endforeach
+                            @endforeach                                         
                             <a href="{{ route('stage_requests', ['id' => $event->id, 'id_nomination' => $nomination -> id, 'id_stage' => $stage -> id]) }}">Отчет</a>
                         @endif
 
@@ -76,7 +76,7 @@
                 </div>       
             </div>
 
-            @auth('web')
+            @if (auth("web")->id() == $event->id_user || auth('admin')->check())
                 <form action="{{ route('addStage_process') }}" class="eventDetail__form addStageForm" method="POST">
 
                     <h1 class="eventDetail__form-title">Добавить стадию</h1>
@@ -129,11 +129,7 @@
                     <button type="submit" class="eventDetail__form-submit">Добавить</button>
 
                 </form>
-            @endauth
-
-
+            @endif
         </div>
-        
     </div>
-    
 @endsection

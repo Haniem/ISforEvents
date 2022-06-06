@@ -57,6 +57,13 @@
                     <label for="event_com" class="addItemForm__label">Коментарий для администратора</label>
                     <input type="text" name="event_com" class="addItemForm__input">
                 </div>
+                
+                <div class="addItemForm__group">
+                    <label for="place_of_realization" class="addItemForm__label">Место проведения</label>
+                    <input type="text" name="place_of_realization" class="addItemForm__input">
+                </div>
+
+                
 
                 <div class="addItemForm__group">
                     <select class="addItemForm__input" name="id_event_type" id="" required>

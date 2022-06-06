@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Departments;
-use App\Models\Groups;
-use App\Models\Students;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
 
-class StudentsController extends Controller
+class SpecializationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,10 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = Students::all();
+        $specializations = Specialization::all();
 
-        return view('admin.students.students', [
-            'students' => $students,
+        return view('admin.specializations.specializations', [
+            'specializations' => $specializations,
         ]);
     }
 
@@ -30,12 +28,8 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-        $groups = Groups::all();
-
-        return view('admin.students.create', [
-            'groups' => $groups,
-        ]);
+    {
+        return view('admin.specializations.create');
     }
 
     /**
@@ -46,17 +40,13 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'student_name' => 'required',
-            'student_surname' => 'required',
-            'student_lastname' => 'required',
-            'course' => 'required',
-            'id_group' => 'required',
+        $specialization = $request->validate([
+            'specialization_name' => 'required'
         ]);
 
-        Students::create($data);
+        Specialization::create($specialization);
 
-        return redirect(route('students.index'));
+        return redirect(route('specializations.index'));
     }
 
     /**
@@ -78,12 +68,10 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        $student = Students::where('id', $id)->first();
-        $groups = Groups::all();
+        $specialization = Specialization::where('id', $id)->first();
 
-        return view('admin.students.edit', [
-            'student' => $student,
-            'groups' => $groups,
+        return view('admin.specializations.edit', [
+            'specialization' => $specialization,
         ]);
     }
 
@@ -96,15 +84,13 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'student_name' => 'required',
-            'student_surname' => 'required',
-            'student_lastname' => 'required',
-            'course' => 'required',
-            'id_group' => 'required',
+        $specialization = $request->validate([
+            'specialization_name' => 'required'
         ]);
-        Students::where('id', $id)->update($data);
-        return redirect(route('students.index'));
+
+        Specialization::where('id', $id)->update($specialization);
+
+        return redirect(route('specializations.index'));
     }
 
     /**
@@ -115,8 +101,9 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        Students::destroy($id);
+        Specialization::destroy($id);
 
-        return redirect(route('students.index'));
+        
+        return redirect(route('specializations.index'));
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('event_age')->nullable();
             $table->string('event_requirements', 250);
             $table->string('event_link', 250)->nullable();
-
+            $table->string('place_of_realization', 250)->nullable();
             $table->foreignId('id_event_type')->references('id')->on('event_types');
             $table->foreignId('id_event_level')->references('id')->on('event_levels');
             $table->foreignId('id_event_status')->references('id')->on('event_statuses');

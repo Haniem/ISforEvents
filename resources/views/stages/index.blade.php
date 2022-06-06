@@ -42,17 +42,17 @@
                         @foreach ($requests as $request)
                         <tr class="curentStage__tr">
                             <td class="curentStage__td">с {{ $request -> stage -> stage_begin_date }} до {{ $request -> stage -> stage_end_date }}</td>
-                            <td class="curentStage__td"></td>
-                            <td class="curentStage__td">{{ $request -> student -> department }}</td>
-                            <td class="curentStage__td"></td>
-                            <td class="curentStage__td">{{ $request -> student -> group_name }}</td>
+                            <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> comission -> comission_name }}</td>
+                            <td class="curentStage__td">{{ $request -> student-> group -> department -> department_name }}</td>
+                            <td class="curentStage__td">{{ $request -> student-> group -> specialization -> specialization_name }}</td>
+                            <td class="curentStage__td">{{ $request -> student-> group -> group_name }}</td>
                             <td class="curentStage__td">{{ $request -> student -> student_name }} {{ $request -> student -> student_surname }}</td>
                             <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> level -> event_level_name }}</td>
                             <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> type -> event_type_name }}</td>
                             <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> event_name }}</td>
                             <td class="curentStage__td">{{ $request -> stage -> nomination -> nomination_name }}</td>
-                            <td class="curentStage__td"></td>
-                            <td class="curentStage__td"></td>
+                            <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> place_of_realization }}</td>
+                            <td class="curentStage__td">{{ $request -> date_of_addition }}</td>
                             <td class="curentStage__td">{{ $request -> result -> result_name }}</td>
                             <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> name }} {{ $request -> stage -> nomination -> event -> user -> surname }} {{ $request -> stage -> nomination -> event -> user -> lastname }}</td>
                         </tr>

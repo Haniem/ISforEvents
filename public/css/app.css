@@ -12573,6 +12573,7 @@ body {
 }
 .curentStage .curentStage__table thead {
   background-color: #ffed84;
+  text-align: center;
 }
 .curentStage .curentStage__table .curentStage__tr .curentStage__td {
   border: 1px solid #909090;

@@ -848,8 +848,6 @@ body {
 
     }
     .curentStage__table{
-        
-    
         width: 100%;
         display: block;
         overflow-x: auto;
@@ -857,12 +855,13 @@ body {
 
         thead {
             background-color: rgb(255, 237, 132);
+            text-align: center;
         }
 
         .curentStage__tr{
 
             .curentStage__td{
-    
+                
                 border: 1px solid rgb(144, 144, 144);
                 padding: 15px 10px;
             }

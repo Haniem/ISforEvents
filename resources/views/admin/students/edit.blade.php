@@ -51,18 +51,17 @@
                 </div>
 
                 <div class="editItemForm__item">
-                    <label for="group_name" class="editItemForm__label">Группа</label>
-                    <select name="group_name" id="" class="editItemForm__input">
+                    <label for="id_group" class="editItemForm__label">Группа</label>
+                    <select name="id_group" id="" class="editItemForm__input">
                         @foreach ($groups as $key=>$group)
-
                             @if ($student -> group_name == $group -> group_name)
-                                <option value="{{ $group -> group_name }}" class="editItemForm__input-option" selected>{{ $key+1 }}. {{ $group -> group_name }}</option>
+                                <option value="{{ $group -> id }}" class="editItemForm__input-option" selected>{{ $key+1 }}. {{ $group -> group_name }}</option>
                             @else 
-                                <option value="{{ $group -> group_name }}" class="editItemForm__input-option">{{ $key+1 }}. {{ $group -> group_name }}</option>
+                                <option value="{{ $group -> id }}" class="editItemForm__input-option">{{ $key+1 }}. {{ $group -> group_name }}</option>
                             @endif
-
                         @endforeach
                     </select>
+                    <a class="editItemForm__link" href="{{ route('groups.create') }}">Создать группу</a>
                 </div>
 
                 

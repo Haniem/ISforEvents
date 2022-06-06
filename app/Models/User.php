@@ -46,4 +46,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function comission() {
+        return $this->belongsTo(Comissions::class, 'id_comission', 'id');
+    }
 }

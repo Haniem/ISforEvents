@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Departments;
 use App\Models\Groups;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
 
 class GroupsController extends Controller
@@ -31,9 +32,11 @@ class GroupsController extends Controller
     public function create()
     {
         $departments = Departments::all();
+        $specializations = Specialization::all();
         
         return view('admin.groups.create',[
             'departments' => $departments,
+            'specializations' => $specializations,
         ]);
     }
 
@@ -48,8 +51,15 @@ class GroupsController extends Controller
 
         $data = $request->validate([
             'group_name' => 'required|unique:groups,group_name',
-            'department' => 'required',
+            'id_department' => 'required',
+            'id_specialization' => 'required'
         ]);
+        
+        // Groups::create([
+        //     'group_name' => $data['group_name'],
+        //     'id_department' => $data['id_department'],
+        //     'id_specialization' => $data['id_specialization'],
+        // ]);
         
         Groups::create($data);
 
@@ -77,10 +87,12 @@ class GroupsController extends Controller
     {
         $group = Groups::findOrFail($id);
         $departments = Departments::all();
+        $specializations = Specialization::all();
 
         return view('admin.groups.edit', [
             'group' => $group,
-            'departments' => $departments
+            'departments' => $departments,
+            'specializations' => $specializations
         ]);
     }
 
@@ -95,7 +107,8 @@ class GroupsController extends Controller
     {
         $data = $request->validate([
             'group_name' => 'required|unique:groups,group_name',
-            'department' => 'required',
+            'id_department' => 'required',
+            'id_specialization' => 'required',
         ]);
 
         Groups::where('id', $id)->update($data);

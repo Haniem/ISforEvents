@@ -16,6 +16,7 @@
                 <a href="{{ route('students.index') }}" class="nav__btn"> Студенты </a>
                 <a href="{{ route('groups.index') }}" class="nav__btn"> Группы </a>
                 <a href="{{ route('departments.index') }}" class="nav__btn"> Отделения </a>
+                <a href="{{ route('specializations.index') }}" class="nav__btn"> Специальности </a>
                 <a href="{{ route('users.index') }}" class="nav__btn"> Пользователи </a>
                 <a href="{{ route('adminUsers.index') }}" class="nav__btn"> Администраторы </a>
             </ul>

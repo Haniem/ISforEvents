@@ -18,6 +18,7 @@ class Events extends Model
         'event_age',
         'event_requirements',
         'event_link',
+        'place_of_realization',
         'id_event_type',
         'id_event_level',
         'id_event_status',

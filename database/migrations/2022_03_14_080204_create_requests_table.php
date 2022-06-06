@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->text('note')->nullable();
-            
+            $table->date('date_of_addition');
             $table->foreignId('id_student')->references('id')->on('students')->onDelete('cascade');
             $table->foreignId('id_result')->references('id')->on('results')->onDelete('cascade');
             $table->foreignId('id_stage')->references('id')->on('stages')->onDelete('cascade');

@@ -34,12 +34,13 @@
                 </div>
 
                 <div class="addItemForm__group">
-                    <select class="addItemForm__input" name="group_name" id="" required>
+                    <select class="addItemForm__input" name="id_group" id="" required>
                         <option class="addItemForm__option" value="">Наименование группы</option>
                         @foreach ($groups as $group)
-                            <option class="addItemForm__option" value="{{ $group -> group_name }}">{{ $group -> group_name }}</option>
+                            <option class="addItemForm__option" value="{{ $group -> id }}">{{ $group -> group_name }}</option>
                         @endforeach
                     </select>
+                    <a class="editItemForm__link" href="{{ route('groups.create') }}">Создать группу</a>
                 </div>
                 
                 <button type="submit" class="addEvent__form-submit">Добавить</button>

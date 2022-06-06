@@ -14,7 +14,10 @@ class Students extends Model
         'student_surname',
         'student_lastname',
         'course',
-        'group_name',
-        'department',
+        'id_group',
     ];
+
+    public function group() {
+        return $this->belongsTo(Groups::class, 'id_group', 'id');
+    }
 }

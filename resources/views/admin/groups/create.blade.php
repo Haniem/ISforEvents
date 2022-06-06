@@ -19,12 +19,23 @@
                 </div>
 
                 <div class="addItemForm__group">
-                    <select class="addItemForm__input" name="department" id="" required>
+                    <select class="addItemForm__input" name="id_department" id="" required>
                         <option class="addItemForm__option" value="">Наименование отделения</option>
                         @foreach ($departments as $department)
-                            <option class="addItemForm__option" value="{{ $department -> department_name }}">{{ $department -> department_name }}</option>
+                            <option class="addItemForm__option" value="{{ $department -> id }}">{{ $department -> department_name }}</option>
                         @endforeach
                     </select>
+                    <a  class="editItemForm__link" href="{{ route('departments.create') }}">Добавить отделение</a>
+                </div>
+
+                <div class="addItemForm__group">
+                    <select class="addItemForm__input" name="id_specialization" id="" required>
+                        <option class="addItemForm__option" value="">Наименование специальности</option>
+                        @foreach ($specializations as $specialization)
+                            <option class="addItemForm__option" value="{{ $specialization -> id }}">{{ $specialization -> specialization_name }}</option>
+                        @endforeach
+                    </select>
+                    <a  class="editItemForm__link" href="{{ route('specializations.create') }}">Добавить специальность</a>
                 </div>
 
                 

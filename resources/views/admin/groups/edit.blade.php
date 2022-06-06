@@ -8,7 +8,7 @@
         @include('admin.partials.header')
         <div class="main">
 
-            <h1 class="editItemForm__title">Редактирование мероприятия</h1>
+            <h1 class="editItemForm__title">Редактирование группы</h1>
 
             <form class="editItemForm" action="{{ route('groups.update', $group->id) }}" method="POST">
                 @method("PUT")
@@ -24,17 +24,31 @@
                 </div>
 
                 <div class="editItemForm__item">
-                    <label for="" class="editItemForm__label">Тип мероприятия</label>
-                    <select name="department" id="" class="editItemForm__input">
+                    <label for="id_department" class="editItemForm__label">Отделение</label>
+                    <select name="id_department" id="" class="editItemForm__input">
                         @foreach ($departments as $key=>$department)
-                            @if ($group -> department == $department -> department_name)
-                                <option value="{{ $department -> department_name }}" class="editItemForm__input-option" selected>{{ $key+1 }}. {{ $department -> department_name }}</option>
+                            @if ($group -> id_department == $department -> id)
+                                <option value="{{ $department -> id }}" class="editItemForm__input-option" selected>{{ $key+1 }}. {{ $department -> department_name }}</option>
                             @else 
-                            <option value="{{ $department -> department_name }}" class="editItemForm__input-option">{{ $key+1 }}. {{ $department -> department_name }}</option>
+                            <option value="{{ $department -> id }}" class="editItemForm__input-option">{{ $key+1 }}. {{ $department -> department_name }}</option>
                             @endif
-
                         @endforeach
                     </select>
+                    <a  class="editItemForm__link" href="{{ route('departments.create') }}">Добавить отделение</a>
+                </div>
+
+                <div class="editItemForm__item">
+                    <label for="id_specialization" class="editItemForm__label">Специальность</label>
+                    <select name="id_specialization" id="" class="editItemForm__input">
+                        @foreach ($specializations as $key=>$specialization)
+                            @if ($group -> id_specialization == $specialization -> id)
+                                <option value="{{ $specialization -> id }}" class="editItemForm__input-option" selected>{{ $key+1 }}. {{ $specialization -> specialization_name }}</option>
+                            @else 
+                            <option value="{{ $specialization -> id }}" class="editItemForm__input-option">{{ $key+1 }}. {{ $specialization -> specialization_name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <a  class="editItemForm__link" href="{{ route('specializations.create') }}">Добавить специальность</a>
                 </div>
 
                 
