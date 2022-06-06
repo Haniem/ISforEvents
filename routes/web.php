@@ -59,3 +59,4 @@ Route::middleware("guest:web")->group(function() {
     Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
 
 });
+//igvbuyyfvub
