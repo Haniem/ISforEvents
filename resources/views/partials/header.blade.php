@@ -8,18 +8,18 @@
             <ul class="nav__btns">
                 <li class="nav__btn"> <a href="{{ route('events') }}">Главная</a> </li>
                 <li class="nav__btn"> <a href="{{ route('event_types') }}">Категории</a> </li>
-                <li class="nav__btn"> 
-                    <a href="
-                    @if(auth('admin')->check())
-                        {{ route('events.index') }}
-                    @else 
-                        {{ route('admin.login') }}
-                    @endif
-                    ">Административная панель</a> 
-                </li>
+                
                 @auth("web")
                     <li class="nav__btn"> <a href="{{ route('profile') }}">Личный кабинет</a> </li>
-                    <li class="nav__btn"> <a href="{{ route('events.index') }}">Админпанель</a> </li>
+                    <li class="nav__btn"> 
+                        <a href="
+                        @if(auth('admin')->check())
+                            {{ route('events.index') }}
+                        @else 
+                            {{ route('admin.login') }}
+                        @endif
+                        ">Административная панель</a> 
+                    </li>
                 @endauth
             </ul>
         </div>
@@ -40,5 +40,5 @@
         <button class="header__menuBtn">Меню</button>
     </div>
     
-    <script src="public/js/app.js"></script>
+    <script src="{{ asset('public/js/app.js') }}"></script>
 </div>
