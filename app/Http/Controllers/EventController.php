@@ -28,6 +28,7 @@ class EventController extends Controller
         $results = Results::where('id_event', $id)->get();
         $result_types = Result_types::all();
 
+        
         $requests = Requests::where('id', '>', 0)
         ->with(['student' => function($q){
             $q -> with(['group' => function($w) {

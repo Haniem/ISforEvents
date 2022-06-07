@@ -13,6 +13,7 @@ class RequestController extends Controller
 {
     function show_stage_requests($id, $id_nomination, $id_stage) 
     {
+        
         $requests = Requests::where('id_stage', $id_stage)
         ->with(['student' => function($q){
             $q -> with(['group' => function($w) {
