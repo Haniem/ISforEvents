@@ -23,8 +23,6 @@ class AppController extends Controller
     {
         $events = Events::orderBy('created_at')->paginate(10);
 
-
-
         return view('admin.events.events', [
             "events" => $events,
         ]);

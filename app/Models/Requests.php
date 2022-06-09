@@ -24,8 +24,4 @@ class Requests extends Model
     public function stage() {
         return $this->belongsTo(Stage::class, 'id_stage', 'id');
     }
-
-    public function event() {
-        return $this->belongsToMany(Events::class);
-    }
 }

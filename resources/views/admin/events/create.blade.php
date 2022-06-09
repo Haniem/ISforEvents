@@ -63,8 +63,6 @@
                     <input type="text" name="place_of_realization" class="addItemForm__input">
                 </div>
 
-                
-
                 <div class="addItemForm__group">
                     <select class="addItemForm__input" name="id_event_type" id="" required>
                         <option class="addItemForm__option" value="">Тип мероприятия</option>
