@@ -1,12 +1,5 @@
-<div class="adminadminHeader">
+<div class="adminHeader">
     <div class="adminHeader__container">
-        <div class="adminHeader__logo">
-            <img class="logo__img" src="{{ asset("public/images/MGTU_Logo.png") }}" alt="">
-        </div>
-
-        {{-- <div class="adminHeader__secLogo">
-            <a  href="{{ route('home') }}"><img class="logo__img" src="{{ asset("public/images/logo.png") }}" alt=""></a>
-        </div> --}}
     
         <div class="adminHeader__nav">
             <ul class="nav__btns">

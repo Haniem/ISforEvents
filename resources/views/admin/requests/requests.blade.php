@@ -9,7 +9,7 @@
 
         <div class="container">
 
-            <div class="adminList">
+            <div class="main">
                 <h1 class="adminList__title">Список заявок:</h1>
                 
                 <div class="adminList__list">

@@ -9,7 +9,7 @@
 
         <div class="container">
 
-            <div class="adminList">
+            <div class="main">
                 <h1 class="adminList__title">Список отделений:</h1>
 
                 <a href="{{ route('departments.create') }}" class="adminList__detailLink">Добавить</a>

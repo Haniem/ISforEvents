@@ -9,7 +9,7 @@
 
         <div class="container">
 
-            <div class="adminList">
+            <div class="main">
                 <h1 class="adminList__title">Список мероприятий:</h1>
 
                 <a href="{{ route('events.create') }}" class="adminList__detailLink">Добавить</a>

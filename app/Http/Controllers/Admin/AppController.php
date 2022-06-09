@@ -144,7 +144,7 @@ class AppController extends Controller
         Events::where('id', $id)
             ->update([
                 'event_name' => $data['event_name'],
-                'event_discrtiption' => $data['event_discription'], 
+                'event_discription' => $data['event_discription'], 
                 'event_format' => $data['event_format'],
                 'begin_date' => $data['begin_date'],
                 'end_date' => $data['end_date'],
@@ -160,7 +160,7 @@ class AppController extends Controller
             ]);
 
             
-        return redirect(route('events.index'));
+        return redirect()->back();
     }
 
     /**

@@ -8,7 +8,7 @@
     <div class="admin">
         @include('admin.partials.header')
         <div class="main">
-            <h1>Добавить группу</h1>
+            <h1 class="addItem__title">Добавить группу</h1>
 
             <form action="{{ route('groups.store') }}" method="post" class="addItemForm">
                 @csrf
@@ -39,7 +39,7 @@
                 </div>
 
                 
-                <button type="submit" class="addEvent__form-submit">Добавить</button>
+                <button type="submit" class="addItem__form-submit">Добавить</button>
             </form>
 
         </div>

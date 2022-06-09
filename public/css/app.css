@@ -11813,8 +11813,9 @@ textarea.form-control-lg {
   outline: none;
 }
 
-body {
+html, body {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -11871,10 +11872,10 @@ body {
   color: #8390f1;
 }
 .header .header__container .header__auth .username {
-  cursor: default;
+  cursor: pointer;
 }
 .header .header__container .header__auth .username:hover {
-  color: white;
+  color: #5b6df1;
 }
 .header .header__container .header__menuBtn {
   position: relative;
@@ -12215,166 +12216,180 @@ body {
     text-align: center;
   }
 }
-.addEvent {
-  margin: 60px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.profileBio {
+  padding: 50px 100px;
 }
-.addEvent .addEvent__leftSide {
-  width: 50%;
+.profileBio .profileBio__groupUserInfo {
+  width: 70%;
+  padding: 40px 50px;
+  margin: 0 auto 50px auto;
+  border: 6px solid #5b6df1;
+  border-radius: 10px;
 }
-.addEvent .addEvent__leftSide .addEvent__form-mainTitle {
+.profileBio .profileBio__groupUserInfo .profileBio__title {
+  text-align: center;
+  font-weight: bolder;
   font-size: 35px;
+  color: #323C8D;
   margin-bottom: 30px;
-  text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  font-weight: bold;
 }
-.addEvent .addEvent__leftSide .addEvent__form {
-  margin: 0 auto;
-  width: 90%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(2, 1fr);
-}
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-title {
-  font-size: 24px;
-  margin: 0;
-  text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group {
-  margin: 10px;
-  position: relative;
-}
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-label {
+.profileBio .profileBio__groupUserInfo .profileBio__group {
+  margin: 0 20px;
   display: flex;
-  position: absolute;
-  left: 10%;
-  top: 15%;
-  background: white;
-  white-space: nowrap;
-  transform: translate(0, 0);
-  transform-origin: 0 0;
-  transition: transform 120ms ease;
-  line-height: 1.7;
-  font-size: 14px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #323C8D;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-label .text-danger {
+.profileBio .profileBio__groupUserInfo .profileBio__group:last-child {
+  border-bottom: none;
+  background-color: red;
+}
+.profileBio .profileBio__groupUserInfo .profileBio__group .profileBio__field {
   margin: 0;
+  padding: 5px 0;
+  color: #323C8D;
+  font-size: 25px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-input {
-  box-sizing: border-box;
+.profileBio .profileBio__groupUserInfo .profileBio__group .profileBio__value {
+  margin: 0;
+  padding: 5px 0;
+  color: #323C8D;
+  font-size: 25px;
+}
+.profileBio .profileBio__groupUserInfo .profileBio__editLink {
   display: block;
-  width: 100%;
-  height: 35px;
-  border: 1px solid #868686;
+  width: 30%;
+  margin: 30px auto 0px auto;
   padding: 10px;
-  background: transparent;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
   border-radius: 5px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-input:focus + .addEvent__form-label {
-  transform: translate(0.25rem, -60%) scale(0.8);
-  color: #868686;
+.profileBio .profileBio__groupUserInfo .profileBio__editLink:hover {
+  background-color: transparent;
+  color: #5b6df1;
+  transition: 0.3s ease-out;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-input:not(:-moz-placeholder-shown) + .addEvent__form-label {
-  transform: translate(0.25rem, -60%) scale(0.8);
-  color: #868686;
+.profileBio .profileOwnEvents .profileOwnEvents__title {
+  color: #323C8D;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-input:not(:-ms-input-placeholder) + .addEvent__form-label {
-  transform: translate(0.25rem, -60%) scale(0.8);
-  color: #868686;
+.profileBio .profileOwnEvents .profileOwnEvents__event {
+  padding: 10px 30px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group .addEvent__form-input:not(:placeholder-shown) + .addEvent__form-label {
-  transform: translate(0.25rem, -60%) scale(0.8);
-  color: #868686;
-}
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-select {
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group {
+  padding: 20px 30px;
   display: flex;
-  flex-direction: column;
-  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: 3px solid #cbd1ff;
+  border-radius: 4px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-select .addEvent__form-label {
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info {
   display: flex;
+  align-items: center;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-select .addEvent__form-input {
-  width: 100%;
-  border: 1px solid #868686;
-  padding: 10px;
-  background: transparent;
-  border-radius: 3px;
-  font-size: 12px;
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__dates {
+  display: flex;
+  align-items: center;
+  margin: 0px 30px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-submit {
-  width: auto !important;
-  padding: 15px 30px;
-  margin: 20px auto;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  background-color: #323C8D;
-  border: none;
-  border-radius: 2px;
-  color: white;
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__dates .profileOwnEvents__text {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__text {
+  margin: 0;
+  color: #323C8D;
+  font-size: 25px;
+}
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileOwnEvents__btn {
+  padding: 10px 20px;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  border-radius: 5px;
 }
-.addEvent .addEvent__leftSide .addEvent__form .addEvent__form-submit:hover {
-  background-color: #6770b6;
-  transition: all 0.3s ease;
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileOwnEvents__btn:hover {
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  transition: 0.3s ease-out;
 }
-.addEvent .addEvent__rightSide {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.addEvent .addEvent__rightSide .addEvent__right-logo {
-  margin-bottom: 30px;
-}
-.addEvent .addEvent__rightSide .addEvent__right-errors {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.addEvent .addEvent__rightSide .addEvent__right-errors .addEvent__right-error {
-  font-size: 25px;
+.profileBio .profileBio__title {
   text-align: center;
-  color: #ff5959;
-  margin-bottom: 10px;
+}
+.profileBio .profileBio__form {
+  width: 60%;
+  margin: 0 auto;
+}
+.profileBio .profileBio__form .profileBio__group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__label {
+  margin: 0;
+  font-size: 20px;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__input {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid #cbd1ff;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__input:hover {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__input:focus {
+  background-color: whitesmoke;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__select {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid #cbd1ff;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__select:hover {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.profileBio .profileBio__form .profileBio__group .profileBio__select:focus {
+  background-color: whitesmoke;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.profileBio .profileBio__form .profileBio__submit {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  border-radius: 5px;
+}
+.profileBio .profileBio__form .profileBio__submit:hover {
+  background-color: transparent;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  transition: 0.3s ease-out;
 }
 
-@media screen and (max-width: 768px) {
-  .addEvent {
-    width: 100%;
-    flex-direction: column-reverse;
-  }
-  .addEvent .addEvent__rightSide {
-    width: 100%;
-  }
-  .addEvent .addEvent__rightSide .addEvent__right-logo {
-    width: 20%;
-  }
-  .addEvent .addEvent__leftSide {
-    width: 100%;
-  }
-  .addEvent .addEvent__leftSide .addEvent__form {
-    display: flex;
-    flex-direction: column;
-  }
-  .addEvent .addEvent__leftSide .addEvent__form .addEvent__form-group {
-    width: 100%;
-  }
-  .addEvent .addEvent__leftSide .addEvent__form .addEvent__form-select {
-    width: 100%;
-  }
-}
 .events {
   margin: 40px 20px 80px 20px;
 }
@@ -12725,6 +12740,17 @@ body {
 .eventDetailStages .eventDetailStages__groups .eventDetailStages__group-stage .eventDetailStages__group .eventDetailStages__group-result {
   margin: 0;
 }
+.eventDetailStages .eventDetailWithNomination__notification {
+  padding: 10px 20px;
+}
+.eventDetailStages .eventDetailWithNomination__notification .eventDetailWithNomination__title {
+  font-size: 25px;
+  margin: 0;
+}
+.eventDetailStages .eventDetailWithNomination__notification .eventDetailWithNomination__link {
+  display: block;
+  margin-top: 10px;
+}
 
 .eventDetailWithNomination .addStudent {
   width: 100% !important;
@@ -12751,65 +12777,35 @@ body {
 
 .admin {
   display: flex;
-  flex-direction: row;
-}
-.admin .adminList {
-  margin: 40px 20px 80px 20px;
-}
-.admin .adminList .adminList__list {
-  display: flex;
-  margin-bottom: 30px;
   flex-direction: column;
 }
-.admin .adminList .adminList__list .adminList__item {
-  width: 100%;
-  padding: 10px 20px;
-  margin: 10px 0;
-  background-color: #adb6fd;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.admin .adminList .adminList__list .adminList__item .adminList__title {
-  color: #404464;
-}
-.admin .adminList .adminList__list .adminList__item .adminList__detailLink {
-  margin-right: 30px;
-  color: #404464;
-  text-decoration: none;
-}
-
-.adminadminHeader {
-  margin-right: 50px;
-  min-height: 100vh;
-  width: 20%;
+.admin .adminHeader {
   background-color: #323C8D;
 }
-.adminadminHeader .adminHeader__container {
+.admin .adminHeader .adminHeader__container {
   height: 100%;
   padding: 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
-.adminadminHeader .adminHeader__container .adminHeader__logo {
+.admin .adminHeader .adminHeader__container .adminHeader__logo {
   flex-grow: 1;
 }
-.adminadminHeader .adminHeader__container .adminHeader__logo .logo__img {
+.admin .adminHeader .adminHeader__container .adminHeader__logo .logo__img {
   height: 20vh;
 }
-.adminadminHeader .adminHeader__container .adminHeader__nav {
+.admin .adminHeader .adminHeader__container .adminHeader__nav {
   padding: 0;
   flex-grow: 3;
 }
-.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns {
+.admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 0px;
 }
-.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn {
+.admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn {
   width: 100%;
   height: 100%;
   padding: 10px 10px;
@@ -12825,12 +12821,12 @@ body {
   border-bottom: 1px solid white;
   transition: 0.1s linear;
 }
-.adminadminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:hover {
+.admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:hover {
   background-color: #7782d3;
   transition: 0.1s linear;
   color: white;
 }
-.adminadminHeader .adminHeader__container .adminHeader__auth .auth__btn {
+.admin .adminHeader .adminHeader__container .adminHeader__auth .auth__btn {
   font-weight: 700;
   margin-right: 20px;
   text-decoration: none;
@@ -12838,7 +12834,128 @@ body {
   text-transform: uppercase;
   transition: 0.1s linear;
 }
-.adminadminHeader .adminHeader__container .adminHeader__auth .auth__btn:hover {
+.admin .adminHeader .adminHeader__container .adminHeader__auth .auth__btn:hover {
   color: #8390f1;
+}
+.admin .main {
+  margin: 40px 20px 80px 20px;
+}
+.admin .main .adminList__list {
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+.admin .main .adminList__list .adminList__item {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #adb6fd;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin .main .adminList__list .adminList__item .adminList__title {
+  color: #404464;
+}
+.admin .main .adminList__list .adminList__item .adminList__detailLink {
+  margin-right: 30px;
+  color: #404464;
+  text-decoration: none;
+}
+.admin .editItemForm__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.admin .editItemForm {
+  width: 70%;
+  margin: 0 auto;
+}
+.admin .editItemForm .editItemForm__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.admin .editItemForm .editItemForm__item .editItemForm__input {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid #cbd1ff;
+}
+.admin .editItemForm .editItemForm__item .editItemForm__input:hover {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .editItemForm .editItemForm__item .editItemForm__input:focus {
+  background-color: whitesmoke;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .editItemForm .etidItemForm__submit {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  border-radius: 5px;
+}
+.admin .editItemForm .etidItemForm__submit:hover {
+  background-color: transparent;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  transition: 0.3s ease-out;
+}
+.admin .addItem__title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.admin .addItemForm {
+  width: 70%;
+  margin: 0 auto;
+}
+.admin .addItemForm .addItemForm__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.admin .addItemForm .addItemForm__group .addItemForm__input {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid #cbd1ff;
+}
+.admin .addItemForm .addItemForm__group .addItemForm__input:hover {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .addItemForm .addItemForm__group .addItemForm__input:focus {
+  background-color: whitesmoke;
+  border-bottom: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .addItemForm .editItemForm__link {
+  margin: 10px 0 0px 0px;
+}
+.admin .addItemForm .addItem__form-submit {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  border-radius: 5px;
+}
+.admin .addItemForm .addItem__form-submit:hover {
+  background-color: transparent;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  transition: 0.3s ease-out;
 }
 

@@ -1,5 +1,17 @@
 @import "node_modules/bootstrap/dist/css/bootstrap";
 
+$backgroundColor: #e2e6ff;
+$headerColor: #323C8D;
+$headerLinkBtnHoverColor: #8390f1;
+$headerBtnHoverColor: #8390f1;
+
+$borderColor: #323C8D;
+$blueColor: #323C8D;
+$lightblueColor: #5b6df1;
+$lightLightblueColor: #cbd1ff;
+$yellow: rgb(255, 218, 9);
+$lightYellow: rgb(255, 233, 106);
+
 * {
     margin: 0;
     padding: 0;
@@ -7,18 +19,19 @@
     outline: none;
 }
 
-body {
+html, body {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-}
+  }
 
 .header{
     position: relative;
     z-index: 2;
     width: 100%;
-    background-color: #323C8D;
+    background-color: $headerColor;
 
     .header__container {
         width: 80%;
@@ -54,7 +67,7 @@ body {
                         color: white;
                         transition: 0.1s linear;
                         &:hover {
-                            color: #8390f1;                    
+                            color: $headerLinkBtnHoverColor;                    
                         }
                     }
                 }
@@ -72,15 +85,15 @@ body {
             }
     
             .auth__btn:hover {
-                color: #8390f1;
+                color: $headerBtnHoverColor;
             }
 
             .username{
-                cursor: default;
-            }
-
-            .username:hover {
-                color: white;
+                cursor: pointer;
+                
+                &:hover {
+                    color: $lightblueColor;
+                }
             }
         }
         .header__menuBtn {
@@ -433,188 +446,221 @@ body {
 }
 
 
-.addEvent{ 
-    margin: 60px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.profileBio{
 
-    .addEvent__leftSide {
-        width: 50%;
+    padding: 50px 100px;
 
-        .addEvent__form-mainTitle{
-            font-size: 35px;
-            margin-bottom: 30px;
+    .profileBio__groupUserInfo{
+
+        width: 70%;
+        padding: 40px 50px;
+        margin: 0 auto 50px auto;
+        border: 6px solid $lightblueColor;
+        border-radius: 10px;
+
+        .profileBio__title{
             text-align: center;
-            grid-column-start: 1;
-            grid-column-end: 3;
-            font-weight: bold;
+            font-weight: bolder;
+            font-size: 35px;
+            color: $blueColor;
+            margin-bottom: 30px;
         }
 
-        .addEvent__form{
-            margin: 0 auto;
-            width: 90%;
-            display: grid;
+        .profileBio__group{
+            margin: 0 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            grid-template-columns: repeat(2, 1fr);
+            font-size: 25px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid $blueColor;
 
-            .addEvent__form-title {
-                font-size: 24px;
+            &:last-child {
+                border-bottom: none;
+                background-color: red;
+            }
+
+            .profileBio__field{
                 margin: 0;
-                text-align: center;
-                grid-column-start: 1;
-                grid-column-end: 3;
+                padding: 5px 0;
+                color: $blueColor;
+                font-size: 25px;
             }
-
-            .addEvent__form-group{
-                margin: 10px;
-                position: relative;
-
-                .addEvent__form-label{
-                    display: flex;
-                    position: absolute;
-                    left: 10%;
-                    top: 15%;
-                    background: white;
-                    white-space: nowrap;
-                    transform: translate(0, 0);
-                    transform-origin: 0 0;
-                    transition: transform 120ms ease;
-                    line-height: 1.7;
-                    font-size: 14px;
-
-                    .text-danger {
-                        margin: 0;
-                    }
-
-                }
-        
-                .addEvent__form-input{
-                    box-sizing: border-box;
-                    display: block;
-                    width: 100%;
-                    height: 35px;
-                    border: 1px solid rgb(134, 134, 134);
-                    padding: 10px;
-                    background: transparent;
-                    border-radius: 5px;
-
-                    &:focus {
-                        & + .addEvent__form-label {
-                            transform: translate(.25rem, -60%) scale(.8);
-                            color: rgb(134, 134, 134);
-                        }
-                    }
-                    &:not(:placeholder-shown) {
-                        & + .addEvent__form-label {
-                            transform: translate(.25rem, -60%) scale(.8);
-                            color: rgb(134, 134, 134);
-                        }
-                    }
-                }
+            .profileBio__value{
+                margin: 0;
+                padding: 5px 0;
+                color: $blueColor;
+                font-size: 25px;
             }
+            
+        }
+    
+        .profileBio__editLink{
+            display: block;
+            width: 30%;
+            margin: 30px auto 0px auto;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            background-color: $lightblueColor;
+            border: 2px solid $lightblueColor;
+            color: white;
+            border-radius: 5px;
 
-            .addEvent__form-select {
+            &:hover {
+
+                background-color: transparent;
+                color: $lightblueColor;
+                transition: 0.3s ease-out;
+            }
+        }
+    }
+    
+    .profileOwnEvents{  
+    
+        .profileOwnEvents__title{
+            color: $blueColor;
+        }
+
+        .profileOwnEvents__event {
+            padding: 10px 30px;   
+
+            .profileEvents__group{
+
+                padding: 20px 30px;
                 display: flex;
-                flex-direction: column;
-                margin: 10px;
-
-                .addEvent__form-label{
+                justify-content: space-between;
+                align-items: center;
+                background-color: transparent;
+                border: 3px solid $lightLightblueColor;
+                border-radius: 4px;
+            
+                .profileEvents__info{
                     display: flex;
-                }
-        
-                .addEvent__form-input{
-                    width: 100%;
-                    border: 1px solid rgb(134, 134, 134);
-                    padding: 10px;
-                    background: transparent;
-                    border-radius: 3px;
-                    font-size: 12px;
+                    align-items: center;
 
+                    .profileOwnEvents__dates{
+
+                    display: flex;
+                    align-items: center;
+                    margin: 0px 30px;
+
+                        .profileOwnEvents__text {
+                            margin-right: 10px;
+                            font-size: 20px;
+                        }
+                    }
+                    
+                    .profileOwnEvents__text{
+                        margin: 0;
+                        color: $blueColor;
+                        font-size: 25px;
+                    }
                 }
             }
-
-            .addEvent__form-submit {
-                width: auto !important;
-                padding: 15px 30px;
-                margin: 20px auto;
-                grid-column-start: 1;
-                grid-column-end: 3;
-                background-color: #323C8D;
-                border: none;
-                border-radius: 2px;
-                color: white;
+            
+            .profileOwnEvents__btn{
+                padding: 10px 20px;
+                font-weight: bold;
                 text-align: center;
                 text-decoration: none;
-                display: inline-block;
-                font-size: 20px;
-                font-weight: bold;
+                border: 2px solid $lightblueColor;
+                color: $lightblueColor;
+                border-radius: 5px;
 
                 &:hover {
-                    background-color: #6770b6;
-                    transition: all 0.3s ease;
+                    background-color: $lightblueColor;
+                    border: 2px solid $lightblueColor; 
+                    color: white;
+                    transition: 0.3s ease-out;
                 }
             }
         }
     }
 
-    .addEvent__rightSide {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+    .profileBio__title{
+        text-align: center;
+    }
+    .profileBio__form{
+        
+        width: 60%;
+        margin: 0 auto;
 
-        .addEvent__right-logo{
-            margin-bottom: 30px;
-        }
-
-        .addEvent__right-errors{
+        .profileBio__group{
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            .addEvent__right-error{
-                font-size: 25px;
-                text-align: center;
-                color: rgb(255, 89, 89);
-                margin-bottom: 10px;
+
+
+            .profileBio__label{
+                margin: 0;
+                font-size: 20px;
             }
+
+            .profileBio__input{
+                padding: 10px 15px;
+                border: none;
+                border-bottom: 2px solid $lightLightblueColor;
+
+                &:hover {
+                    background-color: rgb(248, 248, 248);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            .profileBio__select{
+                padding: 10px 15px;
+                border: none;
+                border-bottom: 2px solid $lightLightblueColor;
+
+                &:hover {
+                    background-color: rgb(248, 248, 248);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                .profileBio__option{
+                
+                }
+            }
+            
         }
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    .addEvent {
-        width: 100%;
-        flex-direction: column-reverse;
         
-        .addEvent__rightSide {
-            width: 100%;
+        .profileBio__submit{
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: $lightblueColor;
+            border: 2px solid $lightblueColor;
+            color: white;
+            border-radius: 5px;
 
-            .addEvent__right-logo {
-                width: 20%;
-            }
-        }
+            &:hover {
 
-        .addEvent__leftSide {
-            width: 100%;
-
-            .addEvent__form {
-                display: flex;
-                flex-direction: column;
-
-                .addEvent__form-group {
-                    width: 100%;
-                }
-
-                .addEvent__form-select {
-                    width: 100%;
-                }
+                background-color: transparent;
+                border: 2px solid $lightblueColor; 
+                color: $lightblueColor;
+                transition: 0.3s ease-out;
             }
         }
     }
-
 }
 
 .events{
@@ -1029,7 +1075,21 @@ body {
                     margin: 0;
                 }
             }
-        } 
+        }   
+    }
+
+    .eventDetailWithNomination__notification{
+        padding: 10px 20px;
+
+        .eventDetailWithNomination__title{
+            font-size: 25px;
+            margin: 0;
+        }
+        
+        .eventDetailWithNomination__link{
+            display: block;
+            margin-top: 10px;
+        }
     }
 }
 
@@ -1066,9 +1126,78 @@ body {
 
 .admin {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
-    .adminList{
+    .adminHeader{
+        background-color: #323C8D;
+    
+        .adminHeader__container{
+            height: 100%;
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+    
+            .adminHeader__logo{
+                flex-grow: 1;
+    
+                .logo__img{
+                    height: 20vh;
+                }
+            }
+            .adminHeader__nav{
+                padding: 0;
+                flex-grow: 3;
+        
+                .nav__btns{
+                    display: flex;
+                    flex-direction: row;
+                    padding: 0px;
+    
+                    .nav__btn{
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px 10px;
+                        margin-right: 20px;
+                        text-decoration: none;
+                        transition: 0.1s linear;
+                        background-color: #5161db;
+                        color: #d1d7fd;    
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        margin-bottom: 15px;
+                        border-top: 1px solid white;
+                        border-bottom: 1px solid white;
+                        transition: 0.1s linear;
+                        
+                        &:hover {
+                            background-color: #7782d3;
+                            transition: 0.1s linear;
+                            color: white;
+                        }
+                    }
+                }
+            }
+            .adminHeader__auth{
+        
+                .auth__btn{
+                    font-weight: 700;
+                    margin-right: 20px;
+                    text-decoration: none;
+                    color: white;
+                    text-transform: uppercase;
+                    transition: 0.1s linear;
+    
+                    &:hover {
+                        color: #8390f1;
+                    }
+                }
+            }
+        }
+    }
+
+    .main{
         margin: 40px 20px 80px 20px; 
         .adminList__title{
             
@@ -1099,82 +1228,144 @@ body {
             }
         }
     }
-}
 
-.adminadminHeader{
-    margin-right: 50px;
-    min-height: 100vh;
-    width: 20%;
-    background-color: #323C8D;
-
-    .adminHeader__container{
-        height: 100%;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-
-        .adminHeader__logo{
-            flex-grow: 1;
-
-            .logo__img{
-                height: 20vh;
-            }
-        }
-
-        .adminHeader__nav{
-            padding: 0;
-            flex-grow: 3;
+    .editItemForm__title{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .editItemForm{
+        width: 70%;
+        margin: 0 auto;
     
-
-            .nav__btns{
-                display: flex;
-                flex-direction: column;
-                padding: 0px;
-
-                .nav__btn{
-                    width: 100%;
-                    height: 100%;
-                    padding: 10px 10px;
-                    margin-right: 20px;
-                    text-decoration: none;
-                    transition: 0.1s linear;
-                    background-color: #5161db;
-                    color: #d1d7fd;    
-                    font-weight: 500;
-                    text-transform: uppercase;
-                    margin-bottom: 15px;
-                    border-top: 1px solid white;
-                    border-bottom: 1px solid white;
-                    transition: 0.1s linear;
-                    
-                    &:hover {
-                        background-color: #7782d3;
-                        transition: 0.1s linear;
-                        color: white;
-                    }
-                }
-            }
-        }
-        
-        .adminHeader__auth{
+        .editItemForm__item{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
     
-            .auth__btn{
-                font-weight: 700;
-                margin-right: 20px;
-                text-decoration: none;
-                color: white;
-                text-transform: uppercase;
-                transition: 0.1s linear;
-
+            .editItemForm__label{
+            
+            }
+            .editItemForm__input{
+                padding: 10px 15px;
+                border: none;
+                border-bottom: 2px solid $lightLightblueColor;
                 &:hover {
-                    color: #8390f1;
+                    background-color: rgb(248, 248, 248);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
                 }
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                .editItemForm__input-option{
+        
+                }
+            }
+        }
+        .etidItemForm__submit{
+            display: block;
+            margin: 40px auto;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: $lightblueColor;
+            border: 2px solid $lightblueColor;
+            color: white;
+            border-radius: 5px;
+    
+            &:hover {
+    
+                background-color: transparent;
+                border: 2px solid $lightblueColor; 
+                color: $lightblueColor;
+                transition: 0.3s ease-out;
+            }
+        }
+        .goBackLink{
+        
+        }
+    }
+    .addItem__title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .addItemForm{
+        width: 70%;
+        margin: 0 auto;
+    
+        .addItemForm__group{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+    
+            .addItemForm__label{
+        
+            }
+            .addItemForm__input{
+                padding: 10px 15px;
+                border: none;
+                border-bottom: 2px solid $lightLightblueColor;
+                &:hover {
+                    background-color: rgb(248, 248, 248);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+    
+                .addItemForm__option{
+        
+                }
+            }
+        }
+    
+        .editItemForm__link {
+            margin: 10px 0 0px 0px;
+        }
+    
+        .addItem__form-submit{
+            display: block;
+            margin: 40px auto;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: $lightblueColor;
+            border: 2px solid $lightblueColor;
+            color: white;
+            border-radius: 5px;
+    
+            &:hover {
+    
+                background-color: transparent;
+                border: 2px solid $lightblueColor; 
+                color: $lightblueColor;
+                transition: 0.3s ease-out;
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

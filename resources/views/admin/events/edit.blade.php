@@ -10,6 +10,8 @@
         <div class="main">
             @include('admin.partials.eventInfo', $event)
 
+            <h1 class="editItemForm__title">Редактировать мероприятие</h1>
+
             <form class="editItemForm" action="{{ route('events.update', $event->id) }}" method="POST">
                 @method("PUT")
                 @csrf
@@ -29,7 +31,7 @@
                     name="event_discription" 
                     type="text" 
                     class="editItemForm__input" 
-                    value="{{ $event -> event_discrtiption }}">
+                    value="{{ $event -> event_discription }}">
                 </div>
 
                 <div class="editItemForm__item">
@@ -159,7 +161,7 @@
 
                 
 
-                <button class="etidItemForm__submit linkToEdit" type="submit">Редактировать</button>
+                <button class="etidItemForm__submit" type="submit">Редактировать</button>
 
 
                 <a href="{{ route('events.index')}}" class="goBackLink">Назад</a></div>

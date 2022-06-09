@@ -8,7 +8,7 @@
     <div class="admin">
         @include('admin.partials.header')
         <div class="main">
-            <h1>Добавить студента</h1>
+            <h1 class="addItem__title">Добавить студента</h1>
 
             <form action="{{ route('students.store') }}" method="post" class="addItemForm">
                 @csrf
@@ -43,7 +43,7 @@
                     <a class="editItemForm__link" href="{{ route('groups.create') }}">Создать группу</a>
                 </div>
                 
-                <button type="submit" class="addEvent__form-submit">Добавить</button>
+                <button type="submit" class="addItem__form-submit">Добавить</button>
             </form>
 
         </div>

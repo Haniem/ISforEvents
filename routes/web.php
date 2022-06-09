@@ -5,6 +5,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +47,9 @@ Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [Re
 Route::middleware("auth:web")->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
-    Route::get('/profile', [AppController::class, 'showProfile'])->name('profile');
+    Route::get('/profile/{id_user}', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/{id_user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/{id_user}/edit', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::middleware("guest:web")->group(function() {
@@ -58,4 +61,3 @@ Route::middleware("guest:web")->group(function() {
     Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
 
 });
-//igvbuyyfvub
