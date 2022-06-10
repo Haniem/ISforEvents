@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('nominations', function (Blueprint $table) {
             $table->id();
             $table->string('nomination_name', 250);
-
             $table->foreignId('id_event')->references('id')->on('events')->onDelete('cascade');
-
             $table->string('nomination_com', 250)->nullable();
             $table->timestamps();
         });
