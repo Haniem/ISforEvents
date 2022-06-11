@@ -7,8 +7,8 @@
 
     <div class="admin">
         @include('admin.partials.header')
-        <div class="container">
-            <div class="main">
+        <div class="main">
+            <div class="addItem">
                 <h1 class="addItem__title">Добавить пользователя</h1>
 
                 <form action="{{ route('users.store') }}" method="post" class="addItemForm">

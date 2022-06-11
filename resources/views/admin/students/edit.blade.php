@@ -3,12 +3,10 @@
 @section('title', 'Редактирование информации о студенте')
 
 @section('content')
-
     <div class="admin">
-        <div class="container">
-            @include('admin.partials.header')
-            <div class="main">
-                
+        @include('admin.partials.header')
+        <div class="main">
+            <div class="editItemForm">
                 <h1 class="editItemForm__title">Редактирование информации о студенте</h1>
 
                 <form class="editItemForm" action="{{ route('students.update', $student->id) }}" method="POST">
@@ -65,14 +63,9 @@
                         <a class="editItemForm__link" href="{{ route('groups.create') }}">Создать группу</a>
                     </div>
 
-                    
-
                     <button class="etidItemForm__submit linkToEdit" type="submit">Редактировать</button>
 
-
                     <a href="{{ route('students.index')}}" class="goBackLink">Назад</a></div>
-
-
                 </form>
             </div>
         </div>

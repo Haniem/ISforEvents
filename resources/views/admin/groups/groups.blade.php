@@ -3,20 +3,16 @@
 @section('title', 'Список групп')
 
 @section('content')
-
     <div class="admin">
-        @include('admin.partials.header')
-
-        <div class="container">
-
-            <div class="main">
-                <h1 class="adminList__title">Список групп:</h1>
-
-                <a href="{{ route('groups.create') }}" class="adminList__detailLink">Добавить</a>
-                
+    @include('admin.partials.header')
+        <div class="main">
+            <div class="adminList">
+                <div class="adminList__prev">
+                    <h1 class="adminList__title">Список групп:</h1>
+                    <a href="{{ route('groups.create') }}" class="adminList__addItemLink">Добавить</a>
+                </div>
                 <div class="adminList__list">
                     @foreach ($groups as $key=>$group)
-
                         <div class="adminList__item">
                             <h2 class="adminList__title">{{ $group -> group_name }}</h3>
                             <div class="adminList__group">

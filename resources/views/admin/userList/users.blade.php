@@ -6,14 +6,12 @@
 
     <div class="admin">
         @include('admin.partials.header')
-
-        <div class="container">
-
-            <div class="main">
-                <h1 class="adminList__title">Список пользователей:</h1>
-
-                <a href="{{ route('users.create') }}" class="adminList__detailLink">Добавить</a>
-                
+        <div class="main">
+            <div class="adminList">
+                <div class="adminList__prev">
+                    <h1 class="adminList__title">Список пользователей:</h1>
+                    <a href="{{ route('users.create') }}" class="adminList__addItemLink">Добавить</a>
+                </div>
                 <div class="adminList__list">
                     @foreach ($users as $key=>$user)
 
@@ -34,7 +32,6 @@
                         
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>

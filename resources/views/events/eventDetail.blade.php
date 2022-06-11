@@ -88,7 +88,7 @@
 
                     <div class="curentStage__group">
                         <h1 class="curentStage__title">Список подтвержденных заявок</h1>
-                        <button class="curentStage__downloadBtn">Экспортировать в эксэль документ</button>
+                        <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
                     </div>
 
                     <table class="curentStage__table">

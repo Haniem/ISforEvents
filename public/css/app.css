@@ -12282,8 +12282,13 @@ html, body {
 }
 .profileBio .profileOwnEvents .profileOwnEvents__event {
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group {
+  width: 100%;
+  margin-bottom: 10px;
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
@@ -12292,20 +12297,22 @@ html, body {
   border: 3px solid #cbd1ff;
   border-radius: 4px;
 }
-.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info {
-  display: flex;
-  align-items: center;
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileOwnEvents__title {
+  font-size: 25px;
+  margin: 0;
+  flex-grow: 2;
+  overflow: hidden;
 }
-.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__dates {
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileOwnEvents__dates {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   margin: 0px 30px;
 }
-.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__dates .profileOwnEvents__text {
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileOwnEvents__dates .profileOwnEvents__text {
   margin-right: 10px;
   font-size: 20px;
 }
-.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileEvents__info .profileOwnEvents__text {
+.profileBio .profileOwnEvents .profileOwnEvents__event .profileEvents__group .profileOwnEvents__text {
   margin: 0;
   color: #323C8D;
   font-size: 25px;
@@ -12395,29 +12402,58 @@ html, body {
 }
 .events .events__title {
   margin: 0 20px 1em 20px;
+  color: #323C8D;
 }
 .events .eventList {
-  display: flex;
   margin-bottom: 30px;
+  padding: 10px 30px;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  color: #323C8D;
 }
 .events .eventList .eventList__item {
   width: 100%;
-  padding: 10px 20px;
-  margin: 10px 0;
-  background-color: #adb6fd;
-  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: transparent;
+  border: 3px solid #cbd1ff;
+  border-radius: 4px;
 }
 .events .eventList .eventList__item .eventList__title {
-  color: #404464;
+  font-size: 30px;
+  margin: 0;
+  flex-grow: 2;
+  overflow: hidden;
+}
+.events .eventList .eventList__item .eventList__dates {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 30px;
+}
+.events .eventList .eventList__item .eventList__dates .eventList__text {
+  margin: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #323C8D;
 }
 .events .eventList .eventList__item .eventList__detailLink {
-  margin-right: 30px;
-  color: #404464;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
   text-decoration: none;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  border-radius: 5px;
+}
+.events .eventList .eventList__item .eventList__detailLink:hover {
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  transition: 0.3s ease-out;
 }
 
 .hidden {
@@ -12474,6 +12510,7 @@ html, body {
   margin: 50px 0;
   padding: 30px 20px;
   display: grid;
+  justify-content: center;
   grid-template-columns: 60% 40%;
   grid-column-gap: 10px;
   grid-row-gap: 1em;
@@ -12481,49 +12518,93 @@ html, body {
   border-radius: 4px;
 }
 .eventDetailInfo .eventDetailInfo__titleLink {
+  color: #323C8D;
   text-decoration: none;
-  color: black;
   grid-column-start: 1;
   grid-column-end: 3;
   margin: 0px 40px;
 }
+.eventDetailInfo .eventDetailInfo__titleLink:hover {
+  color: #5b6df1;
+}
 .eventDetailInfo .eventDetailInfo__titleLink .eventDetailInfo__title {
   font-size: 35px;
 }
-.eventDetailInfo .eventDetailInfo__right {
+.eventDetailInfo .eventDetailInfo__left {
   padding: 10px 40px;
   background-color: #edf0fd;
   border-radius: 4px;
 }
-.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__data {
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__group {
+  display: flex;
+}
+.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__group .eventDetailInfo__data {
   font-size: 20px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
-.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets {
+.eventDetailInfo .eventDetailInfo__right {
+  display: flex;
+  flex-direction: column;
+}
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__info {
+  flex-grow: 1;
   padding: 10px 40px;
   margin-bottom: 20px;
   background-color: #edf0fd;
   border-radius: 4px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__info .eventDetailInfo__group {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
-.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets .eventDetailInfo__requirmets-requirmets .eventDetailInfo__requirmets-title {
-  font-size: 30px;
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__info .eventDetailInfo__group .eventDetailInfo__title {
+  font-size: 20px;
 }
-.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__requirmets .eventDetailInfo__requirmets-age .eventDetailInfo__requirmets-title {
-  font-size: 30px;
-}
-.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__dates {
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__dates {
+  flex-grow: 1;
   padding: 10px 40px;
   background-color: #edf0fd;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-.eventDetailInfo .eventDetailInfo__left .eventDetailInfo__dates .eventDetailInfo__dates-title {
-  font-size: 30px;
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__dates .eventDetailInfo__title {
+  text-align: center;
+  font-size: 20px;
+}
+.eventDetailInfo .eventDetailInfo__right .eventDetailInfo__dates .eventDetailInfo__text {
+  text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+  .eventDetailInfo {
+    display: block;
+  }
+  .eventDetailInfo .eventDetailInfo__titleLink {
+    text-align: center;
+  }
+  .eventDetailInfo .eventDetailInfo__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  .eventDetailInfo .eventDetailInfo__left .eventDetailInfo__group {
+    min-width: 50%;
+    display: block;
+  }
+  .eventDetailInfo .eventDetailInfo__left .eventDetailInfo__group .eventDetailInfo__data {
+    text-align: center;
+  }
 }
 .eventDetailNominations {
   display: flex;
@@ -12593,10 +12674,6 @@ html, body {
 .curentStage .curentStage__table .curentStage__tr .curentStage__td {
   border: 1px solid #909090;
   padding: 15px 10px;
-}
-
-.flexReverse {
-  flex-direction: row-reverse !important;
 }
 
 .eventDetailResults {
@@ -12778,120 +12855,304 @@ html, body {
 .admin {
   display: flex;
   flex-direction: column;
+  color: #323C8D;
 }
 .admin .adminHeader {
   background-color: #323C8D;
+  padding: 25px 0px;
 }
 .admin .adminHeader .adminHeader__container {
-  height: 100%;
-  padding: 15px;
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-between;
 }
-.admin .adminHeader .adminHeader__container .adminHeader__logo {
-  flex-grow: 1;
+.admin .adminHeader .adminHeader__container .menu__icon {
+  z-index: 5;
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
 }
-.admin .adminHeader .adminHeader__container .adminHeader__logo .logo__img {
-  height: 20vh;
+.admin .adminHeader .adminHeader__container .menu__icon span, .admin .adminHeader .adminHeader__container .menu__icon::before, .admin .adminHeader .adminHeader__container .menu__icon::after {
+  left: 0;
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  transition: all 0.3s ease 0s;
+  background-color: #fff;
+  content: "";
+}
+.admin .adminHeader .adminHeader__container .menu__icon span {
+  top: 50%;
+  transform: scale(1) translate(0px, -50%);
+}
+.admin .adminHeader .adminHeader__container .menu__icon::before, .admin .adminHeader .adminHeader__container .menu__icon::after {
+  content: "";
+}
+.admin .adminHeader .adminHeader__container .menu__icon::before {
+  top: 0;
+}
+.admin .adminHeader .adminHeader__container .menu__icon::after {
+  bottom: 0;
+}
+.admin .adminHeader .adminHeader__container .menu_active {
+  position: fixed;
 }
 .admin .adminHeader .adminHeader__container .adminHeader__nav {
-  padding: 0;
-  flex-grow: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 50px 0;
+  background-color: #323d8dee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  transform: translate(0px, -100%);
+  transition: all 0.3s ease-in 0s;
+  overflow: auto;
+}
+.admin .adminHeader .adminHeader__container .adminHeader__nav .adminHeader__navTitle {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
 }
 .admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns {
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: row;
-  padding: 0px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 35px;
 }
 .admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn {
-  width: 100%;
-  height: 100%;
-  padding: 10px 10px;
-  margin-right: 20px;
+  width: 40%;
+  padding: 15px 0;
+  font-size: 25px;
+  color: #fff;
   text-decoration: none;
-  transition: 0.1s linear;
-  background-color: #5161db;
-  color: #d1d7fd;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  transition: 0.1s linear;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+.admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:last-of-type {
+  font-size: 30px;
+  margin-top: 50px;
+  border: none;
 }
 .admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:hover {
-  background-color: #7782d3;
-  transition: 0.1s linear;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.377);
+}
+.admin .adminHeader .adminHeader__container .adminHeader__nav .nav__btns .nav__btn:focus {
+  background-color: rgba(255, 255, 255, 0.541);
+}
+.admin .adminHeader .adminHeader__container .active {
+  transform: translate(0%, 0%);
 }
 .admin .adminHeader .adminHeader__container .adminHeader__auth .auth__btn {
-  font-weight: 700;
-  margin-right: 20px;
+  font-size: 20px;
+  color: #fff;
   text-decoration: none;
-  color: white;
-  text-transform: uppercase;
-  transition: 0.1s linear;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 15px;
 }
 .admin .adminHeader .adminHeader__container .adminHeader__auth .auth__btn:hover {
-  color: #8390f1;
+  color: #cbd1ff;
+}
+.admin .adminHeader .adminHeader__container .adminHeader__auth .auth__btn:focus {
+  color: #5b6df1;
+}
+.admin .adminHeader .adminHeader__container .auth_hidden {
+  visibility: hidden;
 }
 .admin .main {
-  margin: 40px 20px 80px 20px;
+  min-width: 80%;
+  min-height: 100vh;
+  margin: 0 auto;
 }
-.admin .main .adminList__list {
-  display: flex;
-  margin-bottom: 30px;
-  flex-direction: column;
+.admin .main .adminList {
+  padding: 50px 0;
 }
-.admin .main .adminList__list .adminList__item {
-  width: 100%;
-  padding: 10px 20px;
-  margin: 10px 0;
-  background-color: #adb6fd;
-  border-radius: 3px;
+.admin .main .adminList .adminList__prev {
+  margin: 0 70px 30px 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.admin .main .adminList__list .adminList__item .adminList__title {
-  color: #404464;
+.admin .main .adminList .adminList__prev .adminList__title {
+  font-size: 45px;
+  color: #323C8D;
 }
-.admin .main .adminList__list .adminList__item .adminList__detailLink {
-  margin-right: 30px;
-  color: #404464;
+.admin .main .adminList .adminList__prev .adminList__addItemLink {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
   text-decoration: none;
+  background-color: transparent;
+  border: 2px solid #ffda07;
+  color: #ffda07;
+  border-radius: 5px;
 }
-.admin .editItemForm__title {
+.admin .main .adminList .adminList__prev .adminList__addItemLink:hover {
+  background-color: #ffda07;
+  color: white;
+  transition: 0.3s ease-out;
+}
+.admin .main .adminList .adminList__list {
+  margin-bottom: 30px;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #323C8D;
+}
+.admin .main .adminList .adminList__list .adminList__item {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: 3px solid #cbd1ff;
+  border-radius: 4px;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__title {
+  font-size: 30px;
+  margin: 0;
+  flex-grow: 2;
+  overflow: hidden;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__dates {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 30px;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__dates .adminList__text {
+  margin: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #323C8D;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__group .adminList__detailLink {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid #5b6df1;
+  color: #5b6df1;
+  border-radius: 5px;
+}
+.admin .main .adminList .adminList__list .adminList__item .adminList__group .adminList__detailLink:hover {
+  background-color: #5b6df1;
+  border: 2px solid #5b6df1;
+  color: white;
+  transition: 0.3s ease-out;
+}
+@media screen and (max-width: 1060px) and (min-width: 760px) {
+  .admin .main .adminList__list {
+    padding: 0 !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .admin .main .adminList__list .adminList__item {
+    width: 45% !important;
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__title {
+    font-size: 20px !important;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__dates {
+    flex-direction: column !important;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__dates .adminList__text {
+    font-size: 15px !important;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__group {
+    flex-direction: column !important;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__group .adminList__detailLink {
+    margin: 10px 0 0 0;
+  }
+}
+@media screen and (max-width: 760px) {
+  .admin .main .adminList__prev {
+    flex-direction: column !important;
+    margin: 0 !important;
+    margin-bottom: 30px !important;
+  }
+  .admin .main .adminList__prev .adminList__title {
+    text-align: center;
+    margin-bottom: 30px !important;
+  }
+  .admin .main .adminList__list {
+    padding: 0 !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .admin .main .adminList__list .adminList__item {
+    margin-bottom: 20px !important;
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__title {
+    margin-bottom: 10px !important;
+  }
+  .admin .main .adminList__list .adminList__item .adminList__dates {
+    margin-bottom: 15px !important;
+  }
+}
+.admin .main .editItemForm {
+  padding: 50px 0;
+}
+.admin .main .editItemForm .editItemForm__title {
   text-align: center;
   margin-bottom: 20px;
 }
-.admin .editItemForm {
+.admin .main .editItemForm .editItemForm {
   width: 70%;
   margin: 0 auto;
 }
-.admin .editItemForm .editItemForm__item {
+.admin .main .editItemForm .editItemForm .editItemForm__item {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
-.admin .editItemForm .editItemForm__item .editItemForm__input {
+.admin .main .editItemForm .editItemForm .editItemForm__item .editItemForm__input {
   padding: 10px 15px;
   border: none;
   border-bottom: 2px solid #cbd1ff;
 }
-.admin .editItemForm .editItemForm__item .editItemForm__input:hover {
+.admin .main .editItemForm .editItemForm .editItemForm__item .editItemForm__input:hover {
   background-color: #f8f8f8;
   border-bottom: 2px solid #5b6df1;
   transition: 0.3s ease-in-out;
 }
-.admin .editItemForm .editItemForm__item .editItemForm__input:focus {
+.admin .main .editItemForm .editItemForm .editItemForm__item .editItemForm__input:focus {
   background-color: whitesmoke;
   border-bottom: 2px solid #5b6df1;
   transition: 0.3s ease-in-out;
 }
-.admin .editItemForm .etidItemForm__submit {
+.admin .main .editItemForm .editItemForm .etidItemForm__submit {
   display: block;
   margin: 40px auto;
   padding: 10px 20px;
@@ -12903,44 +13164,64 @@ html, body {
   color: white;
   border-radius: 5px;
 }
-.admin .editItemForm .etidItemForm__submit:hover {
+.admin .main .editItemForm .editItemForm .etidItemForm__submit:hover {
   background-color: transparent;
   border: 2px solid #5b6df1;
   color: #5b6df1;
   transition: 0.3s ease-out;
 }
-.admin .addItem__title {
+.admin .main .addItem {
+  padding: 50px 0;
+}
+.admin .main .addItem .addItem__title {
   text-align: center;
   margin-bottom: 50px;
 }
-.admin .addItemForm {
+.admin .main .addItem .addItemForm {
   width: 70%;
   margin: 0 auto;
 }
-.admin .addItemForm .addItemForm__group {
+.admin .main .addItem .addItemForm .addItemForm__group {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
-.admin .addItemForm .addItemForm__group .addItemForm__input {
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__input {
   padding: 10px 15px;
+  color: #323C8D;
   border: none;
   border-bottom: 2px solid #cbd1ff;
 }
-.admin .addItemForm .addItemForm__group .addItemForm__input:hover {
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__input:hover {
   background-color: #f8f8f8;
   border-bottom: 2px solid #5b6df1;
   transition: 0.3s ease-in-out;
 }
-.admin .addItemForm .addItemForm__group .addItemForm__input:focus {
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__input:focus {
   background-color: whitesmoke;
   border-bottom: 2px solid #5b6df1;
   transition: 0.3s ease-in-out;
 }
-.admin .addItemForm .editItemForm__link {
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__select {
+  padding: 15px 15px;
+  color: #323C8D;
+  border: none;
+  border: 2px solid #cbd1ff;
+}
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__select:hover {
+  background-color: #f8f8f8;
+  border: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .main .addItem .addItemForm .addItemForm__group .addItemForm__select:focus {
+  background-color: whitesmoke;
+  border: 2px solid #5b6df1;
+  transition: 0.3s ease-in-out;
+}
+.admin .main .addItem .addItemForm .editItemForm__link {
   margin: 10px 0 0px 0px;
 }
-.admin .addItemForm .addItem__form-submit {
+.admin .main .addItem .addItemForm .addItem__form-submit {
   display: block;
   margin: 40px auto;
   padding: 10px 20px;
@@ -12952,10 +13233,16 @@ html, body {
   color: white;
   border-radius: 5px;
 }
-.admin .addItemForm .addItem__form-submit:hover {
+.admin .main .addItem .addItemForm .addItem__form-submit:hover {
   background-color: transparent;
   border: 2px solid #5b6df1;
   color: #5b6df1;
   transition: 0.3s ease-out;
+}
+
+.goBackLink {
+  display: block;
+  text-align: center;
+  margin: 20px 0 40px 0;
 }
 

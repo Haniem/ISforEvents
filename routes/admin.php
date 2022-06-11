@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminUserListController;
 use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\admin\DepartmentsController;
+use App\Http\Controllers\admin\EventsConrtoller;
 use App\Http\Controllers\admin\GroupsController;
 use App\Http\Controllers\admin\NominationsController;
 use App\Http\Controllers\admin\NominationsRequestsController;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:web')->group(function(){
-    Route::get('', function() {
-        return redirect(route('admin.login'));
-    });
+    Route::get('', [AppController::class, 'index'])->name('admin.home');
 
     Route::middleware('guest:admin')->group(function(){
         Route::get('login', [AuthController::class, 'index'])->name('admin.login');
@@ -28,7 +27,7 @@ Route::middleware('auth:web')->group(function(){
     
     Route::middleware('auth:admin')->group(function(){
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
-        Route::resource('events', AppController::class); 
+        Route::resource('events', EventsConrtoller::class); 
         Route::resource('students', StudentsController::class);    
         Route::resource('groups', GroupsController::class); 
         Route::resource('departments', DepartmentsController::class); 

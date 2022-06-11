@@ -3,10 +3,9 @@
 @section('title', 'Подтверждение заявки')
 
 @section('content')
-
     <div class="admin">
         @include('admin.partials.header')
-        <div class="main">    
+        <div class="main">
             <div class="editRequestStatus">
                 <div class="editRequestStatus__info">
                     <h1 class="editRequestStatus__title"><a href="{{ route('event_detail',  $request -> stage -> nomination -> event -> id) }}">{{ $request -> stage -> nomination -> event -> event_name }}</a> Мероприятие:</h1>
@@ -47,5 +46,4 @@
             </div>
         </div>
     </div>
-
 @endsection 

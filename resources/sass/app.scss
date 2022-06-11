@@ -518,7 +518,7 @@ html, body {
         }
     }
     
-    .profileOwnEvents{  
+    .profileOwnEvents{          
     
         .profileOwnEvents__title{
             color: $blueColor;
@@ -526,9 +526,13 @@ html, body {
 
         .profileOwnEvents__event {
             padding: 10px 30px;   
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             .profileEvents__group{
-
+                width: 100%;
+                margin-bottom: 10px;
                 padding: 20px 30px;
                 display: flex;
                 justify-content: space-between;
@@ -536,31 +540,31 @@ html, body {
                 background-color: transparent;
                 border: 3px solid $lightLightblueColor;
                 border-radius: 4px;
-            
-                .profileEvents__info{
-                    display: flex;
-                    align-items: center;
 
-                    .profileOwnEvents__dates{
-
-                    display: flex;
-                    align-items: center;
-                    margin: 0px 30px;
-
-                        .profileOwnEvents__text {
-                            margin-right: 10px;
-                            font-size: 20px;
-                        }
-                    }
-                    
-                    .profileOwnEvents__text{
-                        margin: 0;
-                        color: $blueColor;
-                        font-size: 25px;
-                    }
+                .profileOwnEvents__title {
+                    font-size: 25px;
+                    margin: 0;
+                    flex-grow: 2;
+                    overflow: hidden;
                 }
+
+                .profileOwnEvents__dates{
+                display: flex;
+                flex-direction: row;
+                margin: 0px 30px;
+
+                    .profileOwnEvents__text {
+                        margin-right: 10px;
+                        font-size: 20px;
+                    }
+                }         
+                .profileOwnEvents__text{
+                    margin: 0;
+                    color: $blueColor;
+                    font-size: 25px;
+                }
+                
             }
-            
             .profileOwnEvents__btn{
                 padding: 10px 20px;
                 font-weight: bold;
@@ -667,29 +671,63 @@ html, body {
     margin: 40px 20px 80px 20px; 
     .events__title{
         margin: 0 20px 1em 20px;
+        color: $blueColor;
     }
     .eventList{
-        display: flex;
         margin-bottom: 30px;
+        padding: 10px 30px;   
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        color: $blueColor;
         
         .eventList__item{
             width: 100%;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background-color: #adb6fd;
-            border-radius: 3px;
+            margin-bottom: 10px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: transparent;
+            border: 3px solid $lightLightblueColor;
+            border-radius: 4px;
 
             .eventList__title{
-                color: #404464;
+                font-size: 30px;
+                margin: 0;
+                flex-grow: 2;
+                overflow: hidden;
             }
+
+            .eventList__dates{
+                display: flex;
+                flex-direction: row;
+                margin: 0px 30px;
+
+                .eventList__text{
+                    margin: 0;
+                    margin-right: 10px;
+                    font-size: 20px;
+                    color: $blueColor;
+                }
+            }
+            
+
             .eventList__detailLink{
-                margin-right: 30px;
-                color: #404464;
+                padding: 10px 20px;
+                font-weight: bold;
+                text-align: center;
                 text-decoration: none;
+                border: 2px solid $lightblueColor;
+                color: $lightblueColor;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: $lightblueColor;
+                    border: 2px solid $lightblueColor; 
+                    color: white;
+                    transition: 0.3s ease-out;
+                }
             }
         }
     }
@@ -747,11 +785,11 @@ html, body {
     }
 }
 
-
 .eventDetailInfo{
     margin: 50px 0;
     padding: 30px 20px;
     display: grid;
+    justify-content: center;
     grid-template-columns: 60% 40%;
     grid-column-gap: 10px;
     grid-row-gap: 1em;
@@ -759,70 +797,113 @@ html, body {
     border-radius: 4px;
 
     .eventDetailInfo__titleLink {
+        color: $blueColor;
         text-decoration: none;
-        color: black;
         grid-column-start: 1;
         grid-column-end: 3;
         margin: 0px 40px;
 
+        &:hover {
+            color: $lightblueColor;
+        }
         .eventDetailInfo__title{       
             font-size: 35px;
         }
     }
-    
-    .eventDetailInfo__right{
+    .eventDetailInfo__left{
         padding: 10px 40px ;
         background-color: #edf0fd;
         border-radius: 4px;
 
-        .eventDetailInfo__data{
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
+        .eventDetailInfo__group {
+            display: flex;
+            .eventDetailInfo__data{
+                font-size: 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+        }        
     }
-    .eventDetailInfo__left{
-
-        .eventDetailInfo__requirmets{
+    .eventDetailInfo__right {
+        display: flex;
+        flex-direction: column;
+        
+        .eventDetailInfo__info{
+            flex-grow: 1;
             padding: 10px 40px ;
             margin-bottom: 20px;
             background-color: #edf0fd;
             border-radius: 4px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
 
-            .eventDetailInfo__requirmets-requirmets{
+            .eventDetailInfo__group{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
 
-                .eventDetailInfo__requirmets-title{
-                    font-size: 30px;
+                .eventDetailInfo__title{
+                    font-size: 20px;
                 }
-            }
-            .eventDetailInfo__requirmets-age{
-
-                .eventDetailInfo__requirmets-title{
-                    font-size: 30px;
+                .eventDetailInfo__text{
+                
                 }
             }
         }
-        .eventDetailInfo__dates{
+
+        .eventDetailInfo__dates {
+            flex-grow: 1;
             padding: 10px 40px ;
             background-color: #edf0fd;
             border-radius: 4px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
 
-            .eventDetailInfo__dates-title {
-                font-size: 30px;
+            .eventDetailInfo__title{
+                text-align: center;
+                font-size: 20px;
             }
-            .eventDetailInfo__dates-begDate{
-            }
+            .eventDetailInfo__text{
             
-            .eventDetailInfo__dates-endDate{
+                text-align: center;
             }
         }
     }
 }
+
+@media screen and (max-width: 1050px) {
+    
+    .eventDetailInfo {
+        display: block;
+
+        .eventDetailInfo__titleLink {
+            text-align: center;
+        }
+
+        .eventDetailInfo__left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1em;
+
+            .eventDetailInfo__group {
+                min-width: 50%;
+                display: block;
+
+                .eventDetailInfo__data{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
 
 .eventDetailNominations{
     display: flex;
@@ -863,11 +944,9 @@ html, body {
 }
 
 .curentStage{
-    
     margin: 50px 0px;
 
     .curentStage__group{
-
         margin: 0 50px 15px 50px;
         display: flex;
         flex-direction: row;
@@ -913,16 +992,6 @@ html, body {
             }
         }
     }
-}
-
-
-
-
-
-
-
-.flexReverse {
-    flex-direction: row-reverse !important;
 }
 
 .eventDetailResults{
@@ -1127,230 +1196,464 @@ html, body {
 .admin {
     display: flex;
     flex-direction: column;
+    color: $blueColor;
 
     .adminHeader{
         background-color: #323C8D;
+        padding: 25px 0px;
     
         .adminHeader__container{
-            height: 100%;
-            padding: 15px;
+            width: 80%;
+            margin: 0 auto;
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
             align-items: center;
+            justify-content: space-between;
+
+            .menu__icon{
+                z-index: 5;
+                display: block;
+                position: relative;
+                width: 30px;
+                height: 18px;
+                cursor: pointer;
+
+                span, &::before, &::after{
+                    left: 0;
+                        position: absolute;
+                        height: 10%;
+                        width: 100%;
+                        transition: all 0.3s ease 0s;
+                        background-color: #fff ;
+                        content: "";
+                }
+                span{
+                    top: 50%;
+                    transform: scale(1) translate(0px, -50%);
+                }
+                &::before, &::after{
+                    content: "";
+                }
+                &::before{
+                    top: 0;
+                }
     
-            .adminHeader__logo{
-                flex-grow: 1;
-    
-                .logo__img{
-                    height: 20vh;
+                &::after{
+                    bottom: 0;
                 }
             }
+            .menu_active {
+                position: fixed;
+            }
             .adminHeader__nav{
-                padding: 0;
-                flex-grow: 3;
-        
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding: 50px 0;
+                background-color: #323d8dee;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 1;
+                transform: translate(0px, -100%);
+                transition: all 0.3s ease-in 0s;
+                overflow: auto;
+                .adminHeader__navTitle{
+                    font-weight: bold;
+                    color: #fff;
+                    margin-bottom: 20px;
+                }
                 .nav__btns{
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
                     display: flex;
-                    flex-direction: row;
-                    padding: 0px;
-    
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 35px;
+
                     .nav__btn{
-                        width: 100%;
-                        height: 100%;
-                        padding: 10px 10px;
-                        margin-right: 20px;
+
+                        width: 40%;
+                        padding: 15px 0;
+                        font-size: 25px;
+                        color: #fff;
                         text-decoration: none;
-                        transition: 0.1s linear;
-                        background-color: #5161db;
-                        color: #d1d7fd;    
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        margin-bottom: 15px;
-                        border-top: 1px solid white;
-                        border-bottom: 1px solid white;
-                        transition: 0.1s linear;
+                        font-weight: bold;
+                        text-align: center;
+                        border-bottom: 1px solid #fff;
+
+                        &:last-of-type {
+                            font-size: 30px;
+                            margin-top: 50px;
+                            border: none;
+                        }
                         
                         &:hover {
-                            background-color: #7782d3;
-                            transition: 0.1s linear;
-                            color: white;
+                            background-color: rgba(255, 255, 255, 0.377);
+                        }
+
+                        &:focus {
+                            background-color: rgba(255, 255, 255, 0.541);
                         }
                     }
                 }
             }
+            .active {
+                transform: translate(0%, 0%);
+            }
             .adminHeader__auth{
-        
                 .auth__btn{
-                    font-weight: 700;
-                    margin-right: 20px;
+                    font-size: 20px;
+                    color: #fff;
                     text-decoration: none;
-                    color: white;
-                    text-transform: uppercase;
-                    transition: 0.1s linear;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-right: 15px;
+                    
     
                     &:hover {
-                        color: #8390f1;
+                        color: $lightLightblueColor;
+                    }
+
+                    &:focus {
+                        color: $lightblueColor;
+                    }
+                }
+            }
+            .auth_hidden {
+                visibility: hidden;
+            }
+        }
+    }
+    .main{
+        min-width: 80%;
+        min-height: 100vh;
+        margin: 0 auto; 
+
+        .adminList {
+            padding: 50px 0;
+
+            .adminList__prev {
+                margin: 0 70px 30px 70px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .adminList__title{
+                    font-size: 45px;
+                    color: $blueColor;
+                }
+                .adminList__addItemLink {
+                    margin-right: 10px;
+                    padding: 10px 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-decoration: none;
+                    background-color: transparent;
+                    border: 2px solid rgb(255, 218, 7);
+                    color: rgb(255, 218, 7);
+                    border-radius: 5px;
+
+                    &:hover {
+                        background-color: rgb(255, 218, 7);
+                        color: white;
+                        transition: 0.3s ease-out;
+                    }
+                }
+            }
+            
+            .adminList__list{
+                margin-bottom: 30px;
+                padding: 10px 30px;   
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $blueColor;
+                
+                .adminList__item{
+                    width: 100%;
+                    margin-bottom: 10px;
+                    padding: 20px 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: transparent;
+                    border: 3px solid $lightLightblueColor;
+                    border-radius: 4px;
+        
+                    .adminList__title{
+                        font-size: 30px;
+                        margin: 0;
+                        flex-grow: 2;
+                        overflow: hidden;
+                    }
+
+                    .adminList__dates{
+                        display: flex;
+                        flex-direction: row;
+                        margin: 0px 30px;
+
+                        .adminList__text{
+                            margin: 0;
+                            margin-right: 10px;
+                            font-size: 20px;
+                            color: $blueColor;
+                        }
+                    }
+
+                    .adminList__group {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .adminList__detailLink{
+                            margin-right: 10px;
+                            padding: 10px 20px;
+                            font-weight: bold;
+                            text-align: center;
+                            text-decoration: none;
+                            background-color: transparent;
+                            border: 2px solid $lightblueColor;
+                            color: $lightblueColor;
+                            border-radius: 5px;
+    
+                            &:hover {
+                                background-color: $lightblueColor;
+                                border: 2px solid $lightblueColor; 
+                                color: white;
+                                transition: 0.3s ease-out;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        @media screen and (max-width: 1060px) and (min-width: 760px){
+            .adminList__list {
+                padding: 0 !important;
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                justify-content: space-between !important;
+                align-items: center !important;
+
+                .adminList__item {
+                    width: 45% !important;
+                    padding: 20px 10px;
+                    flex-direction: column;
+                    .adminList__title {
+                        font-size: 20px !important;
+                    }
+                    .adminList__dates {
+                        flex-direction: column !important;
+
+                        .adminList__text {
+                            font-size: 15px !important;
+
+                        }
+                    }
+                    .adminList__group {
+                        flex-direction: column !important;
+
+                        .adminList__detailLink {
+                            margin: 10px 0 0 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 760px){
+
+            .adminList__prev {
+                flex-direction: column !important;
+                margin: 0 !important;
+                margin-bottom: 30px !important;
+
+                .adminList__title {
+                    text-align: center;
+                    margin-bottom: 30px !important;
+                }
+            }
+            .adminList__list {
+                padding: 0 !important;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                .adminList__item {
+                    margin-bottom: 20px !important;
+                    padding: 20px 10px;
+                    flex-direction: column;
+
+                    .adminList__title {
+                        margin-bottom: 10px !important;
+                    }
+
+                    .adminList__dates {
+                        margin-bottom: 15px !important;
+                    }
+                }
+            }
+        }
+
+        .editItemForm {
+            padding: 50px 0;
+            .editItemForm__title{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .editItemForm{
+                width: 70%;
+                margin: 0 auto;
+            
+                .editItemForm__item{
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 15px;
+            
+                    .editItemForm__label{
+                    
+                    }
+                    .editItemForm__input{
+                        padding: 10px 15px;
+                        border: none;
+                        border-bottom: 2px solid $lightLightblueColor;
+                        &:hover {
+                            background-color: rgb(248, 248, 248);
+                            border-bottom: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                        &:focus {
+                            background-color: rgb(245, 245, 245);
+                            border-bottom: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                        .editItemForm__input-option{
+                
+                        }
+                    }
+                }
+                .etidItemForm__submit{
+                    display: block;
+                    margin: 40px auto;
+                    padding: 10px 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-decoration: none;
+                    background-color: $lightblueColor;
+                    border: 2px solid $lightblueColor;
+                    color: white;
+                    border-radius: 5px;
+            
+                    &:hover {
+            
+                        background-color: transparent;
+                        border: 2px solid $lightblueColor; 
+                        color: $lightblueColor;
+                        transition: 0.3s ease-out;
+                    }
+                }
+                .goBackLink{
+                
+                }
+            }
+        }
+        
+        .addItem {
+            padding: 50px 0;
+            .addItem__title {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            
+            .addItemForm{
+                width: 70%;
+                margin: 0 auto;
+            
+                .addItemForm__group{
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 15px;
+            
+                    .addItemForm__label{
+                
+                    }
+                    .addItemForm__input{
+                        padding: 10px 15px;
+                        color: $blueColor;
+                        border: none;
+                        border-bottom: 2px solid $lightLightblueColor;
+
+                        &:hover {
+                            background-color: rgb(248, 248, 248);
+                            border-bottom: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                        &:focus {
+                            background-color: rgb(245, 245, 245);
+                            border-bottom: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                    }
+
+                    .addItemForm__select {
+                        padding: 15px 15px;
+                        color: $blueColor;
+                        border: none;
+                        border: 2px solid $lightLightblueColor;
+
+                        &:hover {
+                            background-color: rgb(248, 248, 248);
+                            border: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                        &:focus {
+                            background-color: rgb(245, 245, 245);
+                            border: 2px solid $lightblueColor;
+                            transition: 0.3s ease-in-out;
+                        }
+
+                        .addItemForm__option{
+            
+                        }
+                    }
+                }
+            
+                .editItemForm__link {
+                    margin: 10px 0 0px 0px;
+                }
+            
+                .addItem__form-submit{
+                    display: block;
+                    margin: 40px auto;
+                    padding: 10px 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-decoration: none;
+                    background-color: $lightblueColor;
+                    border: 2px solid $lightblueColor;
+                    color: white;
+                    border-radius: 5px;
+            
+                    &:hover {
+                        background-color: transparent;
+                        border: 2px solid $lightblueColor; 
+                        color: $lightblueColor;
+                        transition: 0.3s ease-out;
                     }
                 }
             }
         }
     }
+}
 
-    .main{
-        margin: 40px 20px 80px 20px; 
-        .adminList__title{
-            
-        }
-        .adminList__list{
-            display: flex;
-            margin-bottom: 30px;
-            flex-direction: column;
-            
-            .adminList__item{
-                width: 100%;
-                padding: 10px 20px;
-                margin: 10px 0;
-                background-color: #adb6fd;
-                border-radius: 3px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-    
-                .adminList__title{
-                    color: #404464;
-                }
-                .adminList__detailLink{
-                    margin-right: 30px;
-                    color: #404464;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    .editItemForm__title{
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .editItemForm{
-        width: 70%;
-        margin: 0 auto;
-    
-        .editItemForm__item{
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-    
-            .editItemForm__label{
-            
-            }
-            .editItemForm__input{
-                padding: 10px 15px;
-                border: none;
-                border-bottom: 2px solid $lightLightblueColor;
-                &:hover {
-                    background-color: rgb(248, 248, 248);
-                    border-bottom: 2px solid $lightblueColor;
-                    transition: 0.3s ease-in-out;
-                }
-                &:focus {
-                    background-color: rgb(245, 245, 245);
-                    border-bottom: 2px solid $lightblueColor;
-                    transition: 0.3s ease-in-out;
-                }
-                .editItemForm__input-option{
-        
-                }
-            }
-        }
-        .etidItemForm__submit{
-            display: block;
-            margin: 40px auto;
-            padding: 10px 20px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: $lightblueColor;
-            border: 2px solid $lightblueColor;
-            color: white;
-            border-radius: 5px;
-    
-            &:hover {
-    
-                background-color: transparent;
-                border: 2px solid $lightblueColor; 
-                color: $lightblueColor;
-                transition: 0.3s ease-out;
-            }
-        }
-        .goBackLink{
-        
-        }
-    }
-    .addItem__title {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    
-    .addItemForm{
-        width: 70%;
-        margin: 0 auto;
-    
-        .addItemForm__group{
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-    
-            .addItemForm__label{
-        
-            }
-            .addItemForm__input{
-                padding: 10px 15px;
-                border: none;
-                border-bottom: 2px solid $lightLightblueColor;
-                &:hover {
-                    background-color: rgb(248, 248, 248);
-                    border-bottom: 2px solid $lightblueColor;
-                    transition: 0.3s ease-in-out;
-                }
-                &:focus {
-                    background-color: rgb(245, 245, 245);
-                    border-bottom: 2px solid $lightblueColor;
-                    transition: 0.3s ease-in-out;
-                }
-    
-                .addItemForm__option{
-        
-                }
-            }
-        }
-    
-        .editItemForm__link {
-            margin: 10px 0 0px 0px;
-        }
-    
-        .addItem__form-submit{
-            display: block;
-            margin: 40px auto;
-            padding: 10px 20px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: $lightblueColor;
-            border: 2px solid $lightblueColor;
-            color: white;
-            border-radius: 5px;
-    
-            &:hover {
-    
-                background-color: transparent;
-                border: 2px solid $lightblueColor; 
-                color: $lightblueColor;
-                transition: 0.3s ease-out;
-            }
-        }
-    }
+.goBackLink {
+    display: block;
+    text-align: center;
+    margin: 20px 0 40px 0;
 }
 
 

@@ -37,38 +37,26 @@
                     <a class="profileBio__editLink" href="{{ route('profile.edit', $user->id) }}">Редактировать</a>
                 </div>
 
-
                 <div class="profileOwnEvents">
-                
                     <h1 class="profileOwnEvents__title">Ваши мероприятия:</h1>
 
                     <div class="profileOwnEvents__event">
                         @foreach ($events as $event)
-    
                             <div class="profileEvents__group">
         
-                                <div class="profileEvents__info">
-                                    <p class="profileOwnEvents__text">{{ $event -> event_name }}</p>
+                                <p class="profileOwnEvents__title ">{{ $event -> event_name }}</p>
                                     
-                                    <div class="profileOwnEvents__dates">
-                                        <p class="profileOwnEvents__text">c {{ $event -> begin_date }} </p>
-                                        <p class="profileOwnEvents__text"> по{{ $event -> end_date }}</p>
-                                    </div>
+                                <div class="profileOwnEvents__dates">
+                                    <p class="profileOwnEvents__text">c {{ $event -> begin_date }} </p>
+                                    <p class="profileOwnEvents__text">по {{ $event -> end_date }}</p>
                                 </div>
         
                                 <a class="profileOwnEvents__btn" href="{{ route('event_detail', $event -> id) }}">Подробнее</a>
-                            </div>
-                            
+                            </div>       
                         @endforeach
                     </div>
-    
-                    
-    
                 </div>
-
             </div>   
-
-            
         </div>
     </div>
 @endsection

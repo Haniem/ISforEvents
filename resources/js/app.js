@@ -1,14 +1,20 @@
-require('./bootstrap');
+// const menuBtn = document.querySelector('.header__menuBtn')
+// const headerNav = document.querySelector('.header__nav')
+// const headerAuth = document.querySelector('.header__auth')
+// const headerSecLogo = document.querySelector('.header__secLogo')
 
-let menuBtn = document.querySelector('.header__menuBtn')
+// menuBtn.addEventListener('click', function( ) {
+//     headerNav.classList.toggle('active')
+//     headerAuth.classList.toggle('active')
+//     headerSecLogo.classList.toggle('active')
+// })
 
-let headerNav = document.querySelector('.header__nav')
-let headerAuth = document.querySelector('.header__auth')
-let headerSecLogo = document.querySelector('.header__secLogo')
+const menu__icon = document.querySelector('.menu__icon')
+const adminHeader__nav = document.querySelector('.adminHeader__nav')
+const adminHeader__auth = document.querySelector('.adminHeader__auth')
 
-
-menuBtn.addEventListener('click', function( ) {
-    headerNav.classList.toggle('active')
-    headerAuth.classList.toggle('active')
-    headerSecLogo.classList.toggle('active')
+menu__icon.addEventListener('click', function( ) {
+    adminHeader__nav.classList.toggle('active')
+    menu__icon.classList.toggle('menu_active')
+    adminHeader__auth.classList.toggle('auth_hidden')
 })

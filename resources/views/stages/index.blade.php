@@ -8,14 +8,12 @@
 
     <div class="container">
         <div class="eventDetailWithNomination">
-
             @include('partials.eventInfo', $event)
 
             <div class="curentStage">
-
                 <div class="curentStage__group">
                     <h1 class="curentStage__title">Стадия: {{ $stage -> event_stage_name }}</h1>
-                    <button class="curentStage__downloadBtn">Экспортировать в эксэль документ</button>
+                    <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
                 </div>
 
                 <table class="curentStage__table">
@@ -62,7 +60,6 @@
             </div>
         </div>
     </div>
-
     <script src="{{ asset('public/js/table2excel.js') }}"></script>
 
     <script>
@@ -71,5 +68,4 @@
             table2excel.export(document.querySelectorAll(".curentStage__table"));
         })
     </script>
-    
 @endsection

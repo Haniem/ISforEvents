@@ -13,7 +13,7 @@ class AuthController extends Controller
     function index() {
 
         if(auth("admin")->check()){
-            return redirect('/admin/events');
+            return redirect(route('admin.home'));
         }
 
         return view('admin.auth.login');
@@ -32,7 +32,7 @@ class AuthController extends Controller
         ]);
         
         if (auth("admin")->attempt($data)) {
-            return redirect(route('events.index'));
+            return redirect(route('admin.home'));
         };
 
     
