@@ -945,18 +945,28 @@ html, body {
 
 .curentStage{
     margin: 50px 0px;
-
-    .curentStage__group{
-        margin: 0 50px 15px 50px;
+    
+    .curentStage__info {
+        margin: 0 50px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-
-        .curentStage__title{
+        margin-bottom: 30px;
+        .curentStage__group{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
     
+            .curentStage__title{
+                margin: 0;
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 40px;
+
+            }
         }
-        
+            
         .curentStage__downloadBtn{
             padding: 15px 10px;
             border: none;
@@ -964,14 +974,14 @@ html, body {
             color: white;
             font-weight: bold;
             background-color: green;
-
+    
             &:hover {
                 background-color: rgb(0, 201, 0);
                 transition: 0.4s ease-in;
             }
         }
-
     }
+
     .curentStage__table{
         width: 100%;
         display: block;
@@ -993,6 +1003,213 @@ html, body {
         }
     }
 }
+
+
+.curentStageItems{
+    color: $blueColor;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+    .curentStageItems__title {
+        margin: 0 0 20px 50px;
+    }
+
+    .curentStageItems__requests{
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        border: 3px solid $lightLightblueColor;
+        border-radius: 4px;
+
+        .curentStageItems__name{
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            margin-right: 15px;
+            flex-grow: 2;
+            overflow: hidden;
+        }
+
+        .curentStageItems__group{
+            font-size: 20px;
+            margin: 0;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .curentStageItems__result{
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+
+        .curentStageItems__btns{
+            margin-left: 30px;
+            display: flex;
+            align-items: center;
+
+            .curentStageItems__link{
+                margin-right: 5px;
+                padding: 5px 10px;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                border: 2px solid $lightblueColor;
+                color: $lightblueColor;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: $lightblueColor;
+                    border: 2px solid $lightblueColor; 
+                    color: white;
+                    transition: 0.3s ease-out;
+                }
+
+                &:last-child {
+                    border: 2px solid rgb(247, 67, 67);
+                    color: rgb(247, 67, 67);
+
+                    &:hover {
+                        background-color: rgb(247, 67, 67);
+                        border: 2px solid rgb(247, 67, 67);
+                        color: white;
+                        transition: 0.3s ease-out;
+                    }
+                }
+            }
+        }
+    }           
+}
+
+.addRequest{
+    color: $blueColor;
+
+    .addRequest__title{
+        text-align: center;
+    }
+    .addRequest__form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .addRequest__group{ 
+            
+            .addRequest__select{
+                padding: 19px 25px;
+                font-size: 20px;
+                font-weight: bold;
+                border: none;
+                border-bottom: 2px solid $lightLightblueColor;
+                &:hover {
+                    background-color: rgb(248, 248, 248);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border-bottom: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+
+                .addRequest__option{
+                    
+                }
+            }
+        }
+        .addRequest__submit{
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid $lightblueColor;
+            background-color: $lightblueColor;
+            color: #fff;
+
+            &:hover {
+                background-color: transparent;
+                border: 2px solid $lightblueColor;
+                color: $blueColor;
+                transition: 0.3s ease-in-out;
+            }
+            &:focus {
+                background-color: $blueColor;
+                border: 2px solid $lightblueColor;
+                color: #fff;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }    
+}
+.editRequest{
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    .editRequest__title{
+        margin-bottom: 50px;
+        .editRequest__info{
+        
+        }
+    }
+    .editRequest__form{
+        display: flex;
+        align-items: center;
+        
+        .editRequest__group{
+            .editRequest__select{
+                padding: 19px 25px;
+                font-size: 20px;
+                font-weight: bold;
+                border: none;
+                border: 2px solid $lightLightblueColor;
+                &:hover {
+                    background-color: rgb(248, 248, 248);
+                    border: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                &:focus {
+                    background-color: rgb(245, 245, 245);
+                    border: 2px solid $lightblueColor;
+                    transition: 0.3s ease-in-out;
+                }
+                .editRequest__option{
+            
+                }
+            }
+        }
+        .editRequest__submit{
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid $lightblueColor;
+            background-color: $lightblueColor;
+            color: #fff;
+
+            &:hover {
+                background-color: transparent;
+                border: 2px solid $lightblueColor;
+                color: $blueColor;
+                transition: 0.3s ease-in-out;
+            }
+            &:focus {
+                background-color: $blueColor;
+                border: 2px solid $lightblueColor;
+                color: #fff;
+                transition: 0.3s ease-in-out;
+            }
+        }   
+    }
+}
+
+
 
 .eventDetailResults{
     display: flex;

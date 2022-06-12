@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('id_result')->references('id')->on('results')->onDelete('cascade');
             $table->foreignId('id_stage')->references('id')->on('stages')->onDelete('cascade');
             $table->foreignId('id_request_status')->references('id')->on('request_statuses')->onDelete('cascade');
+            $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

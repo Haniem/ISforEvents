@@ -84,57 +84,58 @@
             </div>
 
             @auth('web')
-                <div class="curentStage">
+                @if(count($requests) !== 0)
+                    <div class="curentStage">
+                        <div class="curentStage__group">
+                            <h1 class="curentStage__title">Список подтвержденных заявок</h1>
+                            <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
+                        </div>
 
-                    <div class="curentStage__group">
-                        <h1 class="curentStage__title">Список подтвержденных заявок</h1>
-                        <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
-                    </div>
-
-                    <table class="curentStage__table">
-                        <thead class="curentStage__thead">
-                            <tr class="curentStage__tr">
-                                <td class="curentStage__td">Даты проведения:</td>
-                                <td class="curentStage__td">ПК/ПЦК:</td>
-                                <td class="curentStage__td">Отделение:</td>
-                                <td class="curentStage__td">Специальность:</td>
-                                <td class="curentStage__td">Группа:</td>
-                                <td class="curentStage__td">Студент:</td>
-                                <td class="curentStage__td">Уровень мероприятия</td>
-                                <td class="curentStage__td">Вид мероприятия</td>
-                                <td class="curentStage__td">Название мероприятия</td>
-                                <td class="curentStage__td">Название направления(номинация):</td>
-                                <td class="curentStage__td">Место проведения:</td>
-                                <td class="curentStage__td">Дата:</td>
-                                <td class="curentStage__td">Результат</td>
-                                <td class="curentStage__td">Ответственный преподаватель:</td>
-                            </tr>
-                        </thead>
-
-                        <tbody class="curentStage__tbody">
-                            @foreach ($requests as $request)
-                                @if ($request -> stage -> nomination -> event -> id== $event -> id)
+                        <table class="curentStage__table">
+                            <thead class="curentStage__thead">
                                 <tr class="curentStage__tr">
-                                    <td class="curentStage__td">с {{ $request -> stage -> stage_begin_date }} до {{ $request -> stage -> stage_end_date }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> comission -> comission_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> student-> group -> department -> department_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> student-> group -> specialization -> specialization_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> student-> group -> group_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> student -> student_name }} {{ $request -> student -> student_surname }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> level -> event_level_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> type -> event_type_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> event_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> nomination_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> place_of_realization }}</td>
-                                    <td class="curentStage__td">{{ $request -> date_of_addition }}</td>
-                                    <td class="curentStage__td">{{ $request -> result -> result_name }}</td>
-                                    <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> name }} {{ $request -> stage -> nomination -> event -> user -> surname }} {{ $request -> stage -> nomination -> event -> user -> lastname }}</td>
+                                    <td class="curentStage__td">Даты проведения:</td>
+                                    <td class="curentStage__td">ПК/ПЦК:</td>
+                                    <td class="curentStage__td">Отделение:</td>
+                                    <td class="curentStage__td">Специальность:</td>
+                                    <td class="curentStage__td">Группа:</td>
+                                    <td class="curentStage__td">Студент:</td>
+                                    <td class="curentStage__td">Уровень мероприятия</td>
+                                    <td class="curentStage__td">Вид мероприятия</td>
+                                    <td class="curentStage__td">Название мероприятия</td>
+                                    <td class="curentStage__td">Название направления(номинация):</td>
+                                    <td class="curentStage__td">Место проведения:</td>
+                                    <td class="curentStage__td">Дата:</td>
+                                    <td class="curentStage__td">Результат</td>
+                                    <td class="curentStage__td">Ответственный преподаватель:</td>
                                 </tr>
-                                @endif
-                        @endforeach
-                        </tbody>    
-                    </table>
-                </div>
+                            </thead>
+
+                            <tbody class="curentStage__tbody">
+                                @foreach ($requests as $request)
+                                    @if ($request -> stage -> nomination -> event -> id== $event -> id)
+                                    <tr class="curentStage__tr">
+                                        <td class="curentStage__td">с {{ $request -> stage -> stage_begin_date }} до {{ $request -> stage -> stage_end_date }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> comission -> comission_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> student-> group -> department -> department_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> student-> group -> specialization -> specialization_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> student-> group -> group_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> student -> student_name }} {{ $request -> student -> student_surname }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> level -> event_level_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> type -> event_type_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> event_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> nomination_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> place_of_realization }}</td>
+                                        <td class="curentStage__td">{{ $request -> date_of_addition }}</td>
+                                        <td class="curentStage__td">{{ $request -> result -> result_name }}</td>
+                                        <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> name }} {{ $request -> stage -> nomination -> event -> user -> surname }} {{ $request -> stage -> nomination -> event -> user -> lastname }}</td>
+                                    </tr>
+                                    @endif
+                            @endforeach
+                            </tbody>    
+                        </table>
+                    </div>
+                @endif
             @endauth
         </div>
     </div>

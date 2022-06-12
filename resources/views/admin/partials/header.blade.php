@@ -9,7 +9,6 @@
             <ul class="nav__btns">
                 <a href="{{ route('home') }}" class="nav__btn"> На главную   </a>
                 <a href="{{ route('events.index') }}" class="nav__btn"> Мероприятия   </a>
-                <a href="{{ route('requests.index') }}" class="nav__btn"> Заявки  </a>
                 <a href="{{ route('students.index') }}" class="nav__btn"> Студенты </a>
                 <a href="{{ route('groups.index') }}" class="nav__btn"> Группы </a>
                 <a href="{{ route('departments.index') }}" class="nav__btn"> Отделения </a>

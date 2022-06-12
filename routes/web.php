@@ -37,10 +37,14 @@ Route::post('/addResult_process', [EventController::class, 'addResult'])->name('
 
 Route::get('/events/event/{id}/nomination/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
 Route::post('/addStage_process', [EventController::class, 'addStage'])->name('addStage_process');
-Route::post('/addEvent_request_process', [EventController::class, 'addRequest'])->name('addRequest_process');
 
+Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'index'])->name('stageRequests.index');
+Route::post('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'store'])->name('stageRequests.store');
 
-Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'show_stage_requests'])->name('stage_requests');
+Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}/request/{id_request}/edit', [RequestController::class, 'edit'])->name('stageRequests.edit');
+Route::put('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}/request/{id_request}/update', [RequestController::class, 'update'])->name('stageRequests.update');
+Route::delete('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}/request/{id_request}', [RequestController::class, 'destroy'])->name('stageRequests.destroy');
+
 
 //Авторизация
 

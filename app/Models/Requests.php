@@ -9,6 +9,15 @@ class Requests extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id_student',
+        'id_result',
+        'id_stage',
+        'id_user',
+        'date_of_addition',
+        'id_request_status'
+    ];
+
     public function student() {
         return $this->belongsTo(Students::class, 'id_student', 'id');
     }

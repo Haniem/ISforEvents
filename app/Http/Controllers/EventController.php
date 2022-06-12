@@ -159,24 +159,5 @@ class EventController extends Controller
 
     }
 
-    function addRequest(Request $request) {
-        
-        $data = $request->validate([
 
-            "id_stage" => ['required'],
-            "id_student" => ['required'],
-            "id_result" => ['required'],
-        ]);
-
-        DB::table('requests')->insert([
-            'id_student' => $data['id_student'],
-            'id_result' => $data['id_result'],
-            'id_stage' => $data['id_stage'],
-            'id_request_status' => 1,
-            'date_of_addition' => date('Y-m-d'),
-        ]);
-
-        
-        return redirect()->back();
-    }
 }

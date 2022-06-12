@@ -7,23 +7,30 @@
   \*****************************/
 /***/ (() => {
 
-// const menuBtn = document.querySelector('.header__menuBtn')
-// const headerNav = document.querySelector('.header__nav')
-// const headerAuth = document.querySelector('.header__auth')
-// const headerSecLogo = document.querySelector('.header__secLogo')
-// menuBtn.addEventListener('click', function( ) {
-//     headerNav.classList.toggle('active')
-//     headerAuth.classList.toggle('active')
-//     headerSecLogo.classList.toggle('active')
-// })
-var menu__icon = document.querySelector('.menu__icon');
-var adminHeader__nav = document.querySelector('.adminHeader__nav');
-var adminHeader__auth = document.querySelector('.adminHeader__auth');
-menu__icon.addEventListener('click', function () {
-  adminHeader__nav.classList.toggle('active');
-  menu__icon.classList.toggle('menu_active');
-  adminHeader__auth.classList.toggle('auth_hidden');
-});
+//header
+if (document.querySelector('.header__menuBtn')) {
+  var menuBtn = document.querySelector('.header__menuBtn');
+  var headerNav = document.querySelector('.header__nav');
+  var headerAuth = document.querySelector('.header__auth');
+  var headerSecLogo = document.querySelector('.header__secLogo');
+  menuBtn.addEventListener('click', function () {
+    headerNav.classList.toggle('active');
+    headerAuth.classList.toggle('active');
+    headerSecLogo.classList.toggle('active');
+  });
+} //header на странице административной панели
+
+
+if (document.querySelector('.menu__icon')) {
+  var menu__icon = document.querySelector('.menu__icon');
+  var adminHeader__nav = document.querySelector('.adminHeader__nav');
+  var adminHeader__auth = document.querySelector('.adminHeader__auth');
+  menu__icon.addEventListener('click', function () {
+    adminHeader__nav.classList.toggle('active');
+    menu__icon.classList.toggle('menu_active');
+    adminHeader__auth.classList.toggle('auth_hidden');
+  });
+}
 
 /***/ }),
 

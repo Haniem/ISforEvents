@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "Мероприятие")
+@section('title', "Список заявок")
 
 @section('content')
 
@@ -10,11 +10,82 @@
         <div class="eventDetailWithNomination">
             @include('partials.eventInfo', $event)
 
+            <div class="curentStageItems">
+                <h1 class="curentStageItems__title">Участники:</h1>
+                @foreach ($requests as $key=>$request)
+                    <div class="curentStageItems__requests">
+
+                        <h1 class="curentStageItems__name">{{ $key+1 }}. {{ $request -> student -> student_name }} {{ $request -> student -> student_surname }}</h1>
+                        <h1 class="curentStageItems__group">Группа: {{ $request -> student -> group -> group_name }}</h1>
+                        <h1 class="curentStageItems__result">{{ $request -> result -> result_name }}</h1>
+                        
+                        <div class="curentStageItems__btns">
+                            <a href="{{ route('stageRequests.edit', [
+                                'id' => $event -> id, 
+                                'id_nomination' => $nomination -> id, 
+                                'id_stage' => $stage -> id,
+                                'id_request' => $request -> id ]) }}" 
+                                class="curentStageItems__link">Редактировать</a>
+
+                            <form action="{{ route('stageRequests.destroy', [
+                                'id' => $event -> id, 
+                                'id_nomination' => $nomination -> id, 
+                                'id_stage' => $stage -> id,
+                                'id_request' => $request -> id ])}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button 
+                                type="submit" 
+                                class="curentStageItems__link"
+                                onclick="return confirm('Вы точно хотите удалить эту заявку?')">Удалить</button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            @auth
+            <div class="addRequest">
+                <h1 class="addRequest__title">Отметить участие</h1>
+                <form action="{{ route('stageRequests.store' , [
+                    'id' => $event -> id, 
+                    'id_nomination' => $nomination -> id, 
+                    'id_stage' => $stage -> id ]) }}" 
+                    class="addRequest__form" 
+                    method="post">
+                    @csrf
+                
+                    <div class="addRequest__group">
+                        <select name="id_student" id="" class="addRequest__select">
+                            <option value="">Выберите студента</option>
+                            @foreach ($students as $student)                                    
+                                <option value="{{ $student -> id }}" class="addRequest__option">{{ $student -> student_name }} {{ $student -> student_surname }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="addRequest__group">
+                        <select name="id_result" id="" class="addRequest__select">
+                            <option value="">Выберите результат</option>
+                            @foreach ($results as $result)                                    
+                                <option value="{{ $result -> id }}" class="addRequest__option">{{ $result -> result_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <button type="submit" class="addRequest__submit">Добавить</button>
+                </form>
+            </div>
+            @endauth
+            
             <div class="curentStage">
-                <div class="curentStage__group">
-                    <h1 class="curentStage__title">Стадия: {{ $stage -> event_stage_name }}</h1>
+                <div class="curentStage__info">
+                    <div class="curentStage__group">
+                        <h1 class="curentStage__title">Стадия: {{ $stage -> event_stage_name }}</h1>
+                        <h1 class="curentStage__title">В номинации: {{ $nomination -> nomination_name }}</h1>    
+                    </div>
                     <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
-                </div>
+                </div>               
 
                 <table class="curentStage__table">
                     <thead class="curentStage__thead">

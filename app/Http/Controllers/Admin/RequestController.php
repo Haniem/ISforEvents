@@ -33,9 +33,6 @@ class RequestController extends Controller
             }]);
         }])->get();
 
-        // dd($requests);
-
-
         return view('admin.requests.requests', [
             'requests' => $requests
         ]);

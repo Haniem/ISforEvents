@@ -34,7 +34,6 @@ Route::middleware('auth:web')->group(function(){
         Route::resource('specializations', SpecializationController::class); 
         Route::resource('users', UserListController::class); 
         Route::resource('adminUsers', AdminUserListController::class); 
-        Route::resource('requests', RequestController::class);
         
         //доделать
         Route::resource('events.nominations', NominationsController::class); 
