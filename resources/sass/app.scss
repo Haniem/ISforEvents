@@ -737,6 +737,19 @@ html, body {
     display: none;
 }
 
+.adminLogined {
+    width: 70%;
+    padding: 10px 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: calc(100% + 20px);
+    text-align: center;
+    color: $blueColor;
+    background-color: transparent;
+    border: 2px solid $blueColor;
+    border-radius: 4px;
+}
+
 .event_types{
     display: flex;
     flex-direction: row;
@@ -903,8 +916,6 @@ html, body {
     }
 }
 
-
-
 .eventDetailNominations{
     display: flex;
     flex-direction: row;
@@ -943,6 +954,22 @@ html, body {
     } 
     
 }
+
+.curentStage__Messages{
+
+    .curentStage__errorMessage{
+
+        text-align: center;
+        color: rgb(247, 67, 67);
+    }
+
+    .curentStage__sucessMessage{
+    
+        text-align: center;
+        color: green;
+    }
+}
+
 
 .curentStage{
     margin: 50px 0px;
@@ -1085,6 +1112,7 @@ html, body {
                 font-weight: bold;
                 text-align: center;
                 text-decoration: none;
+                background-color: transparent;
                 border: 2px solid $lightblueColor;
                 color: $lightblueColor;
                 border-radius: 5px;
@@ -1095,17 +1123,24 @@ html, body {
                     color: white;
                     transition: 0.3s ease-out;
                 }
+            }
 
-                &:last-child {
+            .curentStageItems__dellink {
+                margin-right: 5px;
+                padding: 5px 10px;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                background-color: transparent;
+                border: 2px solid rgb(247, 67, 67);
+                color: rgb(247, 67, 67);
+                
+                border-radius: 5px;
+                &:hover {
+                    background-color: rgb(247, 67, 67);
                     border: 2px solid rgb(247, 67, 67);
-                    color: rgb(247, 67, 67);
-
-                    &:hover {
-                        background-color: rgb(247, 67, 67);
-                        border: 2px solid rgb(247, 67, 67);
-                        color: white;
-                        transition: 0.3s ease-out;
-                    }
+                    color: white;
+                    transition: 0.3s ease-out;
                 }
             }
         }

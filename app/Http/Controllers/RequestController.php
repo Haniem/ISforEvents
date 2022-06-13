@@ -58,11 +58,17 @@ class RequestController extends Controller
     }
 
     function store($id, $id_nomination, $id_stage, Request $request) {
+        $requests = Requests::where('id_stage', $id_stage)->get();
         $data = $request->validate([
             "id_student" => ['required'],
             "id_result" => ['required'],
         ]);
-
+        foreach($requests as $request) {
+            if($request -> id_student == $data['id_student'])
+            {
+                return redirect()->back()->with(['studentAlreadyEngage' => '1']);
+            };
+        }
         Requests::create([
             'id_student' => $data['id_student'],
             'id_result' => $data['id_result'],
@@ -71,9 +77,7 @@ class RequestController extends Controller
             'id_request_status' => 1,
             'date_of_addition' => date('Y-m-d'),
         ]);
-
-        
-        return redirect()->back();
+        return redirect()->back()->with(['requestCreated' => '1']);
     }
 
     function edit($id, $id_nomination, $id_stage, $id_request) {

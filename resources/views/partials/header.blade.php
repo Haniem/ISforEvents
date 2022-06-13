@@ -1,5 +1,7 @@
 <div class="header">
     <div class="header__container">
+
+        
         <div class="header__logo">
             <a  href="{{ route('home') }}"><img class="logo__img" src="{{ asset("public/images/logo.png") }}" alt=""></a>
         </div>
@@ -12,7 +14,7 @@
                     <li class="nav__btn"> 
                         <a href="
                         @if(auth('admin')->check())
-                            {{ route('events.index') }}
+                            {{ route('admin.home') }}
                         @else 
                             {{ route('admin.login') }}
                         @endif
@@ -25,10 +27,9 @@
     
         <div class="header__auth">
 
-            @auth("web")
+            @auth("web")                
                 <a href="{{ route('profile.index',  auth()->user()->id ) }}" class="auth__btn username">{{ auth("web")->user()->name }} {{ auth("web")->user()->surname }}</a>
                 <a href="{{ route('logout') }}" class="auth__btn">Выход</a> 
-
             @endauth
     
             @guest("web")

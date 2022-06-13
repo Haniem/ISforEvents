@@ -11,6 +11,11 @@
         <div class="eventDetail">
             @include('partials.eventInfo', $event)
 
+            @auth('admin')
+                <h3 class="adminLogined">Администратор авторизирован</h3>
+            @endauth
+
+
             <div class="eventDetailNominations">
                 <div class="eventDetailNominations-data">
                     <h2 class="eventDetailNominations__title">Номинации</h2>
@@ -86,10 +91,12 @@
             @auth('web')
                 @if(count($requests) !== 0)
                     <div class="curentStage">
+                        <div class="curentStage__info">
                         <div class="curentStage__group">
-                            <h1 class="curentStage__title">Список подтвержденных заявок</h1>
-                            <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
+                            <h1 class="curentStage__title">Список подтвержденных заявок</h1>    
                         </div>
+                        <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
+                    </div>    
 
                         <table class="curentStage__table">
                             <thead class="curentStage__thead">

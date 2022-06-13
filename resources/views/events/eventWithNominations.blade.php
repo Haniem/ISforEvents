@@ -13,6 +13,11 @@
             
             @include('partials.eventInfo', $event)
 
+            @auth('admin')
+                <h3 class="adminLogined">Администратор авторизирован</h3>
+            @endauth
+
+
 
             <div class="eventDetailStages">
 

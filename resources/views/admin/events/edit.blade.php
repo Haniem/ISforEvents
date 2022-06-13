@@ -10,7 +10,7 @@
             <div class="editItemForm">
                 @include('admin.partials.eventInfo', $event)
 
-                <h1 class="editItemForm__title">Редактировать мероприятие</h1>
+                <h3 class="editItemForm__title">Редактировать мероприятие</h3>
 
                 <form class="editItemForm" action="{{ route('events.update', $event->id) }}" method="POST">
                     @method("PUT")

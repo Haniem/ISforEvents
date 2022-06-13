@@ -12,6 +12,11 @@
 
             <div class="curentStageItems">
                 <div class="curentStageItems__stageDelete">
+
+                    @auth('admin')
+                        <h3 class="adminLogined">Администратор авторизирован</h3>
+                    @endauth
+
                     <p class="curentStageItems__deleteTitle">Если вы по ошибке добавили эту стадию, вы можете удалить ее:</p>
                     
                     <form action="{{ route('stages.destroy', [
@@ -27,6 +32,16 @@
                         onclick="return confirm('Вы точно хотите удалить эту заявку?')">Удалить</button>
                     </form>            
                 </div>
+
+                <div class="curentStage__Messages">
+                    @if(session()->get('studentAlreadyEngage'))
+                        <h1 class="curentStage__errorMessage">Студент уже учавствует в этапе!</h1>
+                    @endif
+                    @if(session()->get('requestCreated'))
+                        <h1 class="curentStage__sucessMessage">Заявка успешно добавлена!</h1>
+                    @endif
+                </div>
+
                 <h1 class="curentStageItems__title">Участники:</h1>
                 @foreach ($requests as $key=>$request)
                     <div class="curentStageItems__requests">
@@ -42,19 +57,22 @@
                                 'id_stage' => $stage -> id,
                                 'id_request' => $request -> id ]) }}" 
                                 class="curentStageItems__link">Редактировать</a>
-
-                            <form action="{{ route('stageRequests.destroy', [
-                                'id' => $event -> id, 
-                                'id_nomination' => $nomination -> id, 
-                                'id_stage' => $stage -> id,
-                                'id_request' => $request -> id ])}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button 
-                                type="submit" 
-                                class="curentStageItems__link"
-                                onclick="return confirm('Вы точно хотите удалить эту заявку?')">Удалить</button>
-                            </form>
+                            
+                            @if ($request -> id_user == auth()->user()->id)
+                                <form action="{{ route('stageRequests.destroy', [
+                                    'id' => $event -> id, 
+                                    'id_nomination' => $nomination -> id, 
+                                    'id_stage' => $stage -> id,
+                                    'id_request' => $request -> id ])}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button 
+                                    type="submit" 
+                                    class="curentStageItems__dellink"
+                                    onclick="return confirm('Вы точно хотите удалить эту заявку?')">Удалить</button>
+                                </form>
+                            @endif
+                            
                         </div>
                     </div>
                 @endforeach

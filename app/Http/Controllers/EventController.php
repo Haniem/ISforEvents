@@ -29,7 +29,11 @@ class EventController extends Controller
         $result_types = Result_types::all();
 
         
-        $requests = Requests::where('id', '>', 0)
+        $requests = Requests::whereHas('stage', function($q) use ($id) {
+            return $q->whereHas('nomination', function ($w) use ($id) {
+                $w->where('id_event', $id);
+            });
+        })
         ->with(['student' => function($q){
             $q -> with(['group' => function($w) {
                 $w -> with('specialization');
