@@ -51,7 +51,6 @@
                         <p class="auth__regBtn-text">У вас еще нет аккаунта? <a href="{{ route('register') }}" class="auth__regBtn">Зарегистрироваться</a></p>
                     </div>
                 </form>
-                <a href="{{ route('admin.login') }}">Административная панель</a>
             </div>
         </div>
     </div>

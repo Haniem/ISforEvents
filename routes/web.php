@@ -37,7 +37,7 @@ Route::post('/addResult_process', [EventController::class, 'addResult'])->name('
 
 Route::get('/events/event/{id}/nomination/{id_nomination}', [EventController::class, 'show_event_nomination'])->name('event_nomination');
 Route::post('/addStage_process', [EventController::class, 'addStage'])->name('addStage_process');
-
+Route::delete('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}/delete', [RequestController::class, 'destroyStage'])->name('stages.destroy');
 Route::get('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'index'])->name('stageRequests.index');
 Route::post('/events/event/{id}/nomination/{id_nomination}/stage/{id_stage}', [RequestController::class, 'store'])->name('stageRequests.store');
 

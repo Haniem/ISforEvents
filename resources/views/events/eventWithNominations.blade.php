@@ -24,7 +24,7 @@
                         <div class="eventDetailStages__group">
                             <h1 class="eventDetailStages__title">{{ $stage -> event_stage_name }}</h1>
 
-                            <a href="{{ route('requests.index', [
+                            <a href="{{ route('stageRequests.index', [
                                 'id' => $event -> id, 
                                 'id_nomination' => $nomination -> id, 
                                 'id_stage' => $stage -> id ])

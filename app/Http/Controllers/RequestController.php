@@ -142,9 +142,19 @@ class RequestController extends Controller
             'id_stage' => $id_stage ]));
     }
 
-        function destroy($id, $id_nomination, $id_stage, $id_request) {
-        Requests::destroy($id_request);
+    function destroy($id, $id_nomination, $id_stage, $id_request) {
+    Requests::destroy($id_request);
 
-        return redirect()->back();
+    return redirect()->back();
     }
+
+    function destroyStage($id, $id_nomination, $id_stage) {
+        Stage::destroy($id_stage);
+
+        return redirect(route('event_nomination', [
+            'id' => $id,
+            'id_nomination' => $id_nomination
+        ]))->withErrors(['Success' => 'Стадия успешно удалена']);
+    }
+    
 }
