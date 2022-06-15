@@ -14,7 +14,7 @@
             
             <div class="auth__rightSide">
 
-                <h1 class="auth__title">Войти в аккаунт</h1>
+                <h1 class="auth__title">Вход в панель администратора</h1>
 
                 <form action="{{ route('admin.login_process') }}" method="post" class="auth__form">
                     @csrf

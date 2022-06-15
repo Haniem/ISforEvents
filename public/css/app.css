@@ -13213,6 +13213,39 @@ html, body {
   min-height: 100vh;
   margin: 0 auto;
 }
+.admin .main .adminHome {
+  width: 100%;
+  color: #323C8D;
+  padding: 50px 50px 0 50px;
+}
+.admin .main .adminHome .adminHome__title {
+  font-size: 35px;
+  padding: 0 50px;
+  margin-bottom: 30px;
+}
+.admin .main .adminHome .adminHome__group {
+  display: flex;
+  flex-direction: column;
+}
+.admin .main .adminHome .adminHome__group .adminHome__link {
+  width: 100%;
+  padding: 15px 50px 15px 50px;
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 25px;
+  text-decoration: none;
+  color: #323C8D;
+  background-color: #e2e2e2;
+  box-shadow: 7px 7px 5px #bdbdbd;
+}
+.admin .main .adminHome .adminHome__group .adminHome__link:hover {
+  color: #5b6df1;
+  background-color: #e7e7e7;
+}
+.admin .main .adminHome .adminHome__group .adminHome__link:focus {
+  color: #cbd1ff;
+  background-color: #f0f0f0;
+}
 .admin .main .adminList {
   padding: 50px 0;
 }

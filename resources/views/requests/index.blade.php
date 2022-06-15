@@ -13,10 +13,6 @@
             <div class="curentStageItems">
                 <div class="curentStageItems__stageDelete">
 
-                    @auth('admin')
-                        <h3 class="adminLogined">Администратор авторизирован</h3>
-                    @endauth
-
                     <p class="curentStageItems__deleteTitle">Если вы по ошибке добавили эту стадию, вы можете удалить ее:</p>
                     
                     <form action="{{ route('stages.destroy', [
@@ -32,6 +28,10 @@
                         onclick="return confirm('Вы точно хотите удалить эту заявку?')">Удалить</button>
                     </form>            
                 </div>
+
+                @auth('admin')
+                    <h3 class="adminLogined">Администратор авторизирован</h3>
+                @endauth
 
                 <div class="curentStage__Messages">
                     @if(session()->get('studentAlreadyEngage'))
@@ -93,7 +93,7 @@
                         <select name="id_student" id="" class="addRequest__select">
                             <option value="">Выберите студента</option>
                             @foreach ($students as $student)                                    
-                                <option value="{{ $student -> id }}" class="addRequest__option">{{ $student -> student_name }} {{ $student -> student_surname }}</option>
+                                <option value="{{ $student -> id }}" class="addRequest__option">{{ $student -> student_name }} {{ $student -> student_surname }} - гр. {{ $student -> group -> group_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -118,6 +118,7 @@
                         <div class="curentStage__group">
                             <h1 class="curentStage__title">Стадия: {{ $stage -> event_stage_name }}</h1>
                             <h1 class="curentStage__title">В номинации: {{ $nomination -> nomination_name }}</h1>    
+                            <h1 class="curentStage__title">Кол-во заявок: {{ count($requests) }}</h1>    
                         </div>
                         <button class="curentStage__downloadBtn">Экспортировать в excel документ</button>
                     </div>               
@@ -125,6 +126,7 @@
                     <table class="curentStage__table">
                         <thead class="curentStage__thead">
                             <tr class="curentStage__tr">
+                                <td class="curentStage__td"></td>
                                 <td class="curentStage__td">Даты проведения:</td>
                                 <td class="curentStage__td">ПК/ПЦК:</td>
                                 <td class="curentStage__td">Отделение:</td>
@@ -143,8 +145,9 @@
                         </thead>
 
                         <tbody class="curentStage__tbody">
-                            @foreach ($requests as $request)
+                            @foreach ($requests as $key=>$request)
                             <tr class="curentStage__tr">
+                                <td class="curentStage__td">{{ $key+1 }}</td>
                                 <td class="curentStage__td">с {{ $request -> stage -> stage_begin_date }} до {{ $request -> stage -> stage_end_date }}</td>
                                 <td class="curentStage__td">{{ $request -> stage -> nomination -> event -> user -> comission -> comission_name }}</td>
                                 <td class="curentStage__td">{{ $request -> student-> group -> department -> department_name }}</td>
